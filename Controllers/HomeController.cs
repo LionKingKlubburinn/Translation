@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 //Bara smá test
-//meira testghdfghdrt
+//meira testghdfghdrthjyjfyjjjffj Einar er kjáni
 
 namespace Translation.Controllers
 {
