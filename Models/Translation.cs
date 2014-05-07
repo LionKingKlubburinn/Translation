@@ -11,7 +11,7 @@ namespace Translation.Models
         public int DownloadCounter { get; set; }
         public bool ForHardOfHearing { get; set; }
         public bool Ready { get; set; }
-        public bool ColaberationAllowed { get; set; }
+        public bool CollaborationAllowed { get; set; }
         public String Name { get; set; }
         public String Contributor { get; set; }
         public String VideoType { get; set; }
