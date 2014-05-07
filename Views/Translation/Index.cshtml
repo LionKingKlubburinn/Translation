@@ -9,6 +9,13 @@
 @foreach (var item in Model)
 {
     <div class="news-item">
-        <span class="glyphicon glyphicon-time news-time"></span><span class="news-time">@Html.DisplayFor(model => item.Text)&nbsp;</span>
+        <span class="news-time">@Html.DisplayFor(model => item.Text)&nbsp;</span>
+    </div>
+    <div>
+        @using (Html.BeginForm("Index", "Translation", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.TextArea("Text", new {cols=60, rows=10})
+            <input type="submit" value="Gogo power rangers" /> 
+        }
     </div>
 }

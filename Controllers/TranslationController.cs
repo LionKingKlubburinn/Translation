@@ -14,5 +14,15 @@ namespace Translation.Controllers
             var comments = CommentRepository.Instance.GetComments();
             return View(comments);
         }
+
+        [HttpPost]
+        public ActionResult Index(string Text)
+        {
+            Comment c = null;
+            c.Text = Text;
+            CommentRepository.Instance.AddComment(c);
+            var comments = CommentRepository.Instance.GetComments();
+            return View(comments);
+        }
     }
 }
