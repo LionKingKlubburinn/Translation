@@ -23,18 +23,39 @@ namespace Translation.Models
 
         private TranslationRepository()
         {
-            //TODO fake translation
-            //this.translations = new List<Translation>();
-            //this.translations.Add(translation1);
+            this.translations = new List<Translation>();
+            Translation translation1 = new Translation
+            { 
+                DateCreated = DateTime.Now,
+                ForHardOfHearing = false,
+                ID = 1,
+                Language = "Strump", //TODO input
+                Name = "Lion King", //TODO input
+                DownloadCounter = 0,
+                Ready = false,
+                CollaborationAllowed = false,
+                Contributor = 1, //TODO Getuser
+                VideoType = "TODO", //TODO input
+                VideoGenre = "TODO", //TODO input
+                VideoDescription = "TODO", //TODO input
+                Picture = "SL'OÐ 'A MYND!", //TODO input
+                File = "/fæll/rts" //TODO input
+            };
+            this.translations.Add(translation1);
             
         }
 
-        public IEnumerable<Translation> GetTranslations()
+        //TODO laga query þannig að það nær í id
+        public IEnumerable<Translation> GetTranslations(String Searchstring)
         {
             var result = from t in translations
                          orderby t.DateCreated ascending
                          select t;
             return result;
+        }
+        public void GetTranslation(int ID)
+        {
+            //TODO Ná í síðuna fyrir ákveðið translation
         }
 
         public void AddTranslation(Translation r)
