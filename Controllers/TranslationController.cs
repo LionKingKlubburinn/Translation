@@ -14,6 +14,5 @@ namespace Translation.Controllers
             var comments = CommentRepository.Instance.GetComments();
             return View(comments);
         }
-
     }
 }
