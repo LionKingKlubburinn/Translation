@@ -8,12 +8,12 @@ namespace Translation.Models
     public class Translation
     {
         public int ID { get; set; }
+        public String Name { get; set; }
         public int DownloadCounter { get; set; }
         public bool ForHardOfHearing { get; set; }
         public bool Ready { get; set; }
         public bool CollaborationAllowed { get; set; }
-        public String Name { get; set; }
-        public String Contributor { get; set; }
+        public int Contributor { get; set; } // ID a user
         public String VideoType { get; set; }
         public String VideoGenre { get; set; }
         public String VideoDescription { get; set; }

@@ -14,7 +14,6 @@ namespace Translation.Models
         public String Email { get; set; }
         public String Nationality { get; set; }
         public String Picture { get; set; }
-        public DateTime MemberSince { get; set; }
         public DateTime DateCreated { get; set; }
 
     }

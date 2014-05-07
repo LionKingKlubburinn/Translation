@@ -8,7 +8,8 @@ namespace Translation.Models
     public class Comment
     {
         public int ID { get; set; }
-        public String Author { get; set; }
+        public int TranslationID { get; set; }
+        public int Author { get; set; } // Author ID
         public String Text { get; set; }
         public DateTime CommentDate { get; set; }
     }
