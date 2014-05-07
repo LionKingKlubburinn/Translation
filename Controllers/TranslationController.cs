@@ -27,7 +27,7 @@ namespace Translation.Controllers
 
         public ActionResult Read()
         {
-            var text = TextLineRepository.GetTextLines();
+            var text = TextLineRepository.Instance.GetTextLines();
             return View(text);
         }
     }
