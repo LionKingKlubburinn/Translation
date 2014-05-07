@@ -38,6 +38,9 @@ namespace Translation.Models
             }
             c.ID = newID;
             c.CommentDate = DateTime.Now;
+            c.Author = 1;//TODO GetUserID
+            c.Text = "veitekkihvaðégeraðgera";
+            c.TranslationID = 1;//TODO GetTranslationID
             comments.Add(c);
         }
     }
