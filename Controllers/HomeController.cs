@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-//Bara smá test edda was here
-//meira testghdfghdrthjyjfyjjjffj Einar er kjáni
-//gillirabbi was here - Palli er kjáni
 
 namespace Translation.Controllers
 {
