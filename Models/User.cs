@@ -8,7 +8,7 @@ namespace Translation.Models
     public class User
     {
         public int ID { get; set; }
-        public int AccessLevel { get; set; }
+        public bool Admin { get; set; }
         public String UserName { get; set; }
         public String Password { get; set; }
         public String Email { get; set; }
