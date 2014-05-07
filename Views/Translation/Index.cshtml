@@ -1,42 +1,14 @@
-﻿@{
+﻿@model IEnumerable<Translation.Models.Comment>
+
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Video blog application</h2>
+<h2>Translation comments</h2>
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/OgGbNJdMaTY" frameborder="0" allowfullscreen></iframe>
-
-
-<ul class="list-group" style="max-width: 560px;">
-    <div id="comments"></div>
-
-    <li class="list-group-item">
-        <div class="form-horizontal">
-            <label class="sr-only" for="CommentText">Comment</label>
-            <textarea class="form-control" rows="3" id="CommentText" name="CommentText"></textarea>
-            <button type="submit" class="btn btn-primary" onclick="addcomment(); return false">Send</button>
-            <span class="errorcode"></span>
-        </div>
-    </li>
-</ul>
-
-<script type="text/html" id="template">
-    <li class="list-group-item">
-        <p>
-            <span class="glyphicon glyphicon-user"></span>
-            <span class="text-primary" data-content="username"></span>
-            <span data-content="commenttext"></span>
-        </p>
-        <p>
-            <span class="text-muted" data-content="commentdate"></span>
-            <a class="like-comment" href="#" data-template-bind='[{"attribute": "id", "value": "commentid"}]' onclick="addlike(id); return false">Like <span class="glyphicon glyphicon-thumbs-up"></span></a>
-        </p>
-        <div class="likes" data-template-bind='[{"attribute": "class", "value": "commentid"}]'></div>
-    </li>
-</script>
-
-<script type="text/html" id="template2">
-    <ul class="list-unstyled">
-        <li data-content="username"></li>
-    </ul>
-</script>
+@foreach (var item in Model)
+{
+    <div class="news-item">
+        <span class="glyphicon glyphicon-time news-time"></span><span class="news-time">@Html.DisplayFor(model => item.Text)&nbsp;</span>
+    </div>
+}

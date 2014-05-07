@@ -11,11 +11,6 @@ namespace Translation.Controllers
     {
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Comments()
-        {
             var comments = CommentRepository.Instance.GetComments();
             return View(comments);
         }
