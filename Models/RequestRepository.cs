@@ -34,7 +34,18 @@ namespace Translation.Models
                 RequestBy = 1,
                 Upvote = 0
             };
+            Request request2 = new Request
+            {
+                DateCreated = DateTime.Now,
+                ForHardOfHearing = false,
+                ID = 2,
+                Language = "Strump",
+                Name = "Edda Rúta",
+                RequestBy = 2,
+                Upvote = 0
+            };
             this.requests.Add(request1);
+            this.requests.Add(request2);
             
         }
 
