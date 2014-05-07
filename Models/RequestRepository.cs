@@ -24,6 +24,16 @@ namespace Translation.Models
         private RequestRepository()
         {
             this.requests = new List<Request>();
+            Request request1 = new Request
+            {
+                DateCreated = DateTime.Now,
+                ForHardOfHearing = false,
+                ID = 1,
+                Language = "Strump",
+                Name = "Lion King",
+                RequestBy = 1,
+                Upvote = 0
+            };
             
         }
 
