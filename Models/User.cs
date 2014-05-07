@@ -8,14 +8,14 @@ namespace Translation.Models
     public class User
     {
         public int ID { get; set; }
-        public DateTime DateCreated { get; set; }
+        public int AccessLevel { get; set; }
         public String UserName { get; set; }
         public String Password { get; set; }
         public String Email { get; set; }
         public String Nationality { get; set; }
-        public DateTime MemberSince { get; set; }
-        public int AccessLevel { get; set; }
         public String Picture { get; set; }
+        public DateTime MemberSince { get; set; }
+        public DateTime DateCreated { get; set; }
 
     }
 }
