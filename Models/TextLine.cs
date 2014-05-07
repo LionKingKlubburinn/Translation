@@ -8,12 +8,12 @@ namespace Translation.Models
     public class TextLine
     {
         public int ID { get; set; }
-        public string OriginalText1 { get; set; }
-        public string OriginalText2 { get; set; }
-        public string FirstLine { get; set; }
-        public string SecondLine { get; set; }
-        public string Translation { get; set; }
-        public string LastModUser { get; set; }
+        public String OriginalText1 { get; set; }
+        public String OriginalText2 { get; set; }
+        public String TranslationText1 { get; set; }
+        public String TranslationText2 { get; set; }
+        public String Translation { get; set; }
+        public String LastModUser { get; set; }
         public DateTime LastModDate { get; set; }
     }
 }
