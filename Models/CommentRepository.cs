@@ -7,23 +7,23 @@ namespace Translation.Models
 {
     public class CommentRepository
     {
-        private static CommentRepository _instance;
+        private static CommentRepository instance;
 
         public static CommentRepository Instance
         {
             get
             {
-                if (_instance == null)
-                    _instance = new CommentRepository();
-                return _instance;
+                if (instance == null)
+                    instance = new CommentRepository();
+                return instance;
             }
         }
 
-        private List<Comment> m_comments = null;
+        private List<Comment> comments = null;
 
         public IEnumerable<Comment> GetComments()
         {
-            var result = from c in m_comments
+            var result = from c in comments
                          orderby c.CommentDate ascending
                          select c;
             return result;
@@ -32,13 +32,16 @@ namespace Translation.Models
         public void AddComment(Comment c)
         {
             int newID = 1;
-            if (m_comments.Count() > 0)
+            if (comments.Count() > 0)
             {
-                newID = m_comments.Max(x => x.ID) + 1;
+                newID = comments.Max(x => x.ID) + 1;
             }
             c.ID = newID;
             c.CommentDate = DateTime.Now;
-            m_comments.Add(c);
+            c.Author = 1;//TODO GetUserID
+            c.Text = "veitekkihvaðégeraðgera";
+            c.TranslationID = 1;//TODO GetTranslationID
+            comments.Add(c);
         }
     }
 }
