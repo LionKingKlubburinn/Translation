@@ -34,6 +34,7 @@ namespace Translation.Models
                 RequestBy = 1,
                 Upvote = 0
             };
+            this.requests.Add(request1);
             
         }
 

@@ -7,5 +7,6 @@ namespace Translation.Models
 {
     public class UserRepository
     {
+
     }
 }
