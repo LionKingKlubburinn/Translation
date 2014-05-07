@@ -20,6 +20,6 @@ namespace Translation.Models
         public String Language { get; set; }
         public String Picture { get; set; }
         public String File { get; set; }
-        public DateTime CommentDate { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
