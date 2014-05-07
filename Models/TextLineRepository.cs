@@ -19,20 +19,30 @@ namespace Translation.Models
             }
         }
 
-        private List<TextLine> textl = null;
+        private List<TextLine> textline = null;
 
         private TextLineRepository()
         {
-            this.textl = new List<TextLine>();
-            //Comment commment1 = new Comment { ID = 1, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), Author = 1, TranslationID = 1 };
-            //Comment commment2 = new Comment { ID = 2, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), Author = 2, TranslationID = 2 };
-            //this.comments.Add(commment1);
-            //this.comments.Add(commment2);
+            this.textline = new List<TextLine>();
+            TextLine textline1 = new TextLine
+            { 
+                ID = 1, 
+                TimeStampBegin = new TimeSpan(0, 0, 0, 0, 1), 
+                TimeStampEnd = new TimeSpan(0, 0, 0, 0, 3),
+                OriginalText1 = "asdf",
+                OriginalText2 = "",
+                TranslationText1 = "asdf",
+                TranslationText2 = "",
+                TranslationID = 1,
+                LastModUserID = 1,
+                LastModDate = DateTime.Now,
+            };
+            this.textline.Add(textline1);
         }
 
         public IEnumerable<TextLine> GetTextLines()
         {
-            var result = from t in textl
+            var result = from t in textline
                          orderby t.TimeStampBegin ascending
                          select t;
             return result;
@@ -41,13 +51,13 @@ namespace Translation.Models
         public void AddTextLine(TextLine t)
         {
             int newID = 1;
-            if (textl.Count() > 0)
+            if (textline.Count() > 0)
             {
-                newID = textl.Max(x => x.ID) + 1;
+                newID = textline.Max(x => x.ID) + 1;
             }
             t.ID = newID;
-            t.TimeStampBegin = new TimeSpan(0, 0, 0, 1, 0);
-            t.TimeStampEnd = new TimeSpan(0, 0, 0, 3, 0);
+            t.TimeStampBegin = new TimeSpan(0, 0, 0, 0, 1);
+            t.TimeStampEnd = new TimeSpan(0, 0, 0, 0, 3);
             t.OriginalText1 = "asdf";
             t.OriginalText2 = "";
             t.TranslationText1 = "asdf";
@@ -55,7 +65,7 @@ namespace Translation.Models
             t.TranslationID = 1;
             t.LastModUserID = 1;
             t.LastModDate = DateTime.Now;
-            textl.Add(t);
+            textline.Add(t);
         }
     }
 }
