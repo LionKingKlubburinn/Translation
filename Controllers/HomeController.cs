@@ -15,7 +15,7 @@ namespace Translation.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application assdescription page.";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
