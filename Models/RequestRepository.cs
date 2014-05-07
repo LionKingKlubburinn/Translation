@@ -31,7 +31,7 @@ namespace Translation.Models
                 ID = 1,
                 Language = "Strump",
                 Name = "Lion King",
-                RequestBy = 1,
+                RequestByID = 1,
                 Upvote = 0
             };
             Request request2 = new Request
@@ -41,7 +41,7 @@ namespace Translation.Models
                 ID = 2,
                 Language = "Strump",
                 Name = "Edda Rúta",
-                RequestBy = 2,
+                RequestByID = 2,
                 Upvote = 0
             };
             this.requests.Add(request1);
@@ -69,7 +69,7 @@ namespace Translation.Models
             r.ID = newID;
             r.Language = "Strump";
             r.Name = "Lion King";
-            r.RequestBy = 1; //TODO GetUser
+            r.RequestByID = 1; //TODO GetUser
             r.Upvote = 0;
 
         }

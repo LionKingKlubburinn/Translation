@@ -11,7 +11,7 @@ namespace Translation.Models
         public String Name { get; set; }
         public int Upvote { get; set; }
         public bool ForHardOfHearing { get; set; }
-        public int RequestBy { get; set; } // ID a user
+        public int RequestByID { get; set; } // ID a user
         public String Language { get; set; }
         public DateTime DateCreated { get; set; }
     }

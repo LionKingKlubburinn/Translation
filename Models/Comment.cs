@@ -9,7 +9,7 @@ namespace Translation.Models
     {
         public int ID { get; set; }
         public int TranslationID { get; set; }
-        public int Author { get; set; } // Author ID
+        public int AuthorID { get; set; }
         public String Text { get; set; }
         public DateTime CommentDate { get; set; }
     }

@@ -24,8 +24,8 @@ namespace Translation.Models
         private CommentRepository()
         {
             this.comments = new List<Comment>();
-            Comment commment1 = new Comment { ID = 1, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), Author = 1, TranslationID = 1 };
-            Comment commment2 = new Comment { ID = 2, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), Author = 2, TranslationID = 2 };
+            Comment commment1 = new Comment { ID = 1, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), AuthorID = 1, TranslationID = 1 };
+            Comment commment2 = new Comment { ID = 2, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), AuthorID = 2, TranslationID = 2 };
             this.comments.Add(commment1);
             this.comments.Add(commment2);
         }
@@ -47,7 +47,7 @@ namespace Translation.Models
             }
             c.ID = newID;
             c.CommentDate = DateTime.Now;
-            c.Author = 1;//TODO GetUserID
+            c.AuthorID = 1;//TODO GetUserID
             //c.Text = "veitekkihvaðégeraðgera";
             c.TranslationID = 1;//TODO GetTranslationID
             comments.Add(c);
