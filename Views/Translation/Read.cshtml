@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Translation.Models.TextLine>
+
+@{
+    ViewBag.Title = "Read";
+}
+
+<h2>Read text</h2>
+
+@foreach (var item in Model)
+{
+    <div class="news-item">
+        <span class="news-time">@Html.DisplayFor(model => item.OriginalText1)&nbsp;</span>
+    </div>
+}
+
+

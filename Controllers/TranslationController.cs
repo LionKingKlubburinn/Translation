@@ -24,5 +24,11 @@ namespace Translation.Controllers
             var comments = CommentRepository.Instance.GetComments();
             return View(comments);
         }
+
+        public ActionResult Read()
+        {
+            var text = TextLineRepository.GetTextLines();
+            return View(text);
+        }
     }
 }
