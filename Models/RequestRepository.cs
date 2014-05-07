@@ -67,8 +67,8 @@ namespace Translation.Models
             r.DateCreated = DateTime.Now;
             r.ForHardOfHearing = false;
             r.ID = newID;
-            r.Language = "Strump";
-            r.Name = "Lion King";
+            r.Language = "Strump"; //TODO input
+            r.Name = "Lion King"; //TODO input
             r.RequestBy = 1; //TODO GetUser
             r.Upvote = 0;
 
