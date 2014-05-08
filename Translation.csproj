@@ -181,6 +181,7 @@
     <Compile Include="Models\Translation.cs" />
     <Compile Include="Models\TranslationRepository.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

@@ -6,25 +6,14 @@ using System.Web;
 
 namespace Translation.Models
 {
-    public class User : IdentityUser
+    public class User
     {
-        public virtual UserInfo MyUserInfo { get; set; }
-    }
-
-    public class UserInfo
-    {
+        public int ID { get; set; }
+        public bool Admin { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Nationality { get; set; }
         public string Image { get; set; }
-    }
-
-    public class MyDbContext : IdentityDbContext<User>
-    {
-        public MyDbContext()
-            : base("DefaultConnection")
-        {
-        }
-        public System.Data.Entity.DbSet<UserInfo> UserInfo { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
