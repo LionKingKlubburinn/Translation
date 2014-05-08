@@ -4,7 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Request List</h2>
 
 @foreach (var item in Model)
 {
@@ -17,7 +16,7 @@
    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
    {
        @Html.TextBox("Text")
-       <input type="submit" value="Search" />      
+       <input type="submit" value="Leita" />      
 
     <input type="checkbox" value="heyrnalaus" id="heyrnaskertur">
     <label for="heyrnaskertur">Texti fyrir heyrnaskerta</label>
@@ -48,8 +47,9 @@
    }
 </div>
 
-<div>
 
+
+    <div id="table">
     <table>
         <caption>Beiðnir</caption>
     <tbody>
@@ -71,5 +71,10 @@
 
     </tbody>
     </table>
+    </div>
 
-</div>
+    <input type="button" value="Ný beiðni" />
+    <input type="button" value="Ný þýðing" />
+    
+    
+
