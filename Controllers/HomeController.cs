@@ -14,6 +14,5 @@ namespace Translation.Controllers
             var requests = RequestRepository.Instance.GetRequests();
             return View(requests);
         }
-
     }
 }
