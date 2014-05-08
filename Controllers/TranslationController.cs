@@ -9,12 +9,18 @@ namespace Translation.Controllers
 {
     public class TranslationController : Controller
     {
-        public ActionResult Index()
+        // GET /Translation
+        public ActionResult Index(int id)
         {
-            var comments = CommentRepository.Instance.GetComments();
-            return View(comments);
+            // Viewmodel, jeij
+            var model = new ViewModel();
+            model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
+            model.CommentItems = CommentRepository.Instance.GetComments();
+
+            return View(model);
         }
 
+        // POST /Translation/
         [HttpPost]
         public ActionResult Index(string Text)
         {
@@ -25,6 +31,7 @@ namespace Translation.Controllers
             return View(comments);
         }
 
+        // GET /Translation/Read/
         public ActionResult Read()
         {
             var text = TextLineRepository.Instance.GetTextLines();

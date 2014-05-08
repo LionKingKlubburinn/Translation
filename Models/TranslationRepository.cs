@@ -45,7 +45,6 @@ namespace Translation.Models
             
         }
 
-        //TODO laga query þannig að það nær í id
         public IEnumerable<Translation> GetTranslations(String Searchstring)
         {
             var result = from t in translations
@@ -53,9 +52,12 @@ namespace Translation.Models
                          select t;
             return result;
         }
-        public void GetTranslation(int ID)
+        public IEnumerable<Translation> GetTranslation(int ID)
         {
-            //TODO Ná í síðuna fyrir ákveðið translation
+            var result = from t in translations
+                         where t.ID == ID
+                         select t;
+            return result.Take(1);
         }
 
         public void AddTranslation(Translation r)
