@@ -12,3 +12,12 @@
         <span class="request">@Html.DisplayFor(model => item.Name)&nbsp;</span>
     </div>
 }
+
+<div id="searchBar">
+   @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+   {
+       @Html.TextBox("Text")
+       <input type="submit" value="Search" />                                          
+                                          
+   };
+</div>
