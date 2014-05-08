@@ -8,10 +8,10 @@ namespace Translation.Models
 {
     public class User : IdentityUser
     {
-        public virtual MyUserInfo MyUserInfo { get; set; }
+        public virtual UserInfo MyUserInfo { get; set; }
     }
 
-    public class MyUserInfo
+    public class UserInfo
     {
         public int Id { get; set; }
         public bool Admin { get; set; }
