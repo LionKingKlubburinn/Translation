@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -21,5 +22,10 @@ namespace Translation.Models
         public String Picture { get; set; }
         public String File { get; set; }
         public DateTime DateCreated { get; set; }
+    }
+
+    public class TranslationDBContext : DbContext
+    {
+        public DbSet<Translation> Translations { get; set; }
     }
 }

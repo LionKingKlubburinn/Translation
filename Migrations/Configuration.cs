@@ -5,15 +5,14 @@ namespace Translation.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Translation.Models.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Translation.Models.TranslationDBContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Translation.Models.ApplicationDbContext";
         }
 
-        protected override void Seed(Translation.Models.ApplicationDbContext context)
+        protected override void Seed(Translation.Models.TranslationDBContext context)
         {
             //  This method will be called after migrating to the latest version.
 
