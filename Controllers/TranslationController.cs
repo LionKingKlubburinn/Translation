@@ -25,10 +25,7 @@ namespace Translation.Controllers
         [HttpPost]
         public ActionResult Index(string Text, int id = 1)
         {
-            Comment c = new Comment();
-            c.Text = Text;
-            CommentRepository.Instance.AddComment(c);
-            //int id = 1;
+            CommentRepository.Instance.AddComment(Text);
             var model = new ViewModel();
             model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
             model.CommentItems = CommentRepository.Instance.GetComments();

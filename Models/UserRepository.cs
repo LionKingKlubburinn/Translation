@@ -28,8 +28,9 @@ namespace Translation.Models
             this.users.Add(user1);
         }
 
-        public void AddUser(User u, String username, String email, String image, String nationality)
+        public void AddUser(String username, String email, String image, String nationality)
         {
+            User u = new User();
             int newID = 1;
             if (users.Count() > 0)
             {
