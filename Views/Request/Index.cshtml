@@ -9,19 +9,19 @@
 @using (Html.BeginForm("Index", "Request", FormMethod.Post))
 {
     @("Titill: ")
-    @Html.TextBox("Titill")<br />
+    @Html.TextBox("Name")<br />
             
     @("Tungumál þýðingar: ")
-    <select id="tungumál">     
+    <select id="Language">     
         <option selected="selected">Tungumál</option>
         <option value="íslenska">Íslenska</option>
         <option value="enska">Enska</option>
     </select><br />
              
     @("Fyrir heyrnarskerta:")
-    @Html.RadioButton("Deaf", "Yes", false)
+    @Html.RadioButton("ForHardOfHearing", true, false)
     @("Já")
-    @Html.RadioButton("Deaf", "No", true)
+    @Html.RadioButton("ForHardOfHearing", false, true)
     @("Nei")<br />
 
     <input type="submit" value="Senda inn beiðni" />
