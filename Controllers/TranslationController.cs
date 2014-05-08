@@ -10,7 +10,7 @@ namespace Translation.Controllers
     public class TranslationController : Controller
     {
         // GET /Translation/1
-        public ActionResult Index(int id = 1)
+       /* public ActionResult Index(int id = 1)
         {
             // Viewmodel, jeij
             //int id = 1;
@@ -31,7 +31,7 @@ namespace Translation.Controllers
             model.CommentItems = CommentRepository.Instance.GetComments();
 
             return View(model);
-        }
+        } */
 
         // GET /Translation/Read/
         public ActionResult Read()
@@ -50,7 +50,7 @@ namespace Translation.Controllers
             return View();
         }
 
-        public ActionResult View()
+        public ActionResult Index()
         {
             return View();
         }
