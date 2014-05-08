@@ -2,18 +2,24 @@
     ViewBag.Title = "Requests";
 }
 
-<h2>Ný beiðni</h2>
 
-@using(Html.BeginForm("Index", "Request", FormMethod.Post))
-    {
-        @("Titill: ")
-        @Html.TextBox("Titill") 
-        <input type="submit" value="Senda inn beiðni" />   
-    }
- @foreach (var item in Model)
- { 
-    @("Tungumál þýðingar: ")
-    @Html.DropDownList("Text")        
- }    
- 
- 
+
+        <h2>Ný beiðni</h2>
+
+        @using (Html.BeginForm("Index", "Request", FormMethod.Post))
+        {
+            @("Titill: ")
+            @Html.TextBox("Titill")<br />
+            
+            @("Tungumál þýðingar: ")<br />
+            
+            @("Fyrir heyrnarskerta:")
+            @Html.RadioButton("Deaf", "Yes", false)
+            @("Já")
+            @Html.RadioButton("Deaf", "No", true)
+            @("Nei")<br />
+
+           <input type="submit" value="Senda inn beiðni" />
+        }
+
+
