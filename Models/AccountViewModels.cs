@@ -59,5 +59,14 @@ namespace Translation.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "Nationality")]
+        public string Nationality { get; set; }
+
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Display(Name = "Image")]
+        public string Image { get; set; }
     }
 }

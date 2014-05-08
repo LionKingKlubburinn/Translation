@@ -21,6 +21,13 @@ namespace Translation.Models
 
         private List<User> users = null;
 
+        private UserRepository()
+        {
+            this.users = new List<User>();
+            User user1 = new User { Admin = false, UserName = "Einar", ID = 1, Nationality = "Island", Image = "nei", Email = "ja@ja.is", DateCreated = new DateTime(2014, 3, 1, 12, 30, 00) };
+            this.users.Add(user1);
+        }
+
         public void AddUser(User u, String username, String email, String image, String nationality)
         {
             int newID = 1;

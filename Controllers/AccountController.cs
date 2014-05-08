@@ -79,6 +79,8 @@ namespace Translation.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName };
+                User u = new User();
+                UserRepository.Instance.AddUser(u, model.UserName, model.Email, model.Image, model.Nationality);
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
