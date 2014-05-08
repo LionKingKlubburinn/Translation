@@ -7,7 +7,7 @@ namespace Translation.Models
 {
     public class ViewModel
     {
-        public List<Translation> TranslationItems { get; set; }
-        public List<Comment> CommentItems { get; set; }
+        public IEnumerable<Translation> TranslationItems { get; set; }
+        public IEnumerable<Comment> CommentItems { get; set; }
     }
 }

@@ -14,8 +14,8 @@ namespace Translation.Controllers
         {
             // Viewmodel, jeij
             var model = new ViewModel();
-            model.TranslationItems = TranslationRepository.Instance.GetTranslation(id).ToList();
-            model.CommentItems = CommentRepository.Instance.GetComments().ToList();
+            //model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
+            model.CommentItems = CommentRepository.Instance.GetComments();
 
             return View(model);
         }

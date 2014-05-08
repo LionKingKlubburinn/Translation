@@ -57,7 +57,7 @@ namespace Translation.Models
             var result = from t in translations
                          where t.ID == ID
                          select t;
-            return result.Take(1);
+            return result;
         }
 
         public void AddTranslation(Translation r)

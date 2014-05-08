@@ -6,10 +6,10 @@
 
 <h2>Translation comments</h2>
 
-@foreach (var item in Model)
+@foreach (var item in Model.CommentItems)
 {
     <div class="news-item">
-        <span class="news-time">@Html.DisplayFor(model => item.CommentItems.Text)&nbsp;</span>
+        <span class="news-time">@Html.DisplayFor(model => item.CommentItems)&nbsp;</span>
     </div>
 }
 
