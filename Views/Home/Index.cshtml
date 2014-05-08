@@ -13,11 +13,11 @@
     </div>
 }
 
-<div id="searchBar">
+<div id="form">
    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
    {
        @Html.TextBox("Text")
-       <input type="submit" value="Search" />
+       <input type="submit" value="Search" />      
 
     <input type="checkbox" value="heyrnalaus" id="heyrnaskertur">
     <label for="heyrnaskertur">Texti fyrir heyrnaskerta</label>
@@ -45,7 +45,31 @@
     <option value="vísindaskáldskapur">Vísindaskáldskapur</option>
     <option value="ævintýri">Ævintýri</option>
     </select>         
-              
-
    }
+</div>
+
+<div>
+
+    <table>
+        <caption>Beiðnir</caption>
+    <tbody>
+        <tr>
+            <td>Lion King</td>
+            <td>Argentína</td>
+            <td>127</td>
+        </tr>
+        <tr>
+            <td>Wall-E</td>
+            <td>Danmörk</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <td>How I Met Your Mother - Season 1</td>
+            <td>Pólland</td>
+            <td>5</td>
+        </tr>
+
+    </tbody>
+    </table>
+
 </div>
