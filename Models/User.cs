@@ -13,13 +13,10 @@ namespace Translation.Models
 
     public class UserInfo
     {
-        public int Id { get; set; }
-        public bool Admin { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Nationality { get; set; }
         public string Image { get; set; }
-        public DateTime DateCreated { get; set; }
     }
 
     public class MyDbContext : IdentityDbContext<User>
@@ -28,6 +25,6 @@ namespace Translation.Models
             : base("DefaultConnection")
         {
         }
-        public System.Data.Entity.DbSet<MyUserInfo> UserInfo { get; set; }
+        public System.Data.Entity.DbSet<UserInfo> UserInfo { get; set; }
     }
 }
