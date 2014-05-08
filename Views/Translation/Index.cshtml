@@ -1,5 +1,5 @@
 ﻿@model Translation.Models.ViewModel
-
+@*  
 @{
     ViewBag.Title = "Translation";
 }
@@ -26,4 +26,20 @@
     <div class="news-item">
         <span class="news-time">@Html.DisplayFor(model => item.Name)&nbsp;</span>
     </div>
+}
+*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>View</h2>
+
+@using (Html.BeginForm("Index", "Translation", FormMethod.Post))
+{
+    @("Gerð: ")
+
+    @Html.TextArea("Text", new { cols = 40, rows = 10 })
+    <input type="submit" value="Senda" />
+
 }
