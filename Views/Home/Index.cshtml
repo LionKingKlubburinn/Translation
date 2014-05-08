@@ -9,7 +9,7 @@
    {
        @Html.TextBox("Text")
        <input type="submit" value="Leita" />      
-
+    <br/>
     <input type="checkbox" value="heyrnalaus" id="heyrnaskertur">
     <label for="heyrnaskertur">Texti fyrir heyrnaskerta</label>
      
@@ -47,6 +47,7 @@
             {
                 <tr>
                     <td>@Html.DisplayFor(model => item.Name)</td>
+                    <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
                     <td>@Html.DisplayFor(model => item.Language)</td>
                     <td>@Html.DisplayFor(model => item.Upvote)</td>
                 </tr>
