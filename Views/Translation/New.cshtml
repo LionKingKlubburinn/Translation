@@ -8,13 +8,33 @@
 @using (Html.BeginForm("Index", "Request", FormMethod.Post))
 {
      @("Titill: ")
-     @Html.TextBox("Titill")
+     @Html.TextBox("Titill")<br />
     
        @("Tungumál þýðingar: ")
           <select id="tungumál">     
              <option selected="selected">Tungumál</option>
              <option value="íslenska">Íslenska</option>
              <option value="enska">Enska</option>
-          </select>
+          </select><br />
+    
+     @("Fyrir heyrnarskerta:")
+            @Html.RadioButton("Deaf", "Yes", false)
+            @("Já")
+            @Html.RadioButton("Deaf", "No", true)
+            @("Nei")<br />
+    
+    @("Mynd:")
+    <input type="file" id="fileUpload" /><br />
+    @("Skrá til þýðingar:")
+    <input type="file" id="fileUpload2" /><br />
+    
+    @("Leyfa samstarf:")
+            @Html.RadioButton("Cooperation", "Yes", false)
+            @("Já")
+            @Html.RadioButton("Cooperation", "No", true)
+            @("Nei")<br />
+    
+    <input type="button" value="Byrja þýðingu" />
+    
 }
 
