@@ -41,8 +41,25 @@ namespace Translation.Models
                 Picture = "SL'OÐ 'A MYND!", //TODO input
                 File = "/fæll/rts" //TODO input
             };
+            Translation translation2 = new Translation
+            {
+                DateCreated = DateTime.Now,
+                ForHardOfHearing = false,
+                ID = 2,
+                Language = "Strump", //TODO input
+                Name = "Gisli's journey 2", //TODO input
+                DownloadCounter = 0,
+                Ready = false,
+                CollaborationAllowed = false,
+                Contributor = 1, //TODO Getuser
+                VideoType = "TODO", //TODO input
+                VideoGenre = "TODO", //TODO input
+                VideoDescription = "TODO", //TODO input
+                Picture = "SL'OÐ 'A MYND!", //TODO input
+                File = "/fæll/rts" //TODO input
+            };
             this.translations.Add(translation1);
-            
+            this.translations.Add(translation2);
         }
 
         public IEnumerable<Translation> GetTranslations(String Searchstring)
