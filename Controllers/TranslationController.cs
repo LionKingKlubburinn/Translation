@@ -42,5 +42,10 @@ namespace Translation.Controllers
             var text = TextLineRepository.Instance.GetTextLines();
             return View(text);
         }
+
+        public ActionResult New()
+        {
+            return View();
+        }
     }
 }
