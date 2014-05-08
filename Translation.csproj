@@ -238,8 +238,6 @@
     <Content Include="Views\Translation\Read.cshtml" />
     <Content Include="Views\Translation\New.cshtml" />
     <Content Include="Views\Translation\Edit.cshtml" />
-    <Content Include="Views\Translation\edit.cshtml" />
-    <Content Include="Views\Translation\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
