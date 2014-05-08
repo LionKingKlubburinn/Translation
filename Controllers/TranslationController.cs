@@ -10,11 +10,11 @@ namespace Translation.Controllers
     public class TranslationController : Controller
     {
         // GET /Translation
-        public ActionResult Index(int id)
+        public ActionResult Index()
         {
             // Viewmodel, jeij
             var model = new ViewModel();
-            //model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
+            model.TranslationItems = TranslationRepository.Instance.GetTranslation(1);
             model.CommentItems = CommentRepository.Instance.GetComments();
 
             return View(model);
