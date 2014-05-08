@@ -71,7 +71,7 @@ namespace Translation.Models
             //r.Name = "Lion King";
             r.RequestByID = 1; //TODO GetUser
             r.Upvote = 0;
-
+            requests.Add(r);
         }
     }
 }

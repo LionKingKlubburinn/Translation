@@ -19,10 +19,8 @@
     </select><br />
              
     @("Fyrir heyrnarskerta:")
-    @Html.RadioButton("ForHardOfHearing", true, false)
-    @("Já")
-    @Html.RadioButton("ForHardOfHearing", false, true)
-    @("Nei")<br />
+    @Html.CheckBox("ForHardOfHearing", false);
+    <br />
 
     <input type="submit" value="Senda inn beiðni" />
 }
