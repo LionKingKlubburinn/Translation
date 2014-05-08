@@ -37,7 +37,7 @@
 
 @using (Html.BeginForm("Index", "Translation", FormMethod.Post))
 {
-    @("Gerð: ")
+    @("Gerð: ")<br />
 
     @Html.TextArea("Text", new { cols = 40, rows = 10 })
     <input type="submit" value="Senda" />
