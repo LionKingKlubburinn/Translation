@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Translation.Models.Comment>
+﻿@model IEnumerable<Translation.Models.ViewModel>
 
 @{
     ViewBag.Title = "Translation";
@@ -9,7 +9,7 @@
 @foreach (var item in Model)
 {
     <div class="news-item">
-        <span class="news-time">@Html.DisplayFor(model => item.Text)&nbsp;</span>
+        <span class="news-time">@Html.DisplayFor(model => item.CommentItems.Text)&nbsp;</span>
     </div>
 }
 
