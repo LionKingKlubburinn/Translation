@@ -11,8 +11,13 @@
             @("Titill: ")
             @Html.TextBox("Titill")<br />
             
-            @("Tungumál þýðingar: ")<br />
-            
+            @("Tungumál þýðingar: ")
+            <select id="tungumál">     
+                <option selected="selected">Tungumál</option>
+                <option value="íslenska">Íslenska</option>
+                <option value="enska">Enska</option>
+            </select><br />
+             
             @("Fyrir heyrnarskerta:")
             @Html.RadioButton("Deaf", "Yes", false)
             @("Já")
