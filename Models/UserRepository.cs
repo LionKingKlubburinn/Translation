@@ -28,21 +28,20 @@ namespace Translation.Models
             this.users.Add(user1);
         }
 
-        public void AddUser(String username, String email, String image, String nationality)
+        public void AddUser(User u)
         {
-            User u = new User();
             int newID = 1;
             if (users.Count() > 0)
             {
                 newID = users.Max(x => x.ID) + 1;
             }
             u.ID = newID;
-            u.UserName = username;
+            //u.UserName = username;
             u.DateCreated = DateTime.Now;
             u.Admin = false;
-            u.Email = email;
-            u.Image = image;
-            u.Nationality = nationality;
+            //u.Email = email;
+            //u.Image = image;
+            //u.Nationality = nationality;
             users.Add(u);
         }
     }

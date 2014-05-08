@@ -38,9 +38,8 @@ namespace Translation.Models
             return result;
         }
 
-        public void AddComment(String comment)
+        public void AddComment(Comment c)
         {
-            Comment c = new Comment();
             int newID = 1;
             if (comments.Count() > 0)
             {
@@ -49,7 +48,7 @@ namespace Translation.Models
             c.ID = newID;
             c.CommentDate = DateTime.Now;
             c.AuthorID = 1;//TODO GetUserID
-            c.Text = comment;
+            // c.Text = comment;
             c.TranslationID = 1;//TODO GetTranslationID
             comments.Add(c);
         }
