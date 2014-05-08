@@ -2,4 +2,18 @@
     ViewBag.Title = "Requests";
 }
 
-<h2>This is the Request route</h2>
+<h2>Ný beiðni</h2>
+
+@using(Html.BeginForm("Index", "Request", FormMethod.Post))
+    {
+        @("Titill: ")
+        @Html.TextBox("Titill") 
+        <input type="submit" value="Senda inn beiðni" />   
+    }
+ @foreach (var item in Model)
+ { 
+    @("Tungumál þýðingar: ")
+    @Html.DropDownList("Text")        
+ }    
+ 
+ 
