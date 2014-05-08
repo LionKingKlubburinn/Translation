@@ -4,14 +4,6 @@
     ViewBag.Title = "Index";
 }
 
-
-@foreach (var item in Model)
-{
-    <div class="request">
-        <span class="request">@Html.DisplayFor(model => item.Name)&nbsp;</span>
-    </div>
-}
-
 <div id="form">
    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
    {
@@ -47,31 +39,21 @@
    }
 </div>
 
-
-
-    <div id="table">
+<div id="table">
     <table>
         <caption><b>Beiðnir</b></caption>
-    <tbody>
-        <tr>
-            <td>Lion King</td>
-            <td>Argentína</td>
-            <td>127</td>
-        </tr>
-        <tr>
-            <td>Wall-E</td>
-            <td>Danmörk</td>
-            <td>14</td>
-        </tr>
-        <tr>
-            <td>How I Met Your Mother - Season 1</td>
-            <td>Pólland</td>
-            <td>5</td>
-        </tr>
-
-    </tbody>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Name)</td>
+                    <td>@Html.DisplayFor(model => item.Language)</td>
+                    <td>@Html.DisplayFor(model => item.Upvote)</td>
+                </tr>
+            }
+        </tbody>
     </table>
-    </div>
+</div>
 
     <input type="button" value="Ný beiðni" />
     <input type="button" value="Ný þýðing" />
