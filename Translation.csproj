@@ -234,6 +234,7 @@
     <Content Include="Views\Translation\Index.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Translation\Read.cshtml" />
+    <Content Include="Views\Translation\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

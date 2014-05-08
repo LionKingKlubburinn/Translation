@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>Ný Þýðing</h2>
+
+@using (Html.BeginForm("Index", "Request", FormMethod.Post))
+{
+     @("Titill: ")
+     @Html.TextBox("Titill")
+    
+       @("Tungumál þýðingar: ")
+          <select id="tungumál">     
+             <option selected="selected">Tungumál</option>
+             <option value="íslenska">Íslenska</option>
+             <option value="enska">Enska</option>
+          </select>
+}
+
