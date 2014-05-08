@@ -30,9 +30,10 @@ namespace Translation.Models
             this.comments.Add(commment2);
         }
 
-        public IEnumerable<Comment> GetComments()
+        public IEnumerable<Comment> GetComments(int id)
         {
             var result = from c in comments
+                         where c.TranslationID == id
                          orderby c.CommentDate ascending
                          select c;
             return result;
@@ -49,7 +50,7 @@ namespace Translation.Models
             c.CommentDate = DateTime.Now;
             c.AuthorID = 1;//TODO GetUserID
             // c.Text = comment;
-            c.TranslationID = 1;//TODO GetTranslationID
+            //c.TranslationID = 1;//TODO GetTranslationID
             comments.Add(c);
         }
     }

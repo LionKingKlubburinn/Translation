@@ -16,7 +16,7 @@ namespace Translation.Controllers
             //int id = 1;
             var model = new ViewModel();
             model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
-            model.CommentItems = CommentRepository.Instance.GetComments();
+            model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
         }
@@ -27,10 +27,11 @@ namespace Translation.Controllers
         {
             Comment c = new Comment();
             c.Text = Text;
+            c.TranslationID = id;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
             model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
-            model.CommentItems = CommentRepository.Instance.GetComments();
+            model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
         }
