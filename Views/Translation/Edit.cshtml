@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div>
+    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
+</div>
+
+<h2>Breyttu og bættu</h2>
+
+<h2>Lion King</h2>
+<h3>Simbalover</h3>
+
+@using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
+{
+    <p>
+        <span class="glyphicon glyphicon-time"></span>
+        <input type="time" name="TimeStart"> @("-")
+        <input type="time" name="TimeStop">
+    </p>
+    <p>
+        <input type="text" name="FirstLine"><br>
+        <input type="text" name="FirstLine">
+    </p>
+    
+    <input type="submit" value="Birta texta" />
+    <input type="submit" value="Vista" />
+}
+
