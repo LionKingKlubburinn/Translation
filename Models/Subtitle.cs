@@ -24,7 +24,7 @@ namespace Translation.Models
         public String File { get; set; }
         public DateTime DateCreated { get; set; }
 
-        public virtual ICollection<Comment> comments { get; set; }
-        public virtual ICollection<TextLine> textLines { get; set; }
+        //public virtual ICollection<Comment> comments { get; set; }
+        //public virtual ICollection<TextLine> textLines { get; set; }
     }
 }
