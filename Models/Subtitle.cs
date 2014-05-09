@@ -23,10 +23,8 @@ namespace Translation.Models
         public String Picture { get; set; }
         public String File { get; set; }
         public DateTime DateCreated { get; set; }
-    }
 
-    //public class DefaultConnection : DbContext
-    //{
-      //  public DbSet<Subtitle> Subtitle { get; set; }
-    //}
+        public virtual ICollection<Comment> comments { get; set; }
+        public virtual ICollection<TextLine> textLines { get; set; }
+    }
 }

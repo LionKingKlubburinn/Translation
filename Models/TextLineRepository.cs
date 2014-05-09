@@ -33,7 +33,7 @@ namespace Translation.Models
                 OriginalText2 = "",
                 TranslationText1 = "asdf",
                 TranslationText2 = "",
-                TranslationID = 1,
+                SubtitleID = 1,
                 LastModUserID = 1,
                 LastModDate = DateTime.Now,
             };
@@ -62,7 +62,7 @@ namespace Translation.Models
             t.OriginalText2 = "";
             t.TranslationText1 = "asdf";
             t.TranslationText2 = "";
-            t.TranslationID = 1;
+            t.SubtitleID = 1;
             t.LastModUserID = 1;
             t.LastModDate = DateTime.Now;
             textline.Add(t);

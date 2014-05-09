@@ -24,8 +24,8 @@ namespace Translation.Models
         private CommentRepository()
         {
             this.comments = new List<Comment>();
-            Comment commment1 = new Comment { ID = 1, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), AuthorID = 1, TranslationID = 1 };
-            Comment commment2 = new Comment { ID = 2, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), AuthorID = 2, TranslationID = 2 };
+            Comment commment1 = new Comment { ID = 1, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), AuthorID = 1, SubtitleID = 1 };
+            Comment commment2 = new Comment { ID = 2, Text = "Ég er að commenta!", CommentDate = new DateTime(2014, 3, 1, 12, 30, 00), AuthorID = 2, SubtitleID = 2 };
             this.comments.Add(commment1);
             this.comments.Add(commment2);
         }
@@ -33,7 +33,7 @@ namespace Translation.Models
         public IEnumerable<Comment> GetComments(int id)
         {
             var result = from c in comments
-                         where c.TranslationID == id
+                         where c.SubtitleID == id
                          orderby c.CommentDate ascending
                          select c;
             return result;

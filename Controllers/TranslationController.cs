@@ -27,7 +27,7 @@ namespace Translation.Controllers
         {
             Comment c = new Comment();
             c.Text = Text;
-            c.TranslationID = id;
+            c.SubtitleID = id;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
             model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);

@@ -16,13 +16,9 @@ namespace Translation.Models
         public String OriginalText2 { get; set; }
         public String TranslationText1 { get; set; }
         public String TranslationText2 { get; set; }
-        public int TranslationID { get; set; }
+        public int SubtitleID { get; set; }
         public int LastModUserID { get; set; }
         public DateTime LastModDate { get; set; }
+
     }
-    
-    //public class DefaultConnection : DbContext
-    //{
-      //  public DbSet<TextLine> TextLine { get; set; }
-    //}
 }

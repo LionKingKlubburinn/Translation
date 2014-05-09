@@ -17,9 +17,4 @@ namespace Translation.Models
         public String Language { get; set; }
         public DateTime DateCreated { get; set; }
     }
-
-    //public class DefaultConnectiont : DbContext
-    //{
-      //  public DbSet<Request> Request { get; set; }
-    //}
 }
