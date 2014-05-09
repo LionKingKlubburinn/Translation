@@ -15,7 +15,7 @@ namespace Translation.Controllers
             // Viewmodel, jeij
             //int id = 1;
             var model = new ViewModel();
-            model.SubtitleItems = SubtitleRepository.Instance.GetTranslation(id);
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -30,7 +30,7 @@ namespace Translation.Controllers
             c.TranslationID = id;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
-            model.SubtitleItems = SubtitleRepository.Instance.GetTranslation(id);
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -44,18 +44,18 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        //public ActionResult New(FormCollection form)
-        //{
-        //    Subtitle t = new Subtitle();
-        //    r.Name = form["Name"];
-        //    r.Language = form["Language"];
-        //    r.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
-        //    RequestRepository.Instance.AddRequest(r);
-        //    return RedirectToAction("Index", "Home");
-        //}
+        public ActionResult New(FormCollection form)
+        {
+            Subtitle s = new Subtitle();
+            s.Name = form["Name"];
+            s.Language = form["Language"];
+            s.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
+            s.CollaborationAllowed = form["CollaborationAllowed"].Contains("true");
+            SubtitleRepository.Instance.AddSubtitle(s);
+            return RedirectToAction("Index", "Home");
+        }
         public ActionResult New()
         {
-
             return View();
         }
 
@@ -63,11 +63,5 @@ namespace Translation.Controllers
         {
             return View();
         }
-
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
-
     }
 }

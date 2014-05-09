@@ -62,14 +62,14 @@ namespace Translation.Models
             this.subtitles.Add(translation2);
         }
 
-        public IEnumerable<Subtitle> GetTranslations(String Searchstring)
+        public IEnumerable<Subtitle> GetSubtitles(String Searchstring)
         {
             var result = from t in subtitles
                          orderby t.DateCreated ascending
                          select t;
             return result;
         }
-        public IEnumerable<Subtitle> GetTranslation(int ID)
+        public IEnumerable<Subtitle> GetSubtitle(int ID)
         {
             var result = from t in subtitles
                          where t.ID == ID
@@ -77,7 +77,7 @@ namespace Translation.Models
             return result;
         }
 
-        public void AddTranslation(Subtitle r)
+        public void AddSubtitle(Subtitle r)
         {
             int newID = 1;
             if (subtitles.Count() > 0)
