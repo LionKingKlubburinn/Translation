@@ -15,7 +15,7 @@ namespace Translation.Controllers
             // Viewmodel, jeij
             //int id = 1;
             var model = new ViewModel();
-            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitle(id);
+            model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -30,7 +30,7 @@ namespace Translation.Controllers
             c.TranslationID = id;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
-            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitle(id);
+            model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);

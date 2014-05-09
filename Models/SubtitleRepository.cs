@@ -69,11 +69,11 @@ namespace Translation.Models
                          select t;
             return result;
         }
-        public IEnumerable<Subtitle> GetSubtitle(int ID)
+        public Subtitle GetSubtitle(int ID)
         {
-            var result = from t in subtitles
+            var result = (from t in subtitles
                          where t.ID == ID
-                         select t;
+                         select t).FirstOrDefault();
             return result;
         }
 

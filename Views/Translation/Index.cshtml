@@ -12,8 +12,6 @@
 @Html.ActionLink("New", "New");
 @Html.ActionLink("Read", "Read");
 
-<h2>Translation comments</h2>
-
 <style>
     th, td{
         width:150px;
@@ -21,10 +19,7 @@
 </style>
 
 <div id="LionKing">
-    @foreach (var item in Model.SubtitleItems) // TEMP SKITAMIX
-    {
-            <h3>@Html.DisplayFor(model => item.Name)&nbsp;</h3>
-    }
+    <h3>@Html.DisplayFor(x => x.SubtitleItem.Name)</h3>
 </div>
 
 <table>
