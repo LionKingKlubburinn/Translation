@@ -77,28 +77,28 @@ namespace Translation.Models
             return result;
         }
 
-        public void AddSubtitle(Subtitle r)
+        public void AddSubtitle(Subtitle s)
         {
             int newID = 1;
             if (subtitles.Count() > 0)
             {
                 newID = subtitles.Max(x => x.ID) + 1;
             }
-            r.DateCreated = DateTime.Now;
-            r.ForHardOfHearing = false;
-            r.ID = newID;
-            r.Language = "Strump"; //TODO input
-            r.Name = "Lion King"; //TODO input
-            r.DownloadCounter = 0;
-            r.Ready = false;
-            r.CollaborationAllowed = false;
-            r.Contributor = 1; //TODO Getuser
-            r.VideoType = "TODO"; //TODO input
-            r.VideoGenre = "TODO"; //TODO input
-            r.VideoDescription = "TODO"; //TODO input
-            r.Picture = "SL'OÐ 'A MYND!"; //TODO input
-            r.File = "/fæll/rts"; //TODO input
-
+            s.DateCreated = DateTime.Now;
+            //s.ForHardOfHearing = false;
+            s.ID = newID;
+            //s.Language = "Strump"; //TODO input
+            //s.Name = "Lion King"; //TODO input
+            s.DownloadCounter = 0;
+            s.Ready = false;
+            //s.CollaborationAllowed = false;
+            s.Contributor = 1; //TODO Getuser
+            //s.VideoType = "TODO"; //TODO input
+            //s.VideoGenre = "TODO"; //TODO input
+            //s.VideoDescription = "TODO"; //TODO input
+            //s.Picture = "SL'OÐ 'A MYND!"; //TODO input
+            //s.File = "/fæll/rts"; //TODO input
+            subtitles.Add(s);
         }
     }
 }

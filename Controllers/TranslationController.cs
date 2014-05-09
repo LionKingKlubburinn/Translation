@@ -48,9 +48,14 @@ namespace Translation.Controllers
         {
             Subtitle s = new Subtitle();
             s.Name = form["Name"];
+            s.VideoDescription = form["VideoDescription"];
             s.Language = form["Language"];
             s.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
             s.CollaborationAllowed = form["CollaborationAllowed"].Contains("true");
+            s.VideoType = form["VideoType"];
+            s.VideoGenre = form["VideoGenre"];
+            s.Picture = form["Picture"];
+            s.File = form["File"];
             SubtitleRepository.Instance.AddSubtitle(s);
             return RedirectToAction("Index", "Home");
         }

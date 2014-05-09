@@ -11,11 +11,12 @@
 
 @using (Html.BeginForm("New", "Translation", FormMethod.Post))
 {
-     @("Titill: ")
-     @Html.TextBox("Name")<br />
-    
-     @("Tungumál þýðingar: ")
-         <select id="tungumál">     
+    @("Titill: ")
+    @Html.TextBox("Name")<br />
+    @("Lýsing: ")
+    @Html.TextArea("VideoDescription", new { cols = 60, rows = 10 })<br />
+    @("Tungumál þýðingar: ")
+         <select id="tungumál" name="Language">     
              <option selected="selected">Tungumál</option>
              <option value="is">Íslenska</option>
              <option value="en">Enska</option>
@@ -23,7 +24,25 @@
     
     @("Fyrir heyrnarskerta:")
     @Html.CheckBox("ForHardOfHearing", false)<br />
-    
+    @("Tegund:")
+        <select id="tegund" name="VideoType">     
+            <option selected="selected">Tegund</option>
+            <option value="Kvikmynd">Kvikmynd</option>
+            <option value="Þáttur">Þáttur</option>
+        </select>   
+    @("Flokkur:")
+        <select id="flokkur" name="VideoGenre">     
+            <option selected="selected">Allir flokkar</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Gamanmynd">Gamanmynd</option>
+            <option value="Hasar">Hasar</option>
+            <option value="Rómantík">Rómantík</option>
+            <option value="Teiknimynd">Teiknimynd</option>
+            <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
+            <option value="Ævintýri">Ævintýri</option>
+        </select> 
+    <br />
     @("Mynd:")
     <input type="file" id="fileUpload" name="Picture"/><br />
     @("Skrá til þýðingar:")
@@ -32,7 +51,7 @@
     @("Leyfa samstarf:")
     @Html.CheckBox("CollaborationAllowed", false)<br />
     
-    <input type="button" value="Byrja þýðingu" />
+    <input type="submit" value="Byrja þýðingu" />
     
 }
 

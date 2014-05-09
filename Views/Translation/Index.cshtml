@@ -21,7 +21,10 @@
 </style>
 
 <div id="LionKing">
-    <h3>Lion King</h3>
+    @foreach (var item in Model.SubtitleItems) // TEMP SKITAMIX
+    {
+            <h3>@Html.DisplayFor(model => item.Name)&nbsp;</h3>
+    }
 </div>
 
 <table>
