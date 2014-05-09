@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Translation.Models
 {
-    public class Translation
+    public class Subtitle
     {
         public int ID { get; set; }
         public String Name { get; set; }
@@ -26,6 +26,6 @@ namespace Translation.Models
 
     public class TranslationDBContext : DbContext
     {
-        public DbSet<Translation> Translations { get; set; }
+        public DbSet<Subtitle> Translations { get; set; }
     }
 }
