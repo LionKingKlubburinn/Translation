@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 namespace Translation.Models
 {
@@ -6,6 +7,8 @@ namespace Translation.Models
     public class ApplicationUser : IdentityUser
     {
         public string Email { get; set; }
+        public string Nationality { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
