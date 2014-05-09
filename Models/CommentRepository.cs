@@ -20,7 +20,7 @@ namespace Translation.Models
         }
 
         private List<Comment> comments = null;
-
+        
         private CommentRepository()
         {
             this.comments = new List<Comment>();

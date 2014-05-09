@@ -15,7 +15,7 @@ namespace Translation.Controllers
             // Viewmodel, jeij
             //int id = 1;
             var model = new ViewModel();
-            model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
+            //model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -30,7 +30,7 @@ namespace Translation.Controllers
             c.SubtitleID = id;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
-            model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
+            //model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -56,7 +56,7 @@ namespace Translation.Controllers
             s.VideoGenre = form["VideoGenre"];
             s.Picture = form["Picture"];
             s.File = form["File"];
-            SubtitleRepository.Instance.AddSubtitle(s);
+           // SubtitleRepository.Instance.AddSubtitle(s);
             return RedirectToAction("Index", "Home");
         }
         public ActionResult New()

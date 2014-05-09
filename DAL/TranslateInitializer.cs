@@ -11,6 +11,14 @@ namespace Translation.DAL
     {
         protected override void Seed(TranslateContext context)
         {
+            /*var users = new List<ApplicationUser>
+            {
+                new ApplicationUser {UserName="Einar", Email="einar"},
+                new ApplicationUser {UserName="Einarthor", Email="einarthor"},
+                new ApplicationUser {UserName="Einarthort", Email="einarthort"},
+            };
+            context.SaveChanges();
+
             var subtitles = new List<Subtitle>
             {
                 new Subtitle { ID = 1, Name = "kinglion1" },
@@ -18,6 +26,7 @@ namespace Translation.DAL
                 new Subtitle { ID = 3, Name = "kinglion3" },
                 new Subtitle { ID = 4, Name = "kinglion4" },
             };
+            subtitles.ForEach(s => context.Subtitles.Add(s));
             context.SaveChanges();
 
             var comments = new List<Comment>
@@ -27,7 +36,8 @@ namespace Translation.DAL
                 new Comment { ID=3, SubtitleID=3, Text="I love kinglion3"},
                 new Comment { ID=4, SubtitleID=4, Text="I love kinglion4"}
             };
-            context.SaveChanges();
+            comments.ForEach(c => context.Comments.Add(c));
+            context.SaveChanges();*/
         }
     }
 }
