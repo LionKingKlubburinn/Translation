@@ -178,8 +178,8 @@
     <Compile Include="Models\RequestRepository.cs" />
     <Compile Include="Models\TextLine.cs" />
     <Compile Include="Models\TextLineRepository.cs" />
-    <Compile Include="Models\Translation.cs" />
-    <Compile Include="Models\TranslationRepository.cs" />
+    <Compile Include="Models\Subtitle.cs" />
+    <Compile Include="Models\SubtitleRepository.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserRepository.cs" />
     <Compile Include="Models\ViewModel.cs" />

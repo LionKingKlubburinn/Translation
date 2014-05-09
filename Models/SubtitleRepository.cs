@@ -5,26 +5,26 @@ using System.Web;
 
 namespace Translation.Models
 {
-    public class TranslationRepository
+    public class SubtitleRepository
     {
-        private static TranslationRepository instance;
+        private static SubtitleRepository instance;
 
-        public static TranslationRepository Instance
+        public static SubtitleRepository Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new TranslationRepository();
+                    instance = new SubtitleRepository();
                 return instance;
             }
         }
 
-        private List<Translation> translations = null;
+        private List<Subtitle> subtitles = null;
 
-        private TranslationRepository()
+        private SubtitleRepository()
         {
-            this.translations = new List<Translation>();
-            Translation translation1 = new Translation
+            this.subtitles = new List<Subtitle>();
+            Subtitle translation1 = new Subtitle
             { 
                 DateCreated = DateTime.Now,
                 ForHardOfHearing = false,
@@ -41,7 +41,7 @@ namespace Translation.Models
                 Picture = "SL'OÐ 'A MYND!", //TODO input
                 File = "/fæll/rts" //TODO input
             };
-            Translation translation2 = new Translation
+            Subtitle translation2 = new Subtitle
             {
                 DateCreated = DateTime.Now,
                 ForHardOfHearing = false,
@@ -58,31 +58,31 @@ namespace Translation.Models
                 Picture = "SL'OÐ 'A MYND!", //TODO input
                 File = "/fæll/rts" //TODO input
             };
-            this.translations.Add(translation1);
-            this.translations.Add(translation2);
+            this.subtitles.Add(translation1);
+            this.subtitles.Add(translation2);
         }
 
-        public IEnumerable<Translation> GetTranslations(String Searchstring)
+        public IEnumerable<Subtitle> GetTranslations(String Searchstring)
         {
-            var result = from t in translations
+            var result = from t in subtitles
                          orderby t.DateCreated ascending
                          select t;
             return result;
         }
-        public IEnumerable<Translation> GetTranslation(int ID)
+        public IEnumerable<Subtitle> GetTranslation(int ID)
         {
-            var result = from t in translations
+            var result = from t in subtitles
                          where t.ID == ID
                          select t;
             return result;
         }
 
-        public void AddTranslation(Translation r)
+        public void AddTranslation(Subtitle r)
         {
             int newID = 1;
-            if (translations.Count() > 0)
+            if (subtitles.Count() > 0)
             {
-                newID = translations.Max(x => x.ID) + 1;
+                newID = subtitles.Max(x => x.ID) + 1;
             }
             r.DateCreated = DateTime.Now;
             r.ForHardOfHearing = false;

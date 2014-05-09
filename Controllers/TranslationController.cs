@@ -15,7 +15,7 @@ namespace Translation.Controllers
             // Viewmodel, jeij
             //int id = 1;
             var model = new ViewModel();
-            model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
+            model.SubtitleItems = SubtitleRepository.Instance.GetTranslation(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -30,7 +30,7 @@ namespace Translation.Controllers
             c.TranslationID = id;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
-            model.TranslationItems = TranslationRepository.Instance.GetTranslation(id);
+            model.SubtitleItems = SubtitleRepository.Instance.GetTranslation(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -43,8 +43,19 @@ namespace Translation.Controllers
             return View(text);
         }
 
+        [HttpPost]
+        //public ActionResult New(FormCollection form)
+        //{
+        //    Subtitle t = new Subtitle();
+        //    r.Name = form["Name"];
+        //    r.Language = form["Language"];
+        //    r.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
+        //    RequestRepository.Instance.AddRequest(r);
+        //    return RedirectToAction("Index", "Home");
+        //}
         public ActionResult New()
         {
+
             return View();
         }
 
