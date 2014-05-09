@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div id="form">
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.TextBox("Text")
+        <input type="submit" value="Leita" />
+
+        <input type="checkbox" value="heyrnarlaus" id="heyrnarskertur">
+        <label for="heyrnarskertur">Texti fyrir heyrnarskerta</label>
+
+        <select id="tungumál">
+            <option selected="selected">Tungumál</option>
+            <option value="íslenska">Íslenska</option>
+            <option value="enska">Enska</option>
+        </select>
+
+        <select id="tegund">
+            <option selected="selected">Tegund</option>
+            <option value="kvikmynd">Kvikmynd</option>
+            <option value="þáttur">Þáttur</option>
+        </select>
+
+        <select id="flokkur">
+            <option selected="selected">Allir flokkar</option>
+            <option value="drama">Drama</option>
+            <option value="fantasía">Fantasía</option>
+            <option value="gamanmynd">Gamanmynd</option>
+            <option value="hasar">Hasar</option>
+            <option value="rómantík">Rómantík</option>
+            <option value="teiknimynd">Teiknimynd</option>
+            <option value="vísindaskáldskapur">Vísindaskáldskapur</option>
+            <option value="ævintýri">Ævintýri</option>
+        </select>
+    }
+</div>
