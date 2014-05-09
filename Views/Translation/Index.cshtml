@@ -34,10 +34,10 @@
     </thead>
     <tbody>
         <tr>
-            <td>Kvikmynd</td>
-            <td>Simbalover</td>
-            <td>89 min</td>
-            <td>12mb</td>
+            <td>@Html.DisplayFor(x => x.SubtitleItem.VideoType) @(",") @Html.DisplayFor(x => x.SubtitleItem.VideoGenre)</td>
+            <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
+            <td>mjög langt</td>
+            <td>3.2mb</td>
             <td><select>
                 <option value="1">.srt</option>
                 <option value="2">pdf</option>
