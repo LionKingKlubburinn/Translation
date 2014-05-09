@@ -7,7 +7,7 @@
 <div id="form">
    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
    {
-       @Html.TextBox("Text")
+       @Html.TextBox("query")
        <input type="submit" value="Leita" />      
        
     <input type="checkbox" value="heyrnarlaus" id="heyrnarskertur">
@@ -19,7 +19,7 @@
     <option value="enska">Enska</option>
     </select>   
      
-    <select id="tegund">     
+    <select id="tegund" name="type">     
     <option selected="selected">Tegund</option>
     <option value="Kvikmynd">Kvikmynd</option>
     <option value="Þáttur">Þáttur</option>

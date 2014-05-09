@@ -14,5 +14,11 @@ namespace Translation.Controllers
             var requests = RequestRepository.Instance.GetRequests();
             return View(requests);
         }
+
+        [HttpPost]
+        public ActionResult Index(String query, String type)
+        {
+            return RedirectToAction("Search", "Translation", new { query = query, type = type });
+        }
     }
 }
