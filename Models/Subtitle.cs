@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -24,8 +25,8 @@ namespace Translation.Models
         public DateTime DateCreated { get; set; }
     }
 
-    public class TranslationDBContext : DbContext
-    {
-        public DbSet<Subtitle> Translations { get; set; }
-    }
+    //public class DefaultConnection : DbContext
+    //{
+      //  public DbSet<Subtitle> Subtitle { get; set; }
+    //}
 }

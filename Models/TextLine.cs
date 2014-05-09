@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -18,4 +20,9 @@ namespace Translation.Models
         public int LastModUserID { get; set; }
         public DateTime LastModDate { get; set; }
     }
+    
+    //public class DefaultConnection : DbContext
+    //{
+      //  public DbSet<TextLine> TextLine { get; set; }
+    //}
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -15,4 +17,9 @@ namespace Translation.Models
         public String Language { get; set; }
         public DateTime DateCreated { get; set; }
     }
+
+    //public class DefaultConnectiont : DbContext
+    //{
+      //  public DbSet<Request> Request { get; set; }
+    //}
 }
