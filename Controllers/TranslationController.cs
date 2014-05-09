@@ -69,9 +69,13 @@ namespace Translation.Controllers
             return View();
         }
 
-        public ActionResult Search()
+        [HttpGet]
+        public ActionResult Search(String query, String type)
         {
-            return View();
+            //var model = new { Query = query, Type = type };
+            var model = new ViewModel();
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query);
+            return View(model);
         }
     }
 }

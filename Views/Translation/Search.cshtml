@@ -1,4 +1,4 @@
-﻿
+﻿@model Translation.Models.ViewModel
 @{
     ViewBag.Title = "Search";
 }
@@ -8,6 +8,7 @@
 </div>
 
 <h2>Leitarniðurstöður</h2>
-
-
-
+@foreach (var item in Model.SubtitleItems)
+{
+    @Html.DisplayFor(modelItem => item.Name) <br />
+}

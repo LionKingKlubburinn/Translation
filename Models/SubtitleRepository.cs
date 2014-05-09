@@ -64,16 +64,17 @@ namespace Translation.Models
 
         public IEnumerable<Subtitle> GetSubtitles(String Searchstring)
         {
-            var result = from t in subtitles
-                         orderby t.DateCreated ascending
-                         select t;
+            var result = from s in subtitles
+                         where s.Name.Contains(Searchstring)
+                         orderby s.DateCreated ascending
+                         select s;
             return result;
         }
         public Subtitle GetSubtitle(int ID)
         {
-            var result = (from t in subtitles
-                         where t.ID == ID
-                         select t).FirstOrDefault();
+            var result = (from s in subtitles
+                         where s.ID == ID
+                         select s).FirstOrDefault();
             return result;
         }
 
