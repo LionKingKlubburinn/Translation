@@ -42,6 +42,30 @@ namespace Translation.DAL
             };
             comments.ForEach(c => context.Comments.Add(c));
             context.SaveChanges();
+
+            var requests = new List<Request>
+            {
+                new Request { ID=1, Name="InABundercup", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID=1, Upvote=0},
+                new Request { ID=2, Name="SwingersClub 9", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID=1, Upvote=0},
+                new Request { ID=3, Name="Palli gone wild 4", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID=1, Upvote=0},
+                new Request { ID=4, Name="Hipp og kúl félagið 2", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID=1, Upvote=0},
+            };
+            requests.ForEach(r => context.Requests.Add(r));
+            context.SaveChanges();
+
+            var textLines = new List<TextLine>
+            {
+                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID=1, OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
+                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID=1, OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
+                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID=1, OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
+                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=4, LastModDate=DateTime.Now, LastModUserID=1, OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
+                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"}
+            };
+            textLines.ForEach(t => context.TextLines.Add(t));
+            context.SaveChanges();
         }
     }
 }
