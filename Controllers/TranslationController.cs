@@ -56,6 +56,7 @@ namespace Translation.Controllers
             s.Language = form["Language"];
             s.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
             s.CollaborationAllowed = form["CollaborationAllowed"].Contains("true");
+            s.Contributor = System.Web.HttpContext.Current.User.Identity.Name;
             s.VideoType = form["VideoType"];
             s.VideoGenre = form["VideoGenre"];
             s.Picture = form["Picture"];

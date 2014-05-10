@@ -21,6 +21,7 @@ namespace Translation.Controllers
             r.Name = form["Name"];
             r.Language = form["Language"];
             r.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
+            r.RequestByID = System.Web.HttpContext.Current.User.Identity.Name;
             RequestRepository.Instance.AddRequest(r);
             return RedirectToAction("Index", "Home");
         }

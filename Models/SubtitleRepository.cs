@@ -48,19 +48,9 @@ namespace Translation.Models
                 newID = db.Subtitles.Max(x => x.ID) + 1;
             }
             s.DateCreated = DateTime.Now;
-            //s.ForHardOfHearing = false;
             s.ID = newID;
-            //s.Language = "Strump"; //TODO input
-            //s.Name = "Lion King"; //TODO input
             s.DownloadCounter = 0;
             s.Ready = false;
-            s.Contributor = "sgsf"; //TODO Getuser
-            //s.VideoType = "TODO"; //TODO input
-            //s.VideoGenre = "TODO"; //TODO input
-            //s.VideoDescription = "TODO"; //TODO input
-            //s.Picture = "SL'OÐ 'A MYND!"; //TODO input
-            //s.File = "/fæll/rts"; //TODO input
-            //subtitles.Add(s);
             db.Subtitles.Add(s);
             db.SaveChanges();
         }
