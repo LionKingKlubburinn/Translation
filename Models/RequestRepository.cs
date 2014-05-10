@@ -39,11 +39,6 @@ namespace Translation.Models
             {
                 newID = db.Requests.Max(x => x.ID) + 1;
             }
-            else
-            {
-                newID = 1;
-            }
-
             r.DateCreated = DateTime.Now;
             r.ID = newID;
             r.RequestByID = 1; //TODO GetUser
