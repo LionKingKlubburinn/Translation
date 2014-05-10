@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Translation.DAL;
 
 namespace Translation.Models
 {
     public class TextLineRepository
     {
         private static TextLineRepository instance;
+
+        private TranslateContext db = new TranslateContext();
 
         public static TextLineRepository Instance
         {
@@ -21,7 +24,7 @@ namespace Translation.Models
 
         private List<TextLine> textline = null;
 
-        private TextLineRepository()
+        /*private TextLineRepository()
         {
             this.textline = new List<TextLine>();
             TextLine textline1 = new TextLine
@@ -38,7 +41,7 @@ namespace Translation.Models
                 LastModDate = DateTime.Now,
             };
             this.textline.Add(textline1);
-        }
+        }*/
 
         public IEnumerable<TextLine> GetTextLines()
         {
@@ -51,9 +54,9 @@ namespace Translation.Models
         public void AddTextLine(TextLine t)
         {
             int newID = 1;
-            if (textline.Count() > 0)
+            if (db.TextLines.Count() > 0)
             {
-                newID = textline.Max(x => x.ID) + 1;
+                newID = db.TextLines.Max(x => x.ID) + 1;
             }
             t.ID = newID;
             t.TimeStampBegin = new TimeSpan(0, 0, 0, 0, 1);
@@ -62,10 +65,11 @@ namespace Translation.Models
             t.OriginalText2 = "";
             t.TranslationText1 = "asdf";
             t.TranslationText2 = "";
-            t.SubtitleID = 1;
-            t.LastModUserID = 1;
+            t.SubtitleID = newID;
+            t.LastModUserID = newID;
             t.LastModDate = DateTime.Now;
-            textline.Add(t);
+            db.TextLines.Add(t);
+            db.SaveChanges();
         }
     }
 }
