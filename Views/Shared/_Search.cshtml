@@ -9,31 +9,31 @@
         @Html.TextBox("query")
         <input type="submit" value="Leita" />
 
-        <input type="checkbox" value="heyrnarlaus" id="heyrnarskertur">
+        <input type="checkbox" name="hear">
         <label for="heyrnarskertur">Texti fyrir heyrnarskerta</label>
 
-        <select id="tungumál">
+        <select id="language">
             <option selected="selected">Tungumál</option>
-            <option value="íslenska">Íslenska</option>
-            <option value="enska">Enska</option>
+            <option value="is">Íslenska</option>
+            <option value="en">Enska</option>
         </select>
 
-        <select id="tegund">
+        <select id="tegund" name="type">
             <option selected="selected">Tegund</option>
-            <option value="kvikmynd">Kvikmynd</option>
-            <option value="þáttur">Þáttur</option>
+            <option value="Kvikmynd">Kvikmynd</option>
+            <option value="Þáttur">Þáttur</option>
         </select>
 
-        <select id="flokkur">
+        <select id="flokkur" name="genre">
             <option selected="selected">Allir flokkar</option>
-            <option value="drama">Drama</option>
-            <option value="fantasía">Fantasía</option>
-            <option value="gamanmynd">Gamanmynd</option>
-            <option value="hasar">Hasar</option>
-            <option value="rómantík">Rómantík</option>
-            <option value="teiknimynd">Teiknimynd</option>
-            <option value="vísindaskáldskapur">Vísindaskáldskapur</option>
-            <option value="ævintýri">Ævintýri</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasía">Fantasía</option>
+            <option value="Gamanmynd">Gamanmynd</option>
+            <option value="Hasar">Hasar</option>
+            <option value="Rómantík">Rómantík</option>
+            <option value="Teiknimynd">Teiknimynd</option>
+            <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
+            <option value="Ævintýri">Ævintýri</option>
         </select>
     }
 </div>

@@ -74,12 +74,11 @@ namespace Translation.Controllers
         }
 
         [HttpGet]
-        public ActionResult Search(String query, String type)
+        public ActionResult Search(String query, String hear, String language, String type, String genre)
         {
-            //var model = new { Query = query, Type = type };
             var model = new ViewModel();
-            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query);
-            //return View(db.Subtitles.ToList());
+            bool forhardofhearing = !String.IsNullOrEmpty(hear);
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing);
             return View(model);
         }
     }

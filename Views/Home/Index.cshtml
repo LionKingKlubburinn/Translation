@@ -10,13 +10,13 @@
        @Html.TextBox("query")
        <input type="submit" value="Leita" />      
        
-    <input type="checkbox" value="heyrnarlaus" id="heyrnarskertur">
+    <input type="checkbox" name="hear">
     <label for="heyrnarskertur">Texti fyrir heyrnarskerta</label>
      
-    <select id="tungumál">     
+    <select id="language">     
     <option selected="selected">Tungumál</option>
-    <option value="íslenska">Íslenska</option>
-    <option value="enska">Enska</option>
+    <option value="is">Íslenska</option>
+    <option value="en">Enska</option>
     </select>   
      
     <select id="tegund" name="type">     
@@ -25,7 +25,7 @@
     <option value="Þáttur">Þáttur</option>
     </select>  
        
-    <select id="flokkur">     
+    <select id="flokkur" name="genre">     
     <option selected="selected">Allir flokkar</option>
     <option value="Drama">Drama</option>
     <option value="Fantasía">Fantasía</option>

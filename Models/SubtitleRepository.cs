@@ -22,14 +22,16 @@ namespace Translation.Models
             }
         }
 
-        public IEnumerable<Subtitle> GetSubtitles(String Searchstring)
+        public IEnumerable<Subtitle> GetSubtitles(String Searchstring, bool forhardofhearing)
         {
             var result = from s in db.Subtitles
                          where s.Name.Contains(Searchstring)
+                         && s.ForHardOfHearing == forhardofhearing
                          orderby s.DateCreated ascending
                          select s;
             return result;
         }
+
         public Subtitle GetSubtitle(int ID)
         {
             var result = (from s in db.Subtitles

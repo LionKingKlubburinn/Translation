@@ -18,9 +18,10 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(String query, String type)
+        public ActionResult Index(String query, String hear, String language, String type, String genre)
         {
-            return RedirectToAction("Search", "Translation", new { query = query, type = type });
+            return RedirectToAction("Search", "Translation", new { 
+                query = query, hear = hear, language = language, type = type, genre = genre });
         }
     }
 }
