@@ -56,7 +56,7 @@ namespace Translation.Models
                 VideoGenre = "TODO", //TODO input
                 VideoDescription = "TODO", //TODO input
                 Picture = "SL'OÐ 'A MYND!", //TODO input
-                File = "/fæll/rts" //TODO input
+                File = "/fæll/rts" //TODO input asdfasdf
             };
             this.subtitles.Add(translation1);
             this.subtitles.Add(translation2);
