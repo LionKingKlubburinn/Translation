@@ -40,10 +40,7 @@ namespace Translation.Models
                 newID = db.Requests.Max(x => x.ID) + 1;
             }
             r.DateCreated = DateTime.Now;
-            //r.ForHardOfHearing = false;
             r.ID = newID;
-            //r.Language = "Strump";
-            //r.Name = "Lion King";
             r.RequestByID = 1; //TODO GetUser
             r.Upvote = 0;
             db.Requests.Add(r);
