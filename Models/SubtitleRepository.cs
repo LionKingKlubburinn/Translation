@@ -68,7 +68,7 @@ namespace Translation.Models
 
         public IEnumerable<Subtitle> GetSubtitles(String Searchstring)
         {
-            var result = from s in subtitles
+            var result = from s in db.Subtitles
                          where s.Name.Contains(Searchstring)
                          orderby s.DateCreated ascending
                          select s;
@@ -76,7 +76,7 @@ namespace Translation.Models
         }
         public Subtitle GetSubtitle(int ID)
         {
-            var result = (from s in subtitles
+            var result = (from s in db.Subtitles
                          where s.ID == ID
                          select s).FirstOrDefault();
             return result;
@@ -90,19 +90,19 @@ namespace Translation.Models
                 newID = db.Subtitles.Max(x => x.ID) + 1;
             }
             s.DateCreated = DateTime.Now;
-            s.ForHardOfHearing = false;
+            //s.ForHardOfHearing = false;
             s.ID = newID;
-            s.Language = "Strump"; //TODO input
+            //s.Language = "Strump"; //TODO input
             //s.Name = "Lion King"; //TODO input
             s.DownloadCounter = 0;
             s.Ready = false;
-            s.CollaborationAllowed = false;
+            //s.CollaborationAllowed = false;
             //s.Contributor = 1; //TODO Getuser
             //s.VideoType = "TODO"; //TODO input
             //s.VideoGenre = "TODO"; //TODO input
             //s.VideoDescription = "TODO"; //TODO input
             //s.Picture = "SL'OÐ 'A MYND!"; //TODO input
-            s.File = "/fæll/rts"; //TODO input
+            //s.File = "/fæll/rts"; //TODO input
             //subtitles.Add(s);
             db.Subtitles.Add(s);
             db.SaveChanges();

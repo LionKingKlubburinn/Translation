@@ -73,14 +73,13 @@ namespace Translation.Controllers
         }
 
         [HttpGet]
-        public ActionResult Search()
+        public ActionResult Search(String query, String type)
         {
-            //String query, String type
             //var model = new { Query = query, Type = type };
-            //var model = new ViewModel();
-            //model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query);
-            return View(db.Subtitles.ToList());
-            //return View(model);
+            var model = new ViewModel();
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query);
+            //return View(db.Subtitles.ToList());
+            return View(model);
         }
     }
 }
