@@ -24,7 +24,6 @@ namespace Translation.Models
 
         private List<Subtitle> subtitles = null;
 
-<<<<<<< HEAD
         //private SubtitleRepository()
         //{
         //    this.subtitles = new List<Subtitle>();
@@ -65,48 +64,7 @@ namespace Translation.Models
         //    this.subtitles.Add(translation1);
         //    this.subtitles.Add(translation2);
         //}
-=======
-        private SubtitleRepository()
-        {
-            this.subtitles = new List<Subtitle>();
-            Subtitle translation1 = new Subtitle
-            { 
-                DateCreated = DateTime.Now,
-                ForHardOfHearing = false,
-                ID = 1,
-                Language = "Strump", //TODO input
-                Name = "Lion King", //TODO input
-                DownloadCounter = 0,
-                Ready = false,
-                CollaborationAllowed = false,
-                Contributor = 1, //TODO Getuser
-                VideoType = "TODO", //TODO input
-                VideoGenre = "TODO", //TODO input
-                VideoDescription = "TODO", //TODO input
-                Picture = "SL'OÐ 'A MYND!", //TODO input
-                File = "/fæll/rts" //TODO input
-            };
-            Subtitle translation2 = new Subtitle
-            {
-                DateCreated = DateTime.Now,
-                ForHardOfHearing = false,
-                ID = 2,
-                Language = "Strump", //TODO input
-                Name = "Gisli's journey 2", //TODO input
-                DownloadCounter = 0,
-                Ready = false,
-                CollaborationAllowed = false,
-                Contributor = 1, //TODO Getuser
-                VideoType = "TODO", //TODO input
-                VideoGenre = "TODO", //TODO input
-                VideoDescription = "TODO", //TODO input
-                Picture = "SL'OÐ 'A MYND!", //TODO input
-                File = "/fæll/rts" //TODO input asdfasdf
-            };
-            this.subtitles.Add(translation1);
-            this.subtitles.Add(translation2);
-        }
->>>>>>> ad519cf678b0c8ef0efec5891e2b05b84faa24e3
+
 
         public IEnumerable<Subtitle> GetSubtitles(String Searchstring)
         {
