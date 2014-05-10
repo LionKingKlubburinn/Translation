@@ -1,4 +1,4 @@
-﻿@model Translation.Models.ViewModel
+﻿@model IEnumerable<Translation.Models.Subtitle>
 @{
     ViewBag.Title = "Search";
 }
@@ -8,7 +8,7 @@
 </div>
 
 <h2>Leitarniðurstöður</h2>
-@foreach (var item in Model.SubtitleItems)
+@foreach (var item in Model)
 {
     @Html.DisplayFor(modelItem => item.Name) <br />
 }
