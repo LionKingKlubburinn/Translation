@@ -14,7 +14,6 @@ namespace Translation.Controllers
 
         public ActionResult Index()
         {
-            var requests = RequestRepository.Instance.GetRequests();
             return View(db.Requests.ToList());
         }
 
