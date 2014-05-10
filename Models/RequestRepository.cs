@@ -39,7 +39,6 @@ namespace Translation.Models
             }
             r.DateCreated = DateTime.Now;
             r.ID = newID;
-            r.RequestByID = "sgsf"; //TODO GetUser
             r.Upvote = 0;
             db.Requests.Add(r);
             db.SaveChanges();

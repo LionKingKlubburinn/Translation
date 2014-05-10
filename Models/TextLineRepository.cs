@@ -66,7 +66,7 @@ namespace Translation.Models
             t.TranslationText1 = "asdf";
             t.TranslationText2 = "";
             t.SubtitleID = 1;       // TODO GetSubtitleID
-            t.LastModUserID = System.Web.HttpContext.Current.User.Identity.Name;
+            t.LastModUserID = "whaaaaa";    // TODO GetUser
             t.LastModDate = DateTime.Now;
             db.TextLines.Add(t);
             db.SaveChanges();
