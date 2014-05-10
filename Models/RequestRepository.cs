@@ -43,6 +43,7 @@ namespace Translation.Models
             {
                 newID = 1;
             }
+
             r.DateCreated = DateTime.Now;
             r.ID = newID;
             r.RequestByID = 1; //TODO GetUser
