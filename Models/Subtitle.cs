@@ -15,7 +15,7 @@ namespace Translation.Models
         public bool ForHardOfHearing { get; set; }
         public bool Ready { get; set; }
         public bool CollaborationAllowed { get; set; }
-        public int Contributor { get; set; } // ID a user
+        public String Contributor { get; set; } // ID a user
         public String VideoType { get; set; }
         public String VideoGenre { get; set; }
         public String VideoDescription { get; set; }

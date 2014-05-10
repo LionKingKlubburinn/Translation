@@ -22,50 +22,6 @@ namespace Translation.Models
             }
         }
 
-        //private List<Subtitle> subtitles = null;
-
-        //private SubtitleRepository()
-        //{
-        //    this.subtitles = new List<Subtitle>();
-        //    Subtitle translation1 = new Subtitle
-        //    { 
-        //        DateCreated = DateTime.Now,
-        //        ForHardOfHearing = false,
-        //        ID = 1,
-        //        Language = "Strump", //TODO input
-        //        Name = "Lion King", //TODO input
-        //        DownloadCounter = 0,
-        //        Ready = false,
-        //        CollaborationAllowed = false,
-        //        Contributor = 1, //TODO Getuser
-        //        VideoType = "TODO", //TODO input
-        //        VideoGenre = "TODO", //TODO input
-        //        VideoDescription = "TODO", //TODO input
-        //        Picture = "SL'OÐ 'A MYND!", //TODO input
-        //        File = "/fæll/rts" //TODO input
-        //    };
-        //    Subtitle translation2 = new Subtitle
-        //    {
-        //        DateCreated = DateTime.Now,
-        //        ForHardOfHearing = false,
-        //        ID = 2,
-        //        Language = "Strump", //TODO input
-        //        Name = "Gisli's journey 2", //TODO input
-        //        DownloadCounter = 0,
-        //        Ready = false,
-        //        CollaborationAllowed = false,
-        //        Contributor = 1, //TODO Getuser
-        //        VideoType = "TODO", //TODO input
-        //        VideoGenre = "TODO", //TODO input
-        //        VideoDescription = "TODO", //TODO input
-        //        Picture = "SL'OÐ 'A MYND!", //TODO input
-        //        File = "/fæll/rts" //TODO input
-        //    };
-        //    this.subtitles.Add(translation1);
-        //    this.subtitles.Add(translation2);
-        //}
-
-
         public IEnumerable<Subtitle> GetSubtitles(String Searchstring)
         {
             var result = from s in db.Subtitles
@@ -96,8 +52,7 @@ namespace Translation.Models
             //s.Name = "Lion King"; //TODO input
             s.DownloadCounter = 0;
             s.Ready = false;
-            //s.CollaborationAllowed = false;
-            //s.Contributor = 1; //TODO Getuser
+            s.Contributor = "sgsf"; //TODO Getuser
             //s.VideoType = "TODO"; //TODO input
             //s.VideoGenre = "TODO"; //TODO input
             //s.VideoDescription = "TODO"; //TODO input

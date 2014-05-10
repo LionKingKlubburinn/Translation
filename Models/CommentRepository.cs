@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Translation.DAL;
+using Microsoft.AspNet.Identity;
 
 namespace Translation.Models
 {
@@ -20,8 +21,6 @@ namespace Translation.Models
                 return instance;
             }
         }
-
-        //private List<Comment> comments = null;
 
         public IEnumerable<Comment> GetComments(int id)
         {
@@ -41,7 +40,6 @@ namespace Translation.Models
             }
             c.ID = newID;
             c.CommentDate = DateTime.Now;
-            c.AuthorID = 1;//TODO GetUserID
             db.Comments.Add(c);
             db.SaveChanges();
         }
