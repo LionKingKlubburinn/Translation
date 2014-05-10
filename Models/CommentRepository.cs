@@ -21,7 +21,7 @@ namespace Translation.Models
             }
         }
 
-        private List<Comment> comments = null;
+        //private List<Comment> comments = null;
 
         public IEnumerable<Comment> GetComments(int id)
         {

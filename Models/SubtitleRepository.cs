@@ -22,7 +22,7 @@ namespace Translation.Models
             }
         }
 
-        private List<Subtitle> subtitles = null;
+        //private List<Subtitle> subtitles = null;
 
         //private SubtitleRepository()
         //{

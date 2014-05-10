@@ -22,7 +22,7 @@ namespace Translation.Models
             }
         }
 
-        private List<Request> requests = null;
+        //private List<Request> requests = null;
 
         public IEnumerable<Request> GetRequests()
         {
