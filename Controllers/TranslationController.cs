@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using Translation.DAL;
 using Translation.Models;
 
 namespace Translation.Controllers
 {
     public class TranslationController : Controller
     {
+        private TranslateContext db = new TranslateContext();
+
         // GET /Translation/1
         public ActionResult Index(int id = 1)
         {
@@ -57,7 +60,7 @@ namespace Translation.Controllers
             s.VideoGenre = form["VideoGenre"];
             s.Picture = form["Picture"];
             s.File = form["File"];
-           // SubtitleRepository.Instance.AddSubtitle(s);
+            SubtitleRepository.Instance.AddSubtitle(s);
             return RedirectToAction("Index", "Home");
         }
         public ActionResult New()
@@ -76,6 +79,7 @@ namespace Translation.Controllers
             //var model = new { Query = query, Type = type };
             var model = new ViewModel();
             model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query);
+            //return View(db.Subtitles.ToList());
             return View(model);
         }
     }
