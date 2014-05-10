@@ -34,7 +34,7 @@ namespace Translation.Models
                 DownloadCounter = 0,
                 Ready = false,
                 CollaborationAllowed = false,
-                Contributor = 1, //TODO Getuser
+                Contributor = "1", //TODO Getuser
                 VideoType = "TODO", //TODO input
                 VideoGenre = "TODO", //TODO input
                 VideoDescription = "TODO", //TODO input
@@ -51,7 +51,7 @@ namespace Translation.Models
                 DownloadCounter = 0,
                 Ready = false,
                 CollaborationAllowed = false,
-                Contributor = 1, //TODO Getuser
+                Contributor = "sgsf", //TODO Getuser
                 VideoType = "TODO", //TODO input
                 VideoGenre = "TODO", //TODO input
                 VideoDescription = "TODO", //TODO input
@@ -93,7 +93,7 @@ namespace Translation.Models
             s.DownloadCounter = 0;
             s.Ready = false;
             //s.CollaborationAllowed = false;
-            s.Contributor = 1; //TODO Getuser
+            s.Contributor = "sgsf"; //TODO Getuser
             //s.VideoType = "TODO"; //TODO input
             //s.VideoGenre = "TODO"; //TODO input
             //s.VideoDescription = "TODO"; //TODO input

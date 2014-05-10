@@ -13,7 +13,7 @@ namespace Translation.Models
         public String Name { get; set; }
         public int Upvote { get; set; }
         public bool ForHardOfHearing { get; set; }
-        public int RequestByID { get; set; } // ID a user
+        public String RequestByID { get; set; } // ID a user
         public String Language { get; set; }
         public DateTime DateCreated { get; set; }
     }

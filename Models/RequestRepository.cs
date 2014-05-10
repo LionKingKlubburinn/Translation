@@ -22,11 +22,9 @@ namespace Translation.Models
             }
         }
 
-        private List<Request> requests = null;
-
         public IEnumerable<Request> GetRequests()
         {
-            var result = from r in requests
+            var result = from r in db.Requests
                          orderby r.DateCreated ascending
                          select r;
             return result;
@@ -41,7 +39,7 @@ namespace Translation.Models
             }
             r.DateCreated = DateTime.Now;
             r.ID = newID;
-            r.RequestByID = 1; //TODO GetUser
+            r.RequestByID = "sgsf"; //TODO GetUser
             r.Upvote = 0;
             db.Requests.Add(r);
             db.SaveChanges();

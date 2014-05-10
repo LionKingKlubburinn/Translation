@@ -17,7 +17,7 @@ namespace Translation.Models
         public String TranslationText1 { get; set; }
         public String TranslationText2 { get; set; }
         public int SubtitleID { get; set; }
-        public int LastModUserID { get; set; }
+        public String LastModUserID { get; set; }
         public DateTime LastModDate { get; set; }
 
     }

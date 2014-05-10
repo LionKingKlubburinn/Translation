@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Translation.Models;
 
 namespace Translation.Controllers
@@ -28,9 +29,9 @@ namespace Translation.Controllers
             Comment c = new Comment();
             c.Text = Text;
             c.SubtitleID = id;
+            c.AuthorID = System.Web.HttpContext.Current.User.Identity.Name;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
-            //model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
