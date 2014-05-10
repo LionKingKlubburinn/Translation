@@ -26,7 +26,7 @@ namespace Translation.Models
 
         public IEnumerable<Request> GetRequests()
         {
-            var result = from r in requests
+            var result = from r in db.Requests
                          orderby r.DateCreated ascending
                          select r;
             return result;
