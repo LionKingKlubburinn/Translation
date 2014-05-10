@@ -11,14 +11,6 @@ namespace Translation.DAL
     {
         protected override void Seed(TranslateContext context)
         {
-            /*var users = new List<ApplicationUser>
-            {
-                new ApplicationUser {UserName="Einar", Email="einar", Id},
-                new ApplicationUser {UserName="Einarthor", Email="einarthor"},
-                new ApplicationUser {UserName="Einarthort", Email="einarthort"},
-            };*/
-            context.SaveChanges();
-
             var subtitles = new List<Subtitle>
             {
                 new Subtitle { ID = 1, Name = "kinglion1", CollaborationAllowed=false, Contributor=1, DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 

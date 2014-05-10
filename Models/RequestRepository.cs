@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Translation.DAL;
 
 namespace Translation.Models
 {
     public class RequestRepository
     {
         private static RequestRepository instance;
+
+        private TranslateContext db = new TranslateContext();
 
         public static RequestRepository Instance
         {
@@ -21,34 +24,6 @@ namespace Translation.Models
 
         private List<Request> requests = null;
 
-        private RequestRepository()
-        {
-            this.requests = new List<Request>();
-            Request request1 = new Request
-            {
-                DateCreated = DateTime.Now,
-                ForHardOfHearing = false,
-                ID = 1,
-                Language = "Strump",
-                Name = "Lion King",
-                RequestByID = 1,
-                Upvote = 0
-            };
-            Request request2 = new Request
-            {
-                DateCreated = DateTime.Now,
-                ForHardOfHearing = false,
-                ID = 2,
-                Language = "Strump",
-                Name = "Edda Rúta",
-                RequestByID = 2,
-                Upvote = 0
-            };
-            this.requests.Add(request1);
-            this.requests.Add(request2);
-            
-        }
-
         public IEnumerable<Request> GetRequests()
         {
             var result = from r in requests
@@ -60,18 +35,20 @@ namespace Translation.Models
         public void AddRequest(Request r)
         {
             int newID = 1;
-            if (requests.Count() > 0)
+            if (db.Requests.Count() > 0)
             {
-                newID = requests.Max(x => x.ID) + 1;
+                newID = db.Requests.Max(x => x.ID) + 1;
+            }
+            else
+            {
+                newID = 1;
             }
             r.DateCreated = DateTime.Now;
-            //r.ForHardOfHearing = false;
             r.ID = newID;
-            //r.Language = "Strump";
-            //r.Name = "Lion King";
             r.RequestByID = 1; //TODO GetUser
             r.Upvote = 0;
-            requests.Add(r);
+            db.Requests.Add(r);
+            db.SaveChanges();
         }
     }
 }
