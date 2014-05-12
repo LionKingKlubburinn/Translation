@@ -25,14 +25,12 @@
                     <li>@Html.ActionLink("Translation", "Index", "Translation")</li>
                     <li>@Html.ActionLink("Request", "Index", "Request")</li>
                 </ul>
-                <ul>
-                    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
-                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
+        @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
         @RenderBody()
         <hr />
         <footer>
