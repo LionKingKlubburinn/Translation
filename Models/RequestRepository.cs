@@ -43,5 +43,7 @@ namespace Translation.Models
             db.Requests.Add(r);
             db.SaveChanges();
         }
+
+        
     }
 }
