@@ -6,5 +6,6 @@
 <h2>Leitarniðurstöður</h2>
 @foreach (var item in Model.SubtitleItems)
 {
-    @Html.DisplayFor(modelItem => item.Name) <br />
+    @Html.ActionLink(item.Name, "Index", new { id = item.ID })
+    <br />
 }
