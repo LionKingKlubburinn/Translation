@@ -62,7 +62,7 @@ namespace Translation.Models
 
         public void ParseText(String filename, int TranslateID, String User)
         {
-            StreamReader reader = File.OpenText(@"C:\Users\Notandi\Downloads\Sherlock S03E03 Eng Subtitle.srt");//TEST TODO
+            StreamReader reader = File.OpenText(@"C:\Users\Notandi\Downloads\test.srt");//TEST TODO
             int count = 1;
             bool TextLine2Used = false;
             string line, lineID = "0", TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
