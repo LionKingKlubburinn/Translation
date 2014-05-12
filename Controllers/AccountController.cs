@@ -125,6 +125,12 @@ namespace Translation.Controllers
                 : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
                 : message == ManageMessageId.Error ? "An error has occurred."
                 : "";
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user != null)
+                ViewBag.Email = user.Email;
+            else
+                ViewBag.Email = "User not found.";;
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
