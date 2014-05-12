@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "EditFromFile";
+}
+
+<div>
+    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
+</div>
+
+<h2>Breyttu og bættu</h2>
+
+<h2>Lion King</h2>
+<h3>Simbalover</h3>
+
+@using (Html.BeginForm("EditFile", "Translation", FormMethod.Post))
+{
+    <p>
+        ....And the baboons are going ape over this
+    </p>
+
+    <span class="glyphicon glyphicon-arrow-right"></span>
+    <p>
+        <input type="text" name="FirstLine"><br>
+        <input type="text" name="FirstLine">
+
+    </p>
+
+    <input type="submit" value="Vista" />
+}
+
