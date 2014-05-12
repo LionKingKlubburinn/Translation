@@ -62,7 +62,7 @@ namespace Translation.Models
 
         public void ParseText(String filename, int TranslateID, String User)
         {
-            StreamReader reader = File.OpenText(@"C:\lionking.srt");//TEST TODO
+            StreamReader reader = File.OpenText(filename);//TEST TODO
             int count = 1;
             bool TextLine2Used = false;
             string line, lineID = "0", TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
