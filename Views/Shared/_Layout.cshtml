@@ -24,7 +24,9 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Translation", "Index", "Translation")</li>
                     <li>@Html.ActionLink("Request", "Index", "Request")</li>
-                    <li>@Html.ActionLink("User", "Index", "User")</li>
+                </ul>
+                <ul>
+                    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
