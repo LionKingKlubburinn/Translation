@@ -10,6 +10,7 @@ namespace Translation.Models
     public class TextLine
     {
         public int ID { get; set; }
+        public int RowID { get; set; }
         public String TimeStampBegin { get; set; } // Todo: annad?
         public String TimeStampEnd { get; set; }
         public String OriginalText1 { get; set; }
