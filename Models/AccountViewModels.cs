@@ -79,7 +79,11 @@ namespace Translation.Models
         [Display(Name = "Nationality")]
         public string Nationality { get; set; }
 
-        [Display(Name = "Email")]
+        [Display(Name = "Email", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "EmailRequired" )]
+        [RegularExpression(".+@.+\\..+", ErrorMessageResourceType =typeof(Resources.Resource),
+            ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
 
         [Display(Name = "Image")]
