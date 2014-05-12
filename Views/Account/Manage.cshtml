@@ -6,27 +6,36 @@
 
 <h2>@ViewBag.Title.</h2>
 
-<h1>Stilla profil</h1>
+<h1>Stilla prófíl</h1>
 
-    <h4>Notendanafn : @User.Identity.GetUserName() </h4>
-    
-
-
-
-    <p class="text-success">@ViewBag.StatusMessage</p>
-    <div class="row">
-        <div class="col-md-12">
-            @if (ViewBag.HasLocalPassword)
-            {
-                @Html.Partial("_ChangePasswordPartial")
-            }
-            else
-            {
-                @Html.Partial("_SetPasswordPartial")
-            }
-
-        </div>
+    <div> Notendanafn : @User.Identity.GetUserName() </div>
+    <div> Tölvupóstur: @System.Web.HttpContext.Current.User.Identity.Name </div>
+    <div> 
+        <p>Sýna öðrum tölvupóst:</p>
+        <form>
+            <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
+        </form> 
     </div>
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+    <div> Land: </div>
+    <div> Mynd: </div>
+
+
+
+
+            <p class="text-success">@ViewBag.StatusMessage</p>
+            <div class="row">
+                <div class="col-md-12">
+                    @if (ViewBag.HasLocalPassword)
+                    {
+                        @Html.Partial("_ChangePasswordPartial")
+                    }
+                    else
+                    {
+                        @Html.Partial("_SetPasswordPartial")
+                    }
+
+                </div>
+            </div>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }
