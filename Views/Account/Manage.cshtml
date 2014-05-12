@@ -9,7 +9,7 @@
 <h1>Stilla prófíl</h1>
 
     <div> Notendanafn : @User.Identity.GetUserName() </div>
-    <div> Tölvupóstur: @System.Web.HttpContext.Current.User.Identity.Name </div>
+    <div> Tölvupóstur: @User.Identity.GetUserId() </div>
     <div> 
         <p>Sýna öðrum tölvupóst:</p>
         <form>
