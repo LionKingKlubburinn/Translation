@@ -76,6 +76,7 @@ namespace Translation.Controllers
                 var fileName = Path.GetFileName(File.FileName);
                 var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
                 File.SaveAs(path);
+                s.File = path;
             }
             SubtitleRepository.Instance.AddSubtitle(s);
             if (s.File != "")
