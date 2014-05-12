@@ -115,5 +115,33 @@ namespace Translation.Models
                 }
             }
         }
+
+        public void ExportSubtitle(int TranslateID)
+        {
+            var result = from t in db.TextLines
+                         where t.SubtitleID == TranslateID
+                         orderby t.RowID ascending
+                         select t;
+
+            String SubtitleExport = "";
+            foreach(var item in result)
+            {
+                if (item.TranslationText2 != null)
+                {
+                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
+                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
+                }
+                else
+                {
+                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
+                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + Environment.NewLine;
+                }
+                
+            }
+            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt"); //TODO
+            file.WriteLine(SubtitleExport);
+
+            file.Close();
+        }
     }
 }
