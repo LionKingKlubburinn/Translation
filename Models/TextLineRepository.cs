@@ -30,6 +30,15 @@ namespace Translation.Models
             return result;
         }
 
+        public TextLine GetTextLine(int id, int line)
+        {
+            var result = (from t in db.TextLines
+                         where t.SubtitleID == id
+                         && t.RowID == line
+                         select t).FirstOrDefault();
+            return result;
+        }
+
         public void AddTextLine(TextLine t)
         {
             int newID = 1;

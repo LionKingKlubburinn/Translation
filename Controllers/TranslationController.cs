@@ -74,9 +74,9 @@ namespace Translation.Controllers
             if (s.File != "")
             {
                 SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
-                return RedirectToAction("EditFile", "Translation");
+                return RedirectToAction("EditFile", "Translation", new { id = db.Subtitles.Max(x => x.ID), linenum = 1 }); // WADDAFOUQ HARDCODE??
             }
-            return RedirectToAction("Edit", "Translation");
+            return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
         }
 
         [HttpGet]
@@ -95,9 +95,26 @@ namespace Translation.Controllers
             return View();
         }
 
-        public ActionResult EditFile()
+        [HttpGet]
+        public ActionResult EditFile(int id = 0, int linenum = 0)
         {
-            return View();
+            //if (id < 1 || linenum < 1)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
+            TextLine model = TextLineRepository.Instance.GetTextLine(id, linenum);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult EditFile(String Line1, String Line2, int id = 0, int linenum = 0)
+        {
+            //if (id < 1 || linenum < 1)
+            //{
+            //    return RedirectToAction("Index", "Home");
+            //}
+            linenum++;
+            return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
 
         [HttpGet]

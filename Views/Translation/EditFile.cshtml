@@ -1,4 +1,4 @@
-﻿
+﻿@model Translation.Models.TextLine
 @{
     ViewBag.Title = "EditFromFile";
 }
@@ -11,16 +11,16 @@
 @using (Html.BeginForm("EditFile", "Translation", FormMethod.Post))
 {
     <p>
-        ....And the baboons are going ape over this
+        @Html.DisplayFor(model => Model.OriginalText1) <br />
+        @Html.DisplayFor(model => Model.OriginalText2)
     </p>
 
     <span class="glyphicon glyphicon-arrow-right"></span>
     <p>
-        <input type="text" name="FirstLine"><br>
-        <input type="text" name="FirstLine">
-
+        <input type="text" name="Line1"><br>
+        <input type="text" name="Line2">
     </p>
-
+    <input type="hidden" name="linenum" value="@Request.Params["linenum"]" />
     <input type="submit" value="Vista" />
 }
 
