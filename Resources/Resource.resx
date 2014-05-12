@@ -120,4 +120,10 @@
   <data name="MainPageTitle" xml:space="preserve">
     <value>Hello world</value>
   </data>
+  <data name="PasswordRange" xml:space="preserve">
+    <value>Must be between 6 and 20</value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>User name is required</value>
+  </data>
 </root>

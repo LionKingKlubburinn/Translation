@@ -231,13 +231,13 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Request\Index.cshtml" />
     <Content Include="Views\Translation\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Translation\Read.cshtml" />
     <Content Include="Views\Translation\New.cshtml" />
     <Content Include="Views\Shared\_Search.cshtml" />
     <Content Include="Views\Translation\Edit.cshtml" />
     <Content Include="Views\Translation\Search.cshtml" />
     <Content Include="Views\Translation\EditFile.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
