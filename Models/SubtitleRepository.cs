@@ -24,12 +24,14 @@ namespace Translation.Models
             }
         }
 
-        public IEnumerable<Subtitle> GetSubtitles(String Searchstring, bool forhardofhearing, String language)
+        public IEnumerable<Subtitle> GetSubtitles(String Searchstring, bool forhardofhearing, String language, String type, String genre)
         {
             var result = from s in db.Subtitles
                          where s.Name.Contains(Searchstring)
                          && s.ForHardOfHearing == forhardofhearing
-                         && (language == null || s.Language == language)
+                         && (language == "any" || s.Language == language)
+                         && (type == "any" || s.VideoType == type)
+                         && (genre == "any" || s.VideoGenre == genre)
                          orderby s.DateCreated ascending
                          select s;
             return result;

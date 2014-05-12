@@ -98,7 +98,7 @@ namespace Translation.Controllers
         {
             var model = new ViewModel();
             bool forhardofhearing = !String.IsNullOrEmpty(hear);
-            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing, language);
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing, language, type, genre);
             return View(model);
         }
     }
