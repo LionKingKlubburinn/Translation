@@ -63,7 +63,7 @@ namespace Translation.Models
             StreamReader reader = File.OpenText(@"C:\Users\Notandi\Downloads\Sherlock S03E03 Eng Subtitle.srt");//TEST TODO
             int count = 1;
             bool TextLine2Used = false;
-            string line, lineID, TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
+            string line, lineID = "0", TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
             while ((line = reader.ReadLine()) != null)
             {
                 if(line == "")
@@ -81,7 +81,8 @@ namespace Translation.Models
                         TimeStampBegin = TimeStamp1,
                         TimeStampEnd = TimeStamp2,
                         TranslationText1 = "",
-                        TranslationText2 = ""
+                        TranslationText2 = "",
+                        RowID = Convert.ToInt32(lineID)
                     };
                     TextLineRepository.Instance.AddTextLine(t);
                     count = 1;
