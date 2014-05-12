@@ -38,14 +38,6 @@ namespace Translation.Models
                 newID = db.TextLines.Max(x => x.ID) + 1;
             }
             t.ID = newID;
-            t.TimeStampBegin = "00:00:00,103";
-            t.TimeStampEnd = "00:00:00,103";
-            t.OriginalText1 = "asdf";
-            t.OriginalText2 = "";
-            t.TranslationText1 = "asdf";
-            t.TranslationText2 = "";
-            t.SubtitleID = 1;
-            t.LastModUserID = "sgsf";
             t.LastModDate = DateTime.Now;
             db.TextLines.Add(t);
             db.SaveChanges();

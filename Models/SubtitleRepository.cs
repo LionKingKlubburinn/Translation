@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using Translation.DAL;
+using Translation.Models;
 
 namespace Translation.Models
 {
@@ -12,6 +13,7 @@ namespace Translation.Models
         private static SubtitleRepository instance;
 
         private TranslateContext db = new TranslateContext();
+        TextLineRepository tl = new TextLineRepository();
 
         public static SubtitleRepository Instance
         {
@@ -56,9 +58,9 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
-        public void ParseText()
+        public void ParseText(String filename)
         {
-            StreamReader reader = File.OpenText("filename.txt");
+            StreamReader reader = File.OpenText(filename);
             int count = 1;
             bool TextLine2Used = false;
             string line, lineID, TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
@@ -70,9 +72,8 @@ namespace Translation.Models
                     {
                         TextLine2 = "";
                     }
-                        new TextLine
+                        TextLine t = new TextLine
                     {
-                        LastModDate = DateTime.Now,
                         LastModUserID = System.Web.HttpContext.Current.User.Identity.Name,
                         OriginalText1 = TextLine1,
                         OriginalText2 = TextLine2,
@@ -82,6 +83,7 @@ namespace Translation.Models
                         TranslationText1 = "",
                         TranslationText2 = ""
                     };
+                    tl.AddTextLine(t);
                     count = 1;
                     TextLine2Used = false;
                 }
