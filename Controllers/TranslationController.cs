@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -57,7 +58,7 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        public ActionResult New(FormCollection form)
+        public ActionResult New(FormCollection form, HttpPostedFileBase File)
         {
             Subtitle s = new Subtitle();
             s.Name = form["Name"];
@@ -69,7 +70,13 @@ namespace Translation.Controllers
             s.VideoType = form["VideoType"];
             s.VideoGenre = form["VideoGenre"];
             s.Picture = form["Picture"];
-            s.File = form["File"];
+            //s.File = form["File"];
+            if (File.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(File.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                File.SaveAs(path);
+            }
             SubtitleRepository.Instance.AddSubtitle(s);
             if (s.File != "")
             {
@@ -80,10 +87,9 @@ namespace Translation.Controllers
         }
 
         [HttpGet]
-        public ActionResult New(String name, String hear, String language)
+        public ActionResult New(String name, String language, String hear = "False")
         {
             // TODO: make language work
-            // TODO: hvad ef parametrar eru ekki notadir?
             Subtitle model = new Subtitle();
             model.Name = name;
             model.ForHardOfHearing = hear.Contains("True");
