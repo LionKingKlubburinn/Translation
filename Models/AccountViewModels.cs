@@ -45,8 +45,12 @@ namespace Translation.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [Display(Name = "User name")]
+        //[Required]
+        [Display(Name = "User name", ResourceType = typeof(Resources.Resources))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+            ErrorMessageResourceName = "UserNameRequired")]
+        [StringLength(30, ErrorMessageResourceType = typeof(Resource.Resources),
+            ErrorMessageResourceName = "UserNameLong")]
         public string UserName { get; set; }
 
         [Required]
