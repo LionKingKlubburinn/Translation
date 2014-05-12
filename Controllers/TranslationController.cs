@@ -62,7 +62,7 @@ namespace Translation.Controllers
             s.Picture = form["Picture"];
             s.File = form["File"];
             SubtitleRepository.Instance.AddSubtitle(s);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Edit", "Translation");
         }
         public ActionResult New()
         {
