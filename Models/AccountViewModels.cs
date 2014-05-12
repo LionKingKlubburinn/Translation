@@ -50,7 +50,7 @@ namespace Translation.Models
 
         //[Required]
 
-        [Display(Name = "User name", ResourceType = typeof(Resources.Resource))]
+       /* [Display(Name = "User name", ResourceType = typeof(Resources.Resource))]
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "UserNameRequired")]
         [StringLength(30, ErrorMessageResourceType = typeof(Resources.Resource),
@@ -64,7 +64,7 @@ namespace Translation.Models
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "PasswordRequired")]
         [Range(6, 20, ErrorMessageResourceType = typeof(Resources.Resource),
-            ErrorMessageResourceName = "PasswordRange")]
+            ErrorMessageResourceName = "PasswordRange")]*/
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
