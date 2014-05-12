@@ -319,6 +319,17 @@ namespace Translation.Controllers
             base.Dispose(disposing);
         }
 
+        //public ActionResult getEmail(int id)
+            //B'ua til user/account Repo
+                // Flettir upp email 'i user toflu fyrir thetta user id
+                
+        /*public IEnumerable<Comment> getEmail(int id)
+        {
+            
+            var result = 
+            return (Email);
+        }*/
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
