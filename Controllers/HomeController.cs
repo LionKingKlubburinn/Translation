@@ -4,11 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Translation.DAL;
+using Translation.Helpers;
 using Translation.Models;
 
 namespace Translation.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller 
     {
         private TranslateContext db = new TranslateContext();
 
@@ -24,4 +25,6 @@ namespace Translation.Controllers
                 query = query, hear = hear, language = language, type = type, genre = genre });
         }
     }
+
+    
 }

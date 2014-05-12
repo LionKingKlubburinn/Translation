@@ -73,7 +73,8 @@ namespace Translation.Controllers
             SubtitleRepository.Instance.AddSubtitle(s);
             if (s.File != null)
             {
-                SubtitleRepository.Instance.ParseText(s.File, s.ID);
+                SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID));
+                return RedirectToAction("EditFile", "Translation");
             }
             return RedirectToAction("Edit", "Translation");
         }
