@@ -54,7 +54,6 @@ namespace Translation.Models
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "UserNameRequired")]
         [StringLength(30, ErrorMessageResourceType = typeof(Resources.Resource),
-
             ErrorMessageResourceName = "UserNameLong")]
         public string UserName { get; set; }
 
