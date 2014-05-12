@@ -17,10 +17,16 @@
         </form> 
     </div>
     <div> Land: </div>
-    <div> Mynd: </div>
 
+    <div>     
+        <form method="POST" enctype="multipart/form-data" action="Upload.asp">
+            <label for="photo">Photo:</label>
+            <input type=FILE name="FILE1">
+            <input type=SUBMIT value="Upload">
+        </form>
+    </div>
 
-
+<input type="submit" value="Breyta" />
 
             <p class="text-success">@ViewBag.StatusMessage</p>
             <div class="row">
