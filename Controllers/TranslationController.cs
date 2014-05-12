@@ -83,6 +83,7 @@ namespace Translation.Controllers
         public ActionResult New(String name, String hear, String language)
         {
             // TODO: make language work
+            // TODO: hvad ef parametrar eru ekki notadir?
             Subtitle model = new Subtitle();
             model.Name = name;
             model.ForHardOfHearing = hear.Contains("True");
@@ -98,10 +99,10 @@ namespace Translation.Controllers
         [HttpGet]
         public ActionResult EditFile(int id = 0, int linenum = 0)
         {
-            //if (id < 1 || linenum < 1)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
+            if (id < 1 || linenum < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             TextLine model = TextLineRepository.Instance.GetTextLine(id, linenum);
             return View(model);
         }
@@ -109,10 +110,10 @@ namespace Translation.Controllers
         [HttpPost]
         public ActionResult EditFile(String Line1, String Line2, int id = 0, int linenum = 0)
         {
-            //if (id < 1 || linenum < 1)
-            //{
-            //    return RedirectToAction("Index", "Home");
-            //}
+            if (id < 1 || linenum < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             linenum++;
             return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
