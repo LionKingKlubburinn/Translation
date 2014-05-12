@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -69,7 +70,12 @@ namespace Translation.Controllers
             s.VideoType = form["VideoType"];
             s.VideoGenre = form["VideoGenre"];
             s.Picture = form["Picture"];
-            s.File = form["File"];
+            //file = form["File"];
+
+            //var fileName = Path.GetFileName(file.FileName);
+            //var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+            //file.SaveAs(path);
+
             SubtitleRepository.Instance.AddSubtitle(s);
             if (s.File != "")
             {
