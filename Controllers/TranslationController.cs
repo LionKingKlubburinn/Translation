@@ -71,7 +71,7 @@ namespace Translation.Controllers
             s.Picture = form["Picture"];
             s.File = form["File"];
             SubtitleRepository.Instance.AddSubtitle(s);
-            if (s.File != null)
+            if (s.File != "")
             {
                 SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
                 return RedirectToAction("EditFile", "Translation");
