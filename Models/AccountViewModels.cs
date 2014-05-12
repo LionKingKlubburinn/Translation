@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Resources;
 
 namespace Translation.Models
 {
@@ -45,12 +46,14 @@ namespace Translation.Models
 
     public class RegisterViewModel
     {
+       
+
         //[Required]
-       /* [Display(Name = "User name", ResourceType = typeof(Resources.Resources))]
-         [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+        [Display(Name = "User name", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "UserNameRequired")]
-        [StringLength(30, ErrorMessageResourceType = typeof(Resources.Resources),
-            ErrorMessageResourceName = "UserNameLong")]*/
+        [StringLength(30, ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "UserNameLong")]
         public string UserName { get; set; }
 
         [Required]
