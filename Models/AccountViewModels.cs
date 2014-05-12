@@ -47,9 +47,9 @@ namespace Translation.Models
     {
         //[Required]
         [Display(Name = "User name"/*, ResourceType = typeof(Resources.Resources)*/)]
-        /*[Required(ErrorMessageResourceType = typeof(Resources.Resources),
-            ErrorMessageResourceName = "UserNameRequired")]
-        [StringLength(30, ErrorMessageResourceType = typeof(Resource.Resources),
+        /* [Required(ErrorMessageResourceType = typeof(Resources.Resources),
+             ErrorMessageResourceName = "UserNameRequired")]
+        [StringLength(30, ErrorMessageResourceType = typeof(Resources.Resources),
             ErrorMessageResourceName = "UserNameLong")]*/
         public string UserName { get; set; }
 
