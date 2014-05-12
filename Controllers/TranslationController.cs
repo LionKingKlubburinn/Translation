@@ -62,6 +62,10 @@ namespace Translation.Controllers
             s.Picture = form["Picture"];
             s.File = form["File"];
             SubtitleRepository.Instance.AddSubtitle(s);
+            if (s.File != null)
+            {
+                SubtitleRepository.Instance.ParseText(s.File, s.ID);
+            }
             return RedirectToAction("Edit", "Translation");
         }
         public ActionResult New()

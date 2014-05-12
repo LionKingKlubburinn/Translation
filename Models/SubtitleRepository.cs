@@ -57,7 +57,7 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
-        public void ParseText(String filename)
+        public void ParseText(String filename, int TranslateID)
         {
             StreamReader reader = File.OpenText(filename);
             int count = 1;
@@ -76,7 +76,7 @@ namespace Translation.Models
                         LastModUserID = System.Web.HttpContext.Current.User.Identity.Name,
                         OriginalText1 = TextLine1,
                         OriginalText2 = TextLine2,
-                        SubtitleID = 1, //TODO
+                        SubtitleID = TranslateID,
                         TimeStampBegin = TimeStamp1,
                         TimeStampEnd = TimeStamp2,
                         TranslationText1 = "",
