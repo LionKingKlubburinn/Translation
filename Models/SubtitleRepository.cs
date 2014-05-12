@@ -60,7 +60,7 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
-        public void ParseText(String filename, int TranslateID)
+        public void ParseText(String filename, int TranslateID, String User)
         {
             StreamReader reader = File.OpenText(@"C:\Users\Notandi\Downloads\Sherlock S03E03 Eng Subtitle.srt");//TEST TODO
             int count = 1;
@@ -76,7 +76,7 @@ namespace Translation.Models
                     }
                         TextLine t = new TextLine
                     {
-                        LastModUserID = System.Web.HttpContext.Current.User.Identity.Name,
+                        LastModUserID = User,
                         OriginalText1 = TextLine1,
                         OriginalText2 = TextLine2,
                         SubtitleID = TranslateID,
