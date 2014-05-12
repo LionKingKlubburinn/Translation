@@ -14,27 +14,36 @@ namespace Translation.Controllers
         private TranslateContext db = new TranslateContext();
 
         // GET /Translation/1
-        public ActionResult Index(int id = 1)
+        public ActionResult Index(int id = 0)
         {
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             // Viewmodel, jeij
             //int id = 1;
             var model = new ViewModel();
-            //model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
+            model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
         }
 
-        // POST /Translation/
+        // POST /Translation/1
         [HttpPost]
-        public ActionResult Index(string Text, int id = 1)
+        public ActionResult Index(string Text, int id = 0)
         {
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             Comment c = new Comment();
             c.Text = Text;
             c.SubtitleID = id;
             c.AuthorID = System.Web.HttpContext.Current.User.Identity.Name;
             CommentRepository.Instance.AddComment(c);
             var model = new ViewModel();
+            model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
 
             return View(model);
@@ -88,7 +97,7 @@ namespace Translation.Controllers
         {
             var model = new ViewModel();
             bool forhardofhearing = !String.IsNullOrEmpty(hear);
-            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing);
+            model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing, language);
             return View(model);
         }
     }

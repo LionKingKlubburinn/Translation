@@ -14,13 +14,13 @@ namespace Translation.DAL
             var subtitles = new List<Subtitle>
             {
                 new Subtitle { ID = 1, Name = "kinglion1", CollaborationAllowed=false, Contributor="erge", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="islansk", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar"},
+                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar"},
                 new Subtitle { ID = 2, Name = "kinglion2", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="islansk", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
+                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
                 new Subtitle { ID = 3, Name = "kinglion3", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="islansk", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
+                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
                 new Subtitle { ID = 4, Name = "kinglion4", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="islansk", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
+                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
             };
             subtitles.ForEach(s => context.Subtitles.Add(s));
             context.SaveChanges();
