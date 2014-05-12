@@ -42,5 +42,12 @@ namespace Translation.Models
             db.TextLines.Add(t);
             db.SaveChanges();
         }
+
+        public void ChangeTextLine(TextLine t)
+        {
+            t.LastModDate = DateTime.Now;
+            db.TextLines.Add(t);
+            db.SaveChanges();
+        }
     }
 }

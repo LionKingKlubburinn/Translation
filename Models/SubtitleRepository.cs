@@ -13,7 +13,6 @@ namespace Translation.Models
         private static SubtitleRepository instance;
 
         private TranslateContext db = new TranslateContext();
-        TextLineRepository tl = new TextLineRepository();
 
         public static SubtitleRepository Instance
         {
@@ -83,7 +82,7 @@ namespace Translation.Models
                         TranslationText1 = "",
                         TranslationText2 = ""
                     };
-                    tl.AddTextLine(t);
+                    TextLineRepository.Instance.AddTextLine(t);
                     count = 1;
                     TextLine2Used = false;
                 }
