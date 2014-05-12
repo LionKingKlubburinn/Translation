@@ -22,30 +22,9 @@ namespace Translation.Models
             }
         }
 
-        private List<TextLine> textline = null;
-
-        /*private TextLineRepository()
-        {
-            this.textline = new List<TextLine>();
-            TextLine textline1 = new TextLine
-            { 
-                ID = 1, 
-                TimeStampBegin = new TimeSpan(0, 0, 0, 0, 1), 
-                TimeStampEnd = new TimeSpan(0, 0, 0, 0, 3),
-                OriginalText1 = "asdf",
-                OriginalText2 = "",
-                TranslationText1 = "asdf",
-                TranslationText2 = "",
-                SubtitleID = 1,
-                LastModUserID = "sgsf",
-                LastModDate = DateTime.Now,
-            };
-            this.textline.Add(textline1);
-        }*/
-
         public IEnumerable<TextLine> GetTextLines()
         {
-            var result = from t in textline
+            var result = from t in db.TextLines
                          orderby t.TimeStampBegin ascending
                          select t;
             return result;
@@ -59,8 +38,8 @@ namespace Translation.Models
                 newID = db.TextLines.Max(x => x.ID) + 1;
             }
             t.ID = newID;
-            t.TimeStampBegin = new TimeSpan(0, 0, 0, 0, 1);
-            t.TimeStampEnd = new TimeSpan(0, 0, 0, 0, 3);
+            t.TimeStampBegin = "00:00:00,103";
+            t.TimeStampEnd = "00:00:00,103";
             t.OriginalText1 = "asdf";
             t.OriginalText2 = "";
             t.TranslationText1 = "asdf";

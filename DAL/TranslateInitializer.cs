@@ -47,14 +47,14 @@ namespace Translation.DAL
 
             var textLines = new List<TextLine>
             {
-                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
-                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
-                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
-                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=4, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin=new TimeSpan(), 
-                    TimeStampEnd=new TimeSpan(), TranslationText1="juttebro", TranslationText2="kikke po teve"}
+                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                    TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                    TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                    TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=4, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                    TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"}
             };
             textLines.ForEach(t => context.TextLines.Add(t));
             context.SaveChanges();

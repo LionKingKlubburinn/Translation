@@ -10,8 +10,8 @@ namespace Translation.Models
     public class TextLine
     {
         public int ID { get; set; }
-        public TimeSpan TimeStampBegin { get; set; } // Todo: annad?
-        public TimeSpan TimeStampEnd { get; set; }
+        public String TimeStampBegin { get; set; } // Todo: annad?
+        public String TimeStampEnd { get; set; }
         public String OriginalText1 { get; set; }
         public String OriginalText2 { get; set; }
         public String TranslationText1 { get; set; }

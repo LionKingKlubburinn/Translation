@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using Translation.DAL;
@@ -53,6 +54,61 @@ namespace Translation.Models
             s.Ready = false;
             db.Subtitles.Add(s);
             db.SaveChanges();
+        }
+
+        public void ParseText()
+        {
+            StreamReader reader = File.OpenText("filename.txt");
+            int count = 1;
+            bool TextLine2Used = false;
+            string line, lineID, TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
+            while ((line = reader.ReadLine()) != null)
+            {
+                if(line == "")
+                {
+                    if (!TextLine2Used)
+                    {
+                        TextLine2 = "";
+                    }
+                        new TextLine
+                    {
+                        LastModDate = DateTime.Now,
+                        LastModUserID = System.Web.HttpContext.Current.User.Identity.Name,
+                        OriginalText1 = TextLine1,
+                        OriginalText2 = TextLine2,
+                        SubtitleID = 1, //TODO
+                        TimeStampBegin = TimeStamp1,
+                        TimeStampEnd = TimeStamp2,
+                        TranslationText1 = "",
+                        TranslationText2 = ""
+                    };
+                    count = 1;
+                    TextLine2Used = false;
+                }
+                else if(count == 1)
+                {
+                    lineID = line;
+                    count++;
+                }
+                else if (count == 2)
+                {
+                    string[] part = line.Split(' ');
+                    TimeStamp1 = part[0];
+                    TimeStamp2 = part[2];
+                    count++;
+                }
+                else if (count == 3)
+                {
+                    TextLine1 = line;
+                    count++;
+                }
+                else if (count == 4)
+                {
+                    TextLine2 = line;
+                    TextLine2Used = true;
+                    count++;
+                }
+            }
         }
     }
 }
