@@ -78,9 +78,16 @@ namespace Translation.Controllers
             }
             return RedirectToAction("Edit", "Translation");
         }
-        public ActionResult New()
+
+        [HttpGet]
+        public ActionResult New(String name, String hear, String language)
         {
-            return View();
+            // TODO: make language work
+            Subtitle model = new Subtitle();
+            model.Name = name;
+            model.ForHardOfHearing = hear.Contains("True");
+            model.Language = language;
+            return View(model);
         }
 
         public ActionResult Edit()

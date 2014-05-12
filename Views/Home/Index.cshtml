@@ -13,7 +13,7 @@
     <input type="checkbox" name="hear">
     <label for="heyrnarskertur">Texti fyrir heyrnarskerta</label>
      
-    <select id="language">     
+    <select id="language" name="language">     
     <option value="any" selected="selected">Tungumál</option>
     <option value="is">íslenska</option>
     <option value="en">enska</option>
@@ -50,6 +50,9 @@
                     <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
                     <td>@Html.DisplayFor(model => item.Language)</td>
                     <td>@Html.DisplayFor(model => item.Upvote)</td>
+                    <td><input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new { 
+                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language 
+                   })'" /></td>
                 </tr>
             }
         </tbody>
