@@ -63,8 +63,8 @@ namespace Translation.Models
         [Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
         [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "PasswordRequired")]
-        [StringLength(20, ErrorMessageResourceType = typeof(Resources.Resource),
-            ErrorMessageResourceName = "PasswordLong")]
+        [Range(6, 20, ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "PasswordRange")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
