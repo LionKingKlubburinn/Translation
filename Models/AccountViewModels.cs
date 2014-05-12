@@ -57,10 +57,14 @@ namespace Translation.Models
             ErrorMessageResourceName = "UserNameLong")]
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+       // [Required]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+             ErrorMessageResourceName = "PasswordRequired")]
+        [StringLength(20, ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "PasswordLong")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
