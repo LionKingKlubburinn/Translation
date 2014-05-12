@@ -128,9 +128,17 @@ namespace Translation.Controllers
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
+            {
                 ViewBag.Email = user.Email;
+                ViewBag.Nationality = user.Nationality;
+                ViewBag.DateCreated = user.DateCreated;
+            }
             else
-                ViewBag.Email = "User not found.";;
+            {
+                ViewBag.Email = "Not found.";
+                ViewBag.Nationality = "Not found.";
+                ViewBag.DateCreated = "Not found.";
+            }
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
@@ -328,6 +336,20 @@ namespace Translation.Controllers
 
         public ActionResult Index()
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user != null)
+            {
+                ViewBag.Email = user.Email;
+                ViewBag.Nationality = user.Nationality;
+                ViewBag.DateCreated = user.DateCreated;
+            }
+            else
+            {
+                ViewBag.Email = "Not found.";
+                ViewBag.Nationality = "Not found.";
+                ViewBag.DateCreated = "Not found.";
+            }
             return View();
         }
 
