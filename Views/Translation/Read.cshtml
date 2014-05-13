@@ -8,9 +8,11 @@
 
 @foreach (var item in Model)
 {
-    <div class="news-item">
-        <span class="news-time">@Html.DisplayFor(model => item.OriginalText1)&nbsp;</span>
-    </div>
+    <p>
+        @Html.DisplayFor(model => item.TranslationText1)
+    </p>
+    <p>
+        @Html.DisplayFor(model => item.TranslationText2)
+    </p>
 }
-
-
+@Html.ActionLink("Til baka", "Index", new { id = Model.First().SubtitleID })
