@@ -1,65 +1,80 @@
 ﻿@model IEnumerable<Translation.Models.Request>
-
+@Styles.Render("~/Content/Home.css")
 @{
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
     ViewBag.Title = "Index";
 }
 
-<div id="form">
-   @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-   {
-       @Html.TextBox("query")
-       <input type="submit" value="Leita" />      
-       
-    <input type="checkbox" name="hear">
-    <label for="heyrnarskertur">Texti fyrir heyrnarskerta</label>
-     
-    <select id="language" name="language">     
-    <option value="any" selected="selected">Tungumál</option>
-    <option value="is">íslenska</option>
-    <option value="en">enska</option>
-    </select>   
-     
-    <select id="tegund" name="type">     
-    <option value="any" selected="selected">Tegund</option>
-    <option value="Kvikmynd">Kvikmynd</option>
-    <option value="Þáttur">Þáttur</option>
-    </select>  
-       
-    <select id="flokkur" name="genre">     
-    <option value="any" selected="selected">Allir flokkar</option>
-    <option value="Drama">Drama</option>
-    <option value="Fantasía">Fantasía</option>
-    <option value="Gamanmynd">Gamanmynd</option>
-    <option value="Hasar">Hasar</option>
-    <option value="Rómantík">Rómantík</option>
-    <option value="Teiknimynd">Teiknimynd</option>
-    <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
-    <option value="Ævintýri">Ævintýri</option>
-    </select> 
-   }
-</div>
+<div id="main-container">
+    <img id="logo-big" src="@Url.Content("~/Content/logo.jpg")" />
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <table class="search">
+            <tr>
+                <td colspan="3">
+                    @Html.TextBox("query")
+                </td><td>
+                    <input type="submit" value="Leita" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="language" name="language">
+                        <option value="any" selected="selected">Tungumál</option>
+                        <option value="is">íslenska</option>
+                        <option value="en">enska</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="tegund" name="type">
+                        <option value="any" selected="selected">Tegund</option>
+                        <option value="Kvikmynd">Kvikmynd</option>
+                        <option value="Þáttur">Þáttur</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="flokkur" name="genre">
+                        <option value="any" selected="selected">Allir flokkar</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Fantasía">Fantasía</option>
+                        <option value="Gamanmynd">Gamanmynd</option>
+                        <option value="Hasar">Hasar</option>
+                        <option value="Rómantík">Rómantík</option>
+                        <option value="Teiknimynd">Teiknimynd</option>
+                        <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
+                        <option value="Ævintýri">Ævintýri</option>
+                    </select>
+                </td>
+                <td>
+                    <label for="heyrnarskertur">Texti fyrir heyrnarskerta</label>
+                    <input type="checkbox" name="hear">
+                </td>
+            </tr>
+        </table>
+    }
 
-<div id="table">
-    <table>
-        <caption><b>Beiðnir</b></caption>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(model => item.Name)</td>
-                    <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
-                    <td>@Html.DisplayFor(model => item.Language)</td>
-                    <td>@Html.DisplayFor(model => item.Upvote)</td>
-                    <td><input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new { 
-                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language 
-                   })'" /></td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+    <div id="table">
+        <table>
+            <caption><b>Beiðnir</b></caption>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.Name)</td>
+                        <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
+                        <td>@Html.DisplayFor(model => item.Language)</td>
+                        <td>@Html.DisplayFor(model => item.Upvote)</td>
+                        <td>
+                            <input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new {
+                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language
+                   })'" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
     <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
     <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
-    
-
+</div>

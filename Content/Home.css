@@ -1,0 +1,13 @@
+﻿#main-container {
+    width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: pink;
+}
+
+#logo-big {
+    width: 620px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
