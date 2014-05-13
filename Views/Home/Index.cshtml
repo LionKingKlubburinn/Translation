@@ -14,10 +14,16 @@
 }
 
 <script type="text/javascript">
-    var count = 0;
-    function countClicks() {
-        count++;
-        document.getElementById("p2").innerHTML = count;
+    function modify_qty(val) {
+        var qty = document.getElementById('qty').value;
+        var new_qty = parseInt(qty, 10) + val;
+
+        if (new_qty < 0) {
+            new_qty = 0;
+        }
+
+        document.getElementById('qty').value = new_qty;
+        return new_qty;
     }
 </script>
 
@@ -40,8 +46,12 @@
                     <td><input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new { 
                        name = item.Name, hear = item.ForHardOfHearing, langage = item.Language 
                    })'" /></td>
-                    <td><p><a href="javascript:countClicks();"><img onclick="javascript:countClicks();" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-128.png" alt="alt text" height="30"  /></a></p>
-                    <p id="p2">0</p>
+                    <td>
+                        <div class="box">
+                            <label for="qty" id="labe"><abbr title="Quantity"></abbr></label>
+                            <input id="qty" value="0" />
+                            <button id="up" onclick="modify_qty(1)"><img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-512.png" id="like" /></button>
+                        </div>
                     </td>
                 </tr>
             }
@@ -49,14 +59,6 @@
     </table>
 </div>
 
-@*<script type="text/javascript">
-    var clicks = 0;
-    function linkClick() {
-        document.getElementById('clicked').value = ++clicks;
-    }
-
-    document.write('<a href="javascript:linkClick()"><img onclick="javascript:linkClick()" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-128.png" alt="alt text" height="30"  /></a>');
-    </script>*@
 
     <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
     <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
