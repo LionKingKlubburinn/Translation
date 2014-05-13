@@ -51,9 +51,13 @@ namespace Translation.Controllers
         }
 
         // GET /Translation/Read/
-        public ActionResult Read()
+        public ActionResult Read(int id = 0)
         {
-            var text = TextLineRepository.Instance.GetTextLines();
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var text = TextLineRepository.Instance.GetTextLines(id);
             return View(text);
         }
 

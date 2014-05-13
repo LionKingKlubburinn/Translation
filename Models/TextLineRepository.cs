@@ -22,9 +22,10 @@ namespace Translation.Models
             }
         }
 
-        public IEnumerable<TextLine> GetTextLines()
+        public IEnumerable<TextLine> GetTextLines(int id)
         {
             var result = from t in db.TextLines
+                         where t.SubtitleID == id
                          orderby t.TimeStampBegin ascending
                          select t;
             return result;
