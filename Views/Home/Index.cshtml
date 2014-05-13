@@ -3,7 +3,24 @@
 @{
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
     ViewBag.Title = "Index";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
 }
+@helper selected(string c, string culture)
+{
+    if (c == culture)
+    {
+        @:checked="checked"
+    }
+}
+
+<script type="text/javascript">
+    var count = 0;
+    function countClicks() {
+        count++;
+        document.getElementById("p2").innerHTML = count;
+    }
+</script>
+
 
 <div id="main-container">
     <img id="logo-big" src="@Url.Content("~/Content/logo.jpg")" />
@@ -53,28 +70,155 @@
         </table>
     }
 
-    <div id="table">
-        <table>
-            <caption><b>Beiðnir</b></caption>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.DisplayFor(model => item.Name)</td>
-                        <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
-                        <td>@Html.DisplayFor(model => item.Language)</td>
-                        <td>@Html.DisplayFor(model => item.Upvote)</td>
-                        <td>
-                            <input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new {
-                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language
-                   })'" />
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+<div id="table">
+    <table>
+        <caption><b>Beiðnir</b></caption>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => item.Name)</td>
+                    <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
+                    <td>@Html.DisplayFor(model => item.Language)</td>
+                    <td>@Html.DisplayFor(model => item.Upvote)</td>
+                    <td><input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new { 
+                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language 
+                   })'" /></td>
+                    <td><p><a href="javascript:countClicks();"><img onclick="javascript:countClicks();" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-128.png" alt="alt text" height="30"  /></a></p>
+                    <p id="p2">0</p>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@*<script type="text/javascript">
+    var clicks = 0;
+    function linkClick() {
+        document.getElementById('clicked').value = ++clicks;
+    }
+
+    document.write('<a href="javascript:linkClick()"><img onclick="javascript:linkClick()" src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-128.png" alt="alt text" height="30"  /></a>');
+    </script>*@
 
     <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
     <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
+
+
+@*@using (Html.BeginForm("SetCulture", "Home"))
+{
+    <fieldset>
+        <legend>Choose Language</legend>
+        <div class="control-group">
+            <div class="controls">
+                <label for="en-us">
+                    <input name="culture" id="en-us" value="en-us" type="radio" @selected("en-us", culture) /> English
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label for="es">
+                    <input name="culture" id="es" value="es" type="radio" @selected("es", culture) /> Español
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label for="ar">
+                    <input name="culture" id="ar" value="ar" type="radio" @selected("ar", culture) /> العربية
+                </label>
+            </div>
+        </div>
+
+    </fieldset>
+
+
+
+}*@
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Firstname, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName)
+                @Html.ValidationMessageFor(model => model.FirstName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName)
+                @Html.ValidationMessageFor(model => model.LastName)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Age)
+                @Html.ValidationMessageFor(model => model.Age)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Biography, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Biography)
+                @Html.ValidationMessageFor(model => model.Biography)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        (function ($) {
+            $("input[type = 'radio']").click(function () {
+                $(this).parents("form").submit(); // post form
+            });
+
+        })(jQuery);
+    </script>
+}*@
+
+@*@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink(User.Identity.GetUserName(), "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">@Resources.LogOff</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink(Resources.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(Resources.LogOn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}*@
+
 </div>
