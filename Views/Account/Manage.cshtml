@@ -1,5 +1,4 @@
 ﻿﻿@using Translation.Models;
-@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Manage Account";
 }
@@ -8,7 +7,7 @@
 
 <h1>Stilla prófíl</h1>
 
-    <div> Notendanafn : @User.Identity.GetUserName() </div>
+    <div> Notendanafn : @ViewBag.UserName </div>
     <div> Tölvupóstur:  @ViewBag.Email</div>
     <div> 
         <p>Sýna öðrum tölvupóst:</p>

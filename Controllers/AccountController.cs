@@ -129,12 +129,14 @@ namespace Translation.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
+                ViewBag.UserName = user.UserName;
                 ViewBag.Email = user.Email;
                 ViewBag.Nationality = user.Nationality;
                 ViewBag.DateCreated = user.DateCreated;
             }
             else
             {
+                ViewBag.UserName = "Not found.";
                 ViewBag.Email = "Not found.";
                 ViewBag.Nationality = "Not found.";
                 ViewBag.DateCreated = "Not found.";
@@ -340,12 +342,14 @@ namespace Translation.Controllers
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
+                ViewBag.UserName = user.UserName;
                 ViewBag.Email = user.Email;
                 ViewBag.Nationality = user.Nationality;
                 ViewBag.DateCreated = user.DateCreated;
             }
             else
             {
+                ViewBag.UserName = "Not found.";
                 ViewBag.Email = "Not found.";
                 ViewBag.Nationality = "Not found.";
                 ViewBag.DateCreated = "Not found.";
