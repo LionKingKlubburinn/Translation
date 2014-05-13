@@ -63,7 +63,7 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        public ActionResult New(FormCollection form, HttpPostedFileBase File)
+        public ActionResult New(FormCollection form, HttpPostedFileBase File/*, HttpPostedFileBase Picture*/)
         {
             Subtitle s = new Subtitle();
             s.Name = form["Name"];
@@ -75,8 +75,15 @@ namespace Translation.Controllers
             s.VideoType = form["VideoType"];
             s.VideoGenre = form["VideoGenre"];
             s.Picture = form["Picture"];
+            /*if (Picture != null && Picture.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(Picture.FileName);
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                Picture.SaveAs(path);
+                s.Picture = path;
+            }*/
             //s.File = form["File"];
-            if (File.ContentLength > 0)
+            if (File != null && File.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(File.FileName);
                 var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
@@ -84,10 +91,10 @@ namespace Translation.Controllers
                 s.File = path;
             }
             SubtitleRepository.Instance.AddSubtitle(s);
-            if (s.File != "")
+            if (s.File != null)
             {
                 SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
-                return RedirectToAction("EditFile", "Translation", new { id = db.Subtitles.Max(x => x.ID), linenum = 1 }); // WADDAFOUQ HARDCODE??
+                return RedirectToAction("EditFile", "Translation", new { id = db.Subtitles.Max(x => x.ID), linenum = 1 });
             }
             return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
         }
