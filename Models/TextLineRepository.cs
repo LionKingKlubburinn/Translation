@@ -22,9 +22,10 @@ namespace Translation.Models
             }
         }
 
-        public IEnumerable<TextLine> GetTextLines()
+        public IEnumerable<TextLine> GetTextLines(int id)
         {
             var result = from t in db.TextLines
+                         where t.SubtitleID == id
                          orderby t.TimeStampBegin ascending
                          select t;
             return result;
@@ -52,10 +53,16 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
-        public void ChangeTextLine(TextLine t)
+        public void ChangeTextLine(int id, int line, String newline1, String newline2)
         {
-            t.LastModDate = DateTime.Now;
-            db.TextLines.Add(t);
+            var textline = (from t in db.TextLines
+                          where t.SubtitleID == id
+                          && t.RowID == line
+                          select t).FirstOrDefault();
+
+            textline.LastModDate = DateTime.Now;
+            textline.TranslationText1 = newline1;
+            textline.TranslationText2 = newline2;
             db.SaveChanges();
         }
     }

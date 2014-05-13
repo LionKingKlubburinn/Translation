@@ -51,9 +51,13 @@ namespace Translation.Controllers
         }
 
         // GET /Translation/Read/
-        public ActionResult Read()
+        public ActionResult Read(int id = 0)
         {
-            var text = TextLineRepository.Instance.GetTextLines();
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var text = TextLineRepository.Instance.GetTextLines(id);
             return View(text);
         }
 
@@ -106,7 +110,7 @@ namespace Translation.Controllers
         [HttpGet]
         public ActionResult EditFile(int id = 0, int linenum = 0)
         {
-            if (id < 1 || linenum < 1)
+            if (id < 1 || linenum < 1 || linenum > db.TextLines.Max(x => x.RowID))
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -115,13 +119,22 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditFile(String Line1, String Line2, int id = 0, int linenum = 0)
+        public ActionResult EditFile(String Line1, String Line2, String direction, int id = 0, int linenum = 0)
         {
-            if (id < 1 || linenum < 1)
+            if (id < 1 || linenum < 1 || linenum > db.TextLines.Max(x => x.RowID))
             {
                 return RedirectToAction("Index", "Home");
             }
-            linenum++;
+            
+            TextLineRepository.Instance.ChangeTextLine(id, linenum, Line1, Line2);
+            if (direction == "<<" && linenum > 1)
+            {
+                linenum--;
+            }
+            else if (direction == ">>" && linenum < db.TextLines.Max(x => x.RowID))
+            {
+                linenum++;
+            }
             return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
 

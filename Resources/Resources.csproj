@@ -45,8 +45,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resource.is.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.is.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resource.is.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.is.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>

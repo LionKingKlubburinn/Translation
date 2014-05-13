@@ -18,7 +18,9 @@
 <div id="LionKing">
     <h3>@Html.DisplayFor(x => x.SubtitleItem.Name)</h3>
 </div>
-
+<p>
+    @Html.DisplayFor(x => x.SubtitleItem.VideoDescription)
+</p>
 <table>
     <thead>
         <tr>
@@ -42,6 +44,9 @@
         </tr>
     </tbody>
 </table>
+<p>
+    @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
+</p>
 
 <input type="button" value="Sækja" />
 

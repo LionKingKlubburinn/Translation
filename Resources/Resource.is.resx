@@ -118,30 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConfirmPasswordRequired" xml:space="preserve">
-    <value>Confirmation is required</value>
+    <value>Staðfesting er nauðsynleg</value>
   </data>
   <data name="EmailInvalid" xml:space="preserve">
-    <value>Email is not valid</value>
+    <value>Netfang er ógilt</value>
   </data>
   <data name="EmailRequired" xml:space="preserve">
-    <value>Email is required</value>
-  </data>
-  <data name="MainPageTitle" xml:space="preserve">
-    <value>Hello world</value>
+    <value>Netfang er nauðsynlegt</value>
   </data>
   <data name="PasswordCompare" xml:space="preserve">
-    <value>The password and confirmation password do not match.</value>
+    <value>Lykilorð stemma ekki</value>
   </data>
   <data name="PasswordRange" xml:space="preserve">
-    <value>Must be between 6 and 20</value>
+    <value>Lengd þarf að vera á milli 6 og 20</value>
   </data>
   <data name="PasswordRequired" xml:space="preserve">
-    <value>Password is required</value>
+    <value>Lykilorð er nausynlegt</value>
   </data>
   <data name="UserNameLong" xml:space="preserve">
-    <value>Must be less than 30 characters</value>
+    <value>Lengd notendanafns þarf að vera undir 30</value>
   </data>
   <data name="UserNameRequired" xml:space="preserve">
-    <value>User name is required</value>
+    <value>Notendanafn er nauðsynlegt</value>
   </data>
 </root>
