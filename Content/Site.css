@@ -14,7 +14,7 @@
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 620px;
 }
 
 /* styles for validation helpers */
@@ -43,6 +43,23 @@ input[type="checkbox"].input-validation-error {
 }
 
 .search {
-    width: 100%;
-    border: 1px solid red;
+    width: 620px;
+}
+
+.search #searchbox {
+    width: 500px;
+}
+
+.search #searchbutton {
+    width: 100px;
+    float: right;
+}
+
+.search select {
+    width: 130px;
+    height: 25px;
+}
+
+.search .hear {
+    float: right;
 }
