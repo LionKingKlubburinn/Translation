@@ -412,7 +412,7 @@ namespace Translation.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public ActionResult GetDocument(int? documentID)
         {
             // Get document from database
@@ -433,7 +433,7 @@ namespace Translation.Controllers
 
             // View document
            // return File(doc.Data, doc.ContentType);
-        }
+        }*/
 
         #region Helpers
         // Used for XSRF protection when adding external logins

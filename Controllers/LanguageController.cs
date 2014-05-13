@@ -41,7 +41,7 @@ namespace Translation.Controllers
                     continue;
                 }
                 string value = resourceSet.GetString((string)dictionaryEntry.Key) ?? s;
-                sb.AppendFormat("\"{0}\":\"{1}\",", dictionaryEntry.Key, Microsoft.Security.Application.Encoder.JavaScriptEncode(value.Replace("\"", "\\\"").Replace('{', '[').Replace('}', ']'), false));
+                //sb.AppendFormat("\"{0}\":\"{1}\",", dictionaryEntry.Key, Microsoft.Security.Application.Encoder.JavaScriptEncode(value.Replace("\"", "\\\"").Replace('{', '[').Replace('}', ']'), false));
             }
             string script = sb.ToString();
             if (!string.IsNullOrEmpty(script) && script.Last() != '{')

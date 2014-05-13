@@ -114,6 +114,22 @@ namespace Translation.Models
                     count++;
                 }
             }
+            if(count != 1)
+            {
+                TextLine t = new TextLine
+                {
+                    LastModUserID = User,
+                    OriginalText1 = TextLine1,
+                    OriginalText2 = TextLine2,
+                    SubtitleID = TranslateID,
+                    TimeStampBegin = TimeStamp1,
+                    TimeStampEnd = TimeStamp2,
+                    TranslationText1 = "",
+                    TranslationText2 = "",
+                    RowID = Convert.ToInt32(lineID)
+                };
+                TextLineRepository.Instance.AddTextLine(t);
+            }
         }
 
         public void ExportSubtitle(int TranslateID)
