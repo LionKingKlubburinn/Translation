@@ -384,61 +384,6 @@ namespace Translation.Controllers
             }
         }
 
-        // This action handles the form POST and the upload
-        [HttpPost]
-        public ActionResult Index(HttpPostedFileBase file)
-        {
-            // Verify that the user selected a file
-            if (file != null && file.ContentLength > 0)
-            {
-                // extract only the fielname
-                var fileName = Path.GetFileName(file.FileName);
-                var contentLength = file.ContentLength;
-                var contentType = file.ContentType;
-                // store the file inside ~/App_Data/uploads folder
-                // Get file data
-                byte[] data = new byte[] { };
-                using (var binaryReader = new BinaryReader(file.InputStream))
-                {
-                    data = binaryReader.ReadBytes(file.ContentLength);
-                }
-                // Save to database
-                Document doc = new Document()
-                {
-                    FileName = fileName,
-                    Data = data,
-                    ContentType = contentType,
-                    ContentLength = contentLength,
-                };
-                //dataLayer.SaveDocument(doc);
-            }
-            // redirect back to the index action to show the form once again
-            return RedirectToAction("Index");
-        }
-
-        /*[HttpGet]
-        public ActionResult GetDocument(int? documentID)
-        {
-            // Get document from database
-            //var doc = dataLayer.GetDocument(documentID);
-
-            // Convert to ContentDisposition
-            var cd = new System.Net.Mime.ContentDisposition
-            {
-                //FileName = doc.FileName,
-
-                // Prompt the user for downloading; set to true if you want 
-                // the browser to try to show the file 'inline' (display in-browser
-                // without prompting to download file).  Set to false if you 
-                // want to always prompt them to download the file.
-                Inline = true,
-            };
-            Response.AppendHeader("Content-Disposition", cd.ToString());
-
-            // View document
-           // return File(doc.Data, doc.ContentType);
-        }*/
-
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";
