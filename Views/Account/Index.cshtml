@@ -1,17 +1,16 @@
 ﻿﻿@using Translation.Models;
-@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "User";
 }
 
 @using (Html.BeginForm("Index", "Account", FormMethod.Post))
 {
-    <h2>@User.Identity.GetUserName()</h2>
+    <h2>@ViewBag.UserName</h2>
     
     <table style="width:300px">
         <tr>
           <td>Notendanafn:</td>
-          <td>@User.Identity.GetUserName()</td>		
+          <td>@ViewBag.UserName</td>		
         </tr>
         <tr>
           <td>Tölvupóstur:</td>
