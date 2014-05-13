@@ -79,23 +79,27 @@
                     return ResourceManager.GetString("MainPageTitle", resourceCulture);
                 }
             }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Must be between 6 and 20.
-        /// </summary>
-        public static string PasswordRange {
-            get {
-                return ResourceManager.GetString("PasswordRange", resourceCulture);
+
+            /// <summary>
+            ///   Looks up a localized string similar to Must be between 6 and 20.
+            /// </summary>
+            public static string PasswordRange
+            {
+                get
+                {
+                    return ResourceManager.GetString("PasswordRange", resourceCulture);
+                }
             }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User name is required.
-        /// </summary>
-        public static string UserNameRequired {
-            get {
-                return ResourceManager.GetString("UserNameRequired", resourceCulture);
+
+            /// <summary>
+            ///   Looks up a localized string similar to User name is required.
+            /// </summary>
+            public static string UserNameRequired
+            {
+                get
+                {
+                    return ResourceManager.GetString("UserNameRequired", resourceCulture);
+                }
             }
         }
     }
