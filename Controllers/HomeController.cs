@@ -42,12 +42,15 @@ namespace Translation.Controllers
             Response.Cookies.Add(cookie);
             return RedirectToAction("Index");
         }
-
         
- 
+        [HttpPost]
+        public ActionResult UpVote(int RequestID)
+        {
+            Upvote u = new Upvote();
+            u.RequestId = RequestID;
+            u.UserName = System.Web.HttpContext.Current.User.Identity.Name;
+            RequestRepository.Instance.AddUpvote(u);
+            return RedirectToAction("Index");
+        }
     }
-
-   
- 
-    
 }
