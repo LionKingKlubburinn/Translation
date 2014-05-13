@@ -42,7 +42,7 @@
                 <option value="1">.srt</option>
                 <option value="2">pdf</option>
                 </select></td>
-            <td><img src="string = @Model.SubtitleItem.Picture" alt="No image" /></td>
+            <td><img src="@Url.Content("~/Content/" + Path.GetFileName(@Model.SubtitleItem.Picture))" alt="No image" /></td>
         </tr>
     </tbody>
 </table>

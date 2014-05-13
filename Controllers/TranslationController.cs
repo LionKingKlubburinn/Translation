@@ -75,7 +75,7 @@ namespace Translation.Controllers
             if (Picture != null && Picture.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(Picture.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content"), fileName);
                 Picture.SaveAs(path);
                 s.Picture = Picture.FileName;
             }
