@@ -5,8 +5,8 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     width: 960px;
 }
 
@@ -43,23 +43,53 @@ input[type="checkbox"].input-validation-error {
 }
 
 .search {
-    width: 620px;
+    width: 460px;
 }
 
 .search #searchbox {
-    width: 500px;
+    width: 350px;
 }
 
 .search #searchbutton {
-    width: 100px;
+    width:70px;
     float: right;
 }
 
 .search select {
-    width: 130px;
+    width: 85px;
     height: 25px;
 }
 
 .search .hear {
     float: right;
+}
+
+.topbar#topbar-left {
+    width: 220px;
+    height: 70px;
+    background-color: gray;
+    float: left;
+}
+
+.topbar#topbar-center {
+    width: 460px;
+    height: 70px;
+    display: inline;
+    background-color: brown;
+    float: left;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.topbar#topbar-right {
+    width: 220px;
+    height: 70px;
+    background-color: aqua;
+    display: inline;
+    float: left;
+}
+
+#logo-small {
+    width: 220px;
+    height: 70px;
 }

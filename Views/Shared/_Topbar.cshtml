@@ -1,0 +1,14 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="topbar" id="topbar-left">
+    <img id="logo-small" src="@Url.Content("~/Content/logo.jpg")" />
+</div>
+<div class="topbar" id="topbar-center">
+    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
+</div>
+<div class="topbar" id="topbar-right">
+    LOGIN WOOHOO
+</div>
+<br style="clear: left;" />
