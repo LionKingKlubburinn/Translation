@@ -106,7 +106,7 @@ namespace Translation.Controllers
         [HttpGet]
         public ActionResult EditFile(int id = 0, int linenum = 0)
         {
-            if (id < 1 || linenum < 1)
+            if (id < 1 || linenum < 1 || linenum > db.TextLines.Max(x => x.RowID))
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -117,10 +117,12 @@ namespace Translation.Controllers
         [HttpPost]
         public ActionResult EditFile(String Line1, String Line2, String direction, int id = 0, int linenum = 0)
         {
-            if (id < 1 || linenum < 1)
+            if (id < 1 || linenum < 1 || linenum > db.TextLines.Max(x => x.RowID))
             {
                 return RedirectToAction("Index", "Home");
             }
+            
+            TextLineRepository.Instance.ChangeTextLine(id, linenum, Line1, Line2);
             if (direction == "<<" && linenum > 1)
             {
                 linenum--;

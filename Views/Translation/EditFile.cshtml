@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "EditFromFile";
 }
+<!-- TODO: snyrta til? -->
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('Line1').focus();
+    }
+</script>
 
 <h2>Breyttu og bættu</h2>
 
@@ -17,7 +23,7 @@
             </td><td>
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </td><td>
-                <input type="text" name="Line1">
+                @Html.TextBox("Line1", Model.TranslationText1)
             </td>
         </tr>
         <tr>
@@ -26,13 +32,14 @@
             </td><td>
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </td><td>
-                <input type="text" name="Line2">
+                @Html.TextBox("Line2", Model.TranslationText2)
             </td>
         </tr>
         
     </table>
     <input type="hidden" name="linenum" value="@Request.Params["linenum"]" />
-    <input type="submit" name="direction" value="<<" />
+    // TODO: endurrada med css
     <input type="submit" name="direction" value=">>" /> 
+    <input type="submit" name="direction" value="<<" />
 }
 
