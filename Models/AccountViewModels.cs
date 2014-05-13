@@ -70,7 +70,5 @@ namespace Translation.Models
         [RegularExpression(".+@.+\\..+")]
         public string Email { get; set; }
 
-        [Display(Name = "Image")]
-        public string Image { get; set; }
     }
 }

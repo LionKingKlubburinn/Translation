@@ -75,19 +75,13 @@ namespace Translation.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model, HttpPostedFileBase Picture)
+        public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, DateCreated=DateTime.Now, Nationality = model.Nationality};
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (Picture != null && Picture.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(Picture.FileName);
-                    var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                    Picture.SaveAs(path);
-                    user.Image = Picture.FileName;
-                }
+                
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
@@ -343,6 +337,8 @@ namespace Translation.Controllers
             base.Dispose(disposing);
         }
 
+        //Manage view
+    
         public ActionResult Index()
         {
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
@@ -353,6 +349,7 @@ namespace Translation.Controllers
                 ViewBag.Email = user.Email;
                 ViewBag.Nationality = user.Nationality;
                 ViewBag.DateCreated = user.DateCreated;
+
             }
             else
             {
