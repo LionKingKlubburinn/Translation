@@ -412,8 +412,8 @@ namespace Translation.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public ActionResult GetDocument(int? documentID)
+       // [HttpGet]
+        /*public ActionResult GetDocument(int? documentID)
         {
             // Get document from database
             //var doc = dataLayer.GetDocument(documentID);
@@ -433,7 +433,7 @@ namespace Translation.Controllers
 
             // View document
            // return File(doc.Data, doc.ContentType);
-        }
+        } */
 
         #region Helpers
         // Used for XSRF protection when adding external logins
