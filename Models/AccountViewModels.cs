@@ -45,11 +45,6 @@ namespace Translation.Models
 
     public class RegisterViewModel
     {
-       
-
-        //[Required]
-
-
         [Display(Name = "User name")]
         [Required(ErrorMessage = "UserNameRequired")]
         [StringLength(30, ErrorMessage = "UserNameLong")]
@@ -65,7 +60,6 @@ namespace Translation.Models
         [Display(Name = "Confirm password")]
         [Required(ErrorMessage = "ConfirmPasswordRequired")]
         [Compare("Password", ErrorMessage = "PasswordCompare")]
-        //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Nationality")]
