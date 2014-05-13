@@ -154,19 +154,5 @@ namespace Translation.Controllers
             model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing, language, type, genre);
             return View(model);
         }
-
-        [HttpGet]
-        public ActionResult Edit()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit()
-        {
-            TextLine t = new TextLine();
-             
-            return View();
-        }
     }
 }
