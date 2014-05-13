@@ -115,13 +115,20 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditFile(String Line1, String Line2, int id = 0, int linenum = 0)
+        public ActionResult EditFile(String Line1, String Line2, String direction, int id = 0, int linenum = 0)
         {
             if (id < 1 || linenum < 1)
             {
                 return RedirectToAction("Index", "Home");
             }
-            linenum++;
+            if (direction == "<<" && linenum > 1)
+            {
+                linenum--;
+            }
+            else if (direction == ">>" && linenum < db.TextLines.Max(x => x.RowID))
+            {
+                linenum++;
+            }
             return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
 

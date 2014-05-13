@@ -10,18 +10,29 @@
 
 @using (Html.BeginForm("EditFile", "Translation", FormMethod.Post))
 {
-    <p>
-        @Html.DisplayFor(model => Model.OriginalText1) <br />
-        @Html.DisplayFor(model => Model.OriginalText2)
-    </p>
-
-    <span class="glyphicon glyphicon-arrow-right"></span>
-    <p>
-        <input type="text" name="Line1"><br>
-        <input type="text" name="Line2">
-    </p>
+    <table>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => Model.OriginalText1)
+            </td><td>
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </td><td>
+                <input type="text" name="Line1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => Model.OriginalText2)
+            </td><td>
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </td><td>
+                <input type="text" name="Line2">
+            </td>
+        </tr>
+        
+    </table>
     <input type="hidden" name="linenum" value="@Request.Params["linenum"]" />
-    <input type="submit" value="<<" />
-    <input type="submit" value=">>" />
+    <input type="submit" name="direction" value="<<" />
+    <input type="submit" name="direction" value=">>" /> 
 }
 
