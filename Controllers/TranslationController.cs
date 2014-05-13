@@ -110,6 +110,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public ActionResult Edit()
         {
             return View();

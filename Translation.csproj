@@ -172,7 +172,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TranslationController.cs" />
@@ -194,14 +193,6 @@
     <Compile Include="Models\SubtitleRepository.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Language.Designer.cs">
-      <DependentUpon>Resources\Language.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
-    <Compile Include="Resources\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
-    <Compile Include="Resources\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
-    <Compile Include="Resources\Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -220,18 +211,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Resources\bin\Debug\Resources.dll" />
-    <Content Include="Resources\bin\Debug\Resources.pdb" />
-    <Content Include="Resources\obj\Debug\Resources.csproj.FileListAbsolute.txt" />
-    <Content Include="Resources\obj\Debug\Resources.dll" />
-    <Content Include="Resources\obj\Debug\Resources.pdb" />
-    <Content Include="Resources\obj\Debug\TempPE\Resource.Designer.cs.dll" />
-    <Content Include="Resources\Resources.csproj" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Resources\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="Resources\obj\Debug\Resources.csproj.GenerateResource.Cache" />
-    <Content Include="Resources\obj\Debug\Resources.csprojResolveAssemblyReference.cache" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Code52.i18n.js" />
     <Content Include="Scripts\globalize\cultures\globalize.culture.af-ZA.js" />
@@ -639,7 +620,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\uploads\" />
-    <Folder Include="Resources\bin\Release\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
@@ -651,17 +631,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Resources\Resources.csproj">
-      <Project>{11e93624-50ea-4ecc-807d-6741c1fcf684}</Project>
-      <Name>Resources</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\Language.resx" />
-    <EmbeddedResource Include="Resources\obj\Debug\Resources.Resource.resources" />
-    <EmbeddedResource Include="Resources\Resource.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
