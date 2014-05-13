@@ -50,7 +50,8 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        // GET /Translation/Read/
+        // GET /Translation/Read/1
+        [HttpGet]
         public ActionResult Read(int id = 0)
         {
             if (id < 1)
