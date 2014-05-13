@@ -50,29 +50,28 @@ namespace Translation.Models
 
         //[Required]
 
-
-        [Display(Name = "User name", ResourceType = typeof(Resources.Language))]
-        [Required(ErrorMessageResourceType = typeof(Resources.Language),
+        [Display(Name = "User name", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "UserNameRequired")]
-        [StringLength(30, ErrorMessageResourceType = typeof(Resources.Language),
+        [StringLength(30, ErrorMessageResourceType = typeof(Resources.Resource),
             ErrorMessageResourceName = "UserNameLong")]
         public string UserName { get; set; }
 
        // [Required]
         //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password", ResourceType = typeof(Resources.Language))]
-        [Required(ErrorMessageResourceType = typeof(Resources.Language),
+        [Display(Name = "Password", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "PasswordRequired")]
-        [Range(6, 20, ErrorMessageResourceType = typeof(Resources.Language),
+        [Range(6, 20, ErrorMessageResourceType = typeof(Resources.Resource),
             ErrorMessageResourceName = "PasswordRange")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password", ResourceType = typeof(Resources.Language))]
-        [Required(ErrorMessageResourceType = typeof(Resources.Language),
+        [Display(Name = "Confirm password", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
              ErrorMessageResourceName = "ConfirmPasswordRequired")]
-        [Compare("Password", ErrorMessageResourceType = typeof(Resources.Language),
+        [Compare("Password", ErrorMessageResourceType = typeof(Resources.Resource),
             ErrorMessageResourceName = "PasswordCompare")]
         //[Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
@@ -80,14 +79,31 @@ namespace Translation.Models
         [Display(Name = "Nationality")]
         public string Nationality { get; set; }
 
-        [Display(Name = "Email", ResourceType = typeof(Resources.Language))]
-        [Required(ErrorMessageResourceType = typeof(Resources.Language),
+        [Display(Name = "Email", ResourceType = typeof(Resources.Resource))]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
             ErrorMessageResourceName = "EmailRequired" )]
-        [RegularExpression(".+@.+\\..+", ErrorMessageResourceType =typeof(Resources.Language),
+        [RegularExpression(".+@.+\\..+", ErrorMessageResourceType =typeof(Resources.Resource),
             ErrorMessageResourceName = "EmailInvalid")]
         public string Email { get; set; }
 
         [Display(Name = "Image")]
         public string Image { get; set; }
+    }
+    public class Document
+    {
+        public int? DocumentID { get; set; }
+        public string FileName { get; set; }
+        public byte[] Data { get; set; }
+        public string ContentType { get; set; }
+        public int? ContentLength { get; set; }
+
+        public Document()
+        {
+            DocumentID = 0;
+            FileName = "New File";
+            Data = new byte[] { };
+            ContentType = "";
+            ContentLength = 0;
+        }
     }
 }
