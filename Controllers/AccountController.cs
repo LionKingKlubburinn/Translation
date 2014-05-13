@@ -79,7 +79,7 @@ namespace Translation.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, DateCreated=DateTime.Now, Nationality = model.Nationality};
+                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, DateCreated=DateTime.Now, Nationality = model.Nationality, Image = model.Image};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -8,6 +8,7 @@ namespace Translation.Models
     {
         public string Email { get; set; }
         public string Nationality { get; set; }
+        public string Image { get; set; }
         public DateTime DateCreated { get; set; }
     }
 
