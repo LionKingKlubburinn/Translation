@@ -74,13 +74,12 @@ namespace Translation.Controllers
             s.Contributor = System.Web.HttpContext.Current.User.Identity.Name;
             s.VideoType = form["VideoType"];
             s.VideoGenre = form["VideoGenre"];
-            //s.Picture = form["Picture"];
             if (Picture != null && Picture.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(Picture.FileName);
                 var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
                 Picture.SaveAs(path);
-                s.Picture = path;
+                s.Picture = Picture.FileName;
             }
             //s.File = form["File"];
             if (File != null && File.ContentLength > 0)
