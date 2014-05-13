@@ -43,12 +43,16 @@ namespace Translation.Models
         public void AddTextLine(TextLine t)
         {
             int newID = 1;
+            int newRowID = 1;
             if (db.TextLines.Count() > 0)
             {
                 newID = db.TextLines.Max(x => x.ID) + 1;
+                newRowID = db.TextLines.Max(x => x.RowID) + 1;
             }
             t.ID = newID;
+            t.RowID = newRowID;
             t.LastModDate = DateTime.Now;
+            t.LastModUserID = "Einar"; // TODO
             db.TextLines.Add(t);
             db.SaveChanges();
         }

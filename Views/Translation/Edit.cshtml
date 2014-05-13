@@ -10,26 +10,29 @@
 
 @using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
 {
-    <p>
-        <span class="glyphicon glyphicon-time"></span>
-        <input type="time" name="TimeStart"> @("-")
-        <input type="time" name="TimeStop">
-    </p>
-    <p>
-        <input type="text" name="FirstLine"><br>
-        <input type="text" name="FirstLine">
-        
-    </p>
-    <p>
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-plus-sign"></span>
-        </button>
-        <button type="button" class="btn btn-default">
-            <span class="glyphicon glyphicon-minus-sign"></span>
-        </button>
-    </p>
-            <input type="submit" value="Birta texta" />
-            <input type="submit" value="Vista" />
+     <table>
+        <tr>
+            <td>
+                <span class="glyphicon glyphicon-time"></span>
+                <input type="text" name="TimeStart"> @("-")
+                <input type="text" name="TimeStop">
+            </td>
+            <td>
+                <input type="text" name="Line1"><br>
+                <input type="text" name="Line2">
+            </td>
+            <td>
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                </button>
+                <button type="button" class="btn btn-default">
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Vista" />
+    <input type="submit" value="Birta texta" />
 }
 
 

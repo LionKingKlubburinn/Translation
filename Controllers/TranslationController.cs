@@ -21,8 +21,6 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            // Viewmodel, jeij
-            //int id = 1;
             var model = new ViewModel();
             model.SubtitleItem = SubtitleRepository.Instance.GetSubtitle(id);
             model.CommentItems = CommentRepository.Instance.GetComments(id);
@@ -110,8 +108,29 @@ namespace Translation.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int id = 0)
         {
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(String TimeStart, String TimeStop, String Line1, String Line2, int id = 0)
+        {
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            TextLine t = new TextLine();
+            t.TimeStampBegin = TimeStart;
+            t.TimeStampEnd = TimeStop;
+            t.TranslationText1 = Line1;
+            t.TranslationText2 = Line2;
+            t.SubtitleID = id;
+            TextLineRepository.Instance.AddTextLine(t);
             return View();
         }
 
