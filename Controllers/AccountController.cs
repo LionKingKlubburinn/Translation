@@ -128,9 +128,19 @@ namespace Translation.Controllers
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var user = UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
+            {
+                ViewBag.UserName = user.UserName;
                 ViewBag.Email = user.Email;
+                ViewBag.Nationality = user.Nationality;
+                ViewBag.DateCreated = user.DateCreated;
+            }
             else
-                ViewBag.Email = "User not found.";;
+            {
+                ViewBag.UserName = "Not found.";
+                ViewBag.Email = "Not found.";
+                ViewBag.Nationality = "Not found.";
+                ViewBag.DateCreated = "Not found.";
+            }
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
@@ -328,19 +338,51 @@ namespace Translation.Controllers
 
         public ActionResult Index()
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            if (user != null)
+            {
+                ViewBag.UserName = user.UserName;
+                ViewBag.Email = user.Email;
+                ViewBag.Nationality = user.Nationality;
+                ViewBag.DateCreated = user.DateCreated;
+            }
+            else
+            {
+                ViewBag.UserName = "Not found.";
+                ViewBag.Email = "Not found.";
+                ViewBag.Nationality = "Not found.";
+                ViewBag.DateCreated = "Not found.";
+            }
             return View();
         }
 
         // This action renders the form
-       public ActionResult Index()
+      /*  public ActionResult Index()
         {
             return View();
+        }*/
+        public class Document
+        {
+            public int? DocumentID { get; set; }
+            public string FileName { get; set; }
+            public byte[] Data { get; set; }
+            public string ContentType { get; set; }
+            public int? ContentLength { get; set; }
+
+            public Document()
+            {
+                DocumentID = 0;
+                FileName = "New File";
+                Data = new byte[] { };
+                ContentType = "";
+                ContentLength = 0;
+            }
         }
-       
 
         // This action handles the form POST and the upload
-       /* [HttpPost]
-        public ActionResult GetDocument(HttpPostedFileBase file)
+        [HttpPost]
+        public ActionResult Index(HttpPostedFileBase file)
         {
             // Verify that the user selected a file
             if (file != null && file.ContentLength > 0)
@@ -374,12 +416,12 @@ namespace Translation.Controllers
         public ActionResult GetDocument(int? documentID)
         {
             // Get document from database
-            var doc = .GetDocument(documentID);
+            //var doc = dataLayer.GetDocument(documentID);
 
             // Convert to ContentDisposition
             var cd = new System.Net.Mime.ContentDisposition
             {
-                FileName = doc.FileName,
+                //FileName = doc.FileName,
 
                 // Prompt the user for downloading; set to true if you want 
                 // the browser to try to show the file 'inline' (display in-browser
@@ -390,8 +432,8 @@ namespace Translation.Controllers
             Response.AppendHeader("Content-Disposition", cd.ToString());
 
             // View document
-           return File(doc.Data, doc.ContentType);
-        }*/
+           // return File(doc.Data, doc.ContentType);
+        }
 
         #region Helpers
         // Used for XSRF protection when adding external logins
