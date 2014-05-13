@@ -2,8 +2,51 @@
 @{
     Layout = null;
 }
-
-<div id="form">
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <table class="search">
+        <tr>
+            <td colspan="4">
+                @Html.TextBox("query", "", new { id = "searchbox" })
+                <input id="searchbutton" type="submit" value="Leita" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <select id="language" name="language">
+                    <option value="any" selected="selected">Tungumál</option>
+                    <option value="is">íslenska</option>
+                    <option value="en">enska</option>
+                </select>
+            </td>
+            <td>
+                <select id="tegund" name="type">
+                    <option value="any" selected="selected">Tegund</option>
+                    <option value="Kvikmynd">Kvikmynd</option>
+                    <option value="Þáttur">Þáttur</option>
+                </select>
+            </td>
+            <td>
+                <select id="flokkur" name="genre">
+                    <option value="any" selected="selected">Allir flokkar</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Fantasía">Fantasía</option>
+                    <option value="Gamanmynd">Gamanmynd</option>
+                    <option value="Hasar">Hasar</option>
+                    <option value="Rómantík">Rómantík</option>
+                    <option value="Teiknimynd">Teiknimynd</option>
+                    <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
+                    <option value="Ævintýri">Ævintýri</option>
+                </select>
+            </td>
+            <td>
+                <label class="hear" for="heyrnarskertur">&nbsp;Texti fyrir heyrnarskerta</label>
+                <input class="hear" type="checkbox" name="hear">
+            </td>
+        </tr>
+    </table>
+}
+@*<div id="form">
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
         @Html.TextBox("query")
@@ -36,4 +79,4 @@
             <option value="Ævintýri">Ævintýri</option>
         </select>
     }
-</div>
+</div>*@

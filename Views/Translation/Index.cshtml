@@ -29,6 +29,7 @@
             <th>Lengd:</th>
             <th>Skráarstærð:</th>
             <th>Skráarsnið:</th>
+            <th>Mynd:</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,7 @@
                 <option value="1">.srt</option>
                 <option value="2">pdf</option>
                 </select></td>
+            <td>@Html.DisplayFor(x => x.SubtitleItem.Picture)</td>
         </tr>
     </tbody>
 </table>
