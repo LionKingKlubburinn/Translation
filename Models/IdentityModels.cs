@@ -10,6 +10,7 @@ namespace Translation.Models
         public string Nationality { get; set; }
         public string Image { get; set; }
         public DateTime DateCreated { get; set; }
+        public bool Admin { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
