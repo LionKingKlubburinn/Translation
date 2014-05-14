@@ -1,11 +1,18 @@
 ﻿@model Translation.Models.ViewModel
+@Styles.Render("~/Content/Translation.css")
 @{
     ViewBag.Title = "Search";
 }
-
-<h2>Leitarniðurstöður</h2>
-@foreach (var item in Model.SubtitleItems)
-{
-    @Html.ActionLink(item.Name, "Index", new { id = item.ID })
-    <br />
-}
+<div class="translation-container">
+    <p>Leitarniðurstöður fyrir "@Request.Params["query"]"</p>
+    <table>
+        @foreach (var item in Model.SubtitleItems)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Name, "Index", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -212,6 +212,7 @@
     <Content Include="Content\code52.i18n\images\flags\gb.png" />
     <Content Include="Content\code52.i18n\images\flags\it.png" />
     <Content Include="Content\Home.css" />
+    <Content Include="Content\Translation.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

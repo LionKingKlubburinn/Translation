@@ -12,69 +12,57 @@
         @:checked="checked"
     }
 }
+<script type="text/javascript">
+    function modify_qty(val) {
+        var qty = document.getElementById('qty').value;
+        var new_qty = parseInt(qty, 10) + val;
 
-<body>
-    <script type="text/javascript">
-        function modify_qty(val) {
-            var qty = document.getElementById('qty').value;
-            var new_qty = parseInt(qty, 10) + val;
-
-            if (new_qty < 0) {
-                new_qty = 0;
-            }
-
-            document.getElementById('qty').value = new_qty;
-            return new_qty;
+        if (new_qty < 0) {
+            new_qty = 0;
         }
-    </script>
-    @{Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");}
 
-    <div id="main-container">
-        <img id="logo-big" src="@Url.Content("~/Content/logo.jpg")" />
-        @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
+        document.getElementById('qty').value = new_qty;
+        return new_qty;
+    }
+</script>
+@{Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");}
 
-        <div id="table">
-            <table class="request">
-                <caption><b>Beiðnir</b></caption>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>@Html.DisplayFor(model => item.Name)</td>
-                            <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
-                            <td>@Html.DisplayFor(model => item.Language)</td>
-                            <td>
-                                <input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new {
-                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language
-                   })'" />
-                            </td>
-                            <td>
-                                <div class="box">
-                                    @using (Html.BeginForm("UpVote", "Home", FormMethod.Post))
-                                    {
-                                        <label for="qty" id="labe"><abbr title="Quantity"></abbr></label>
-                                        <input id="qty" value="@Html.DisplayFor(model => item.Upvote)" />
-                                        <input type="hidden" name="RequestID" value="@Html.DisplayFor(model => item.ID)" />
-                                        <button name="upvote" type="submit" id="up"><img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-512.png" id="like" /></button>
-                                    }
-                                </div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-        
-        <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
-        <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
+<div id="main-container">
+    <img id="logo-big" src="@Url.Content("~/Content/logo.jpg")" />
+    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
+
+    <div id="table">
+        <table class="request">
+            <caption><b>Beiðnir</b></caption>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.Name)</td>
+                        <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
+                        <td>@Html.DisplayFor(model => item.Language)</td>
+                        <td><input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new { 
+                           name = item.Name, hear = item.ForHardOfHearing, langage = item.Language 
+                       })'" /></td>
+                        <td>
+                            <div class="box">
+                                @using (Html.BeginForm("UpVote", "Home", FormMethod.Post))
+                                {
+                                <label for="qty" id="labe"><abbr title="Quantity"></abbr></label>
+                                <input id="qty" value="@Html.DisplayFor(model => item.Upvote)" />
+                                <input type="hidden" name="RequestID" value="@Html.DisplayFor(model => item.ID)" />
+                                <button name="upvote" type="submit" id="up" ><img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-512.png" id="like" /></button>
+                                } 
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
-</body>
-
-
-
-
-
-
+    <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
+    <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
+</div>
 @*@using (Html.BeginForm("SetCulture", "Home"))
     {
         <fieldset>
@@ -188,4 +176,4 @@
             <li>@Html.ActionLink(Resources.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
             <li>@Html.ActionLink(Resources.LogOn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         </ul>
-    }*@
+}*@

@@ -1,0 +1,28 @@
+﻿.translation-container {
+    width: 940px;
+    background-color: coral;
+}
+
+.subtitle-info {
+    width: 700px;
+    height: 220px;
+    float: left;
+    margin-right: 20px;
+    background-color: blue;
+}
+
+.subtitle-pic {
+    width: 220px;
+    float: left;
+    background-color: chocolate;
+}
+
+#subtitle-img {
+    width: 220px;
+    height: auto;
+}
+
+.subtitle-comments {
+    width: 700px;
+    background-color:aliceblue;
+}
