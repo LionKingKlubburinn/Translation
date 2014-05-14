@@ -14,174 +14,178 @@
 }
 
 <body>
-<script type="text/javascript">
-    function modify_qty(val) {
-        var qty = document.getElementById('qty').value;
-        var new_qty = parseInt(qty, 10) + val;
+    <script type="text/javascript">
+        function modify_qty(val) {
+            var qty = document.getElementById('qty').value;
+            var new_qty = parseInt(qty, 10) + val;
 
-        if (new_qty < 0) {
-            new_qty = 0;
-        }
-
-        document.getElementById('qty').value = new_qty;
-        return new_qty;
-    }
-</script>
-@{Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");}
-
-<div id="main-container">
-    <img id="logo-big" src="@Url.Content("~/Content/logo.jpg")" />
-    @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
-
-<div id="table">
-    <table class="request">
-        <caption><b>Beiðnir</b></caption>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(model => item.Name)</td>
-                    <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
-                    <td>@Html.DisplayFor(model => item.Language)</td>
-                    <td><input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new { 
-                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language 
-                   })'" /></td>
-                    <td>
-                        <div class="box">
-                            @using (Html.BeginForm("UpVote", "Home", FormMethod.Post))
-                            {
-                            <label for="qty" id="labe"><abbr title="Quantity"></abbr></label>
-                            <input id="qty" value="@Html.DisplayFor(model => item.Upvote)" />
-                            <input type="hidden" name="RequestID" value="@Html.DisplayFor(model => item.ID)" />
-                            <button name="upvote" type="submit" id="up" ><img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-512.png" id="like" /></button>
-                            } 
-                        </div>
-                    </td>
-                </tr>
+            if (new_qty < 0) {
+                new_qty = 0;
             }
-        </tbody>
-    </table>
-</div>
 
+            document.getElementById('qty').value = new_qty;
+            return new_qty;
+        }
+    </script>
+    @{Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");}
+
+    <div id="main-container">
+        <img id="logo-big" src="@Url.Content("~/Content/logo.jpg")" />
+        @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
+
+        <div id="table">
+            <table class="request">
+                <caption><b>Beiðnir</b></caption>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => item.Name)</td>
+                            <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
+                            <td>@Html.DisplayFor(model => item.Language)</td>
+                            <td>
+                                <input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new {
+                       name = item.Name, hear = item.ForHardOfHearing, langage = item.Language
+                   })'" />
+                            </td>
+                            <td>
+                                <div class="box">
+                                    @using (Html.BeginForm("UpVote", "Home", FormMethod.Post))
+                                    {
+                                        <label for="qty" id="labe"><abbr title="Quantity"></abbr></label>
+                                        <input id="qty" value="@Html.DisplayFor(model => item.Upvote)" />
+                                        <input type="hidden" name="RequestID" value="@Html.DisplayFor(model => item.ID)" />
+                                        <button name="upvote" type="submit" id="up"><img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/hand-up-512.png" id="like" /></button>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+        <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
+        <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
+    </div>
 </body>
 
-    <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
-    <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
+
+
+
 
 
 @*@using (Html.BeginForm("SetCulture", "Home"))
-{
-    <fieldset>
-        <legend>Choose Language</legend>
-        <div class="control-group">
-            <div class="controls">
-                <label for="en-us">
-                    <input name="culture" id="en-us" value="en-us" type="radio" @selected("en-us", culture) /> English
-                </label>
+    {
+        <fieldset>
+            <legend>Choose Language</legend>
+            <div class="control-group">
+                <div class="controls">
+                    <label for="en-us">
+                        <input name="culture" id="en-us" value="en-us" type="radio" @selected("en-us", culture) /> English
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label for="es">
-                    <input name="culture" id="es" value="es" type="radio" @selected("es", culture) /> Español
-                </label>
+            <div class="control-group">
+                <div class="controls">
+                    <label for="es">
+                        <input name="culture" id="es" value="es" type="radio" @selected("es", culture) /> Español
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label for="ar">
-                    <input name="culture" id="ar" value="ar" type="radio" @selected("ar", culture) /> العربية
-                </label>
+            <div class="control-group">
+                <div class="controls">
+                    <label for="ar">
+                        <input name="culture" id="ar" value="ar" type="radio" @selected("ar", culture) /> العربية
+                    </label>
+                </div>
             </div>
-        </div>
 
-    </fieldset>
-
+        </fieldset>
 
 
-}*@
+
+    }*@
 
 @*@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true)
-        <div class="form-group">
-            @Html.LabelFor(model => model.Firstname, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName)
-                @Html.ValidationMessageFor(model => model.FirstName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName)
-                @Html.ValidationMessageFor(model => model.LastName)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Age, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Age)
-                @Html.ValidationMessageFor(model => model.Age)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email)
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(model => model.Biography, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Biography)
-                @Html.ValidationMessageFor(model => model.Biography)
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Resources.Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-    <script type="text/javascript">
-        (function ($) {
-            $("input[type = 'radio']").click(function () {
-                $(this).parents("form").submit(); // post form
-            });
-
-        })(jQuery);
-    </script>
-}*@
-
-@*@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink(User.Identity.GetUserName(), "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">@Resources.LogOff</a></li>
-        </ul>
-    }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink(Resources.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink(Resources.LogOn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}*@
 
-</div>
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(model => model.Firstname, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Age, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Age)
+                    @Html.ValidationMessageFor(model => model.Age)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Biography, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Biography)
+                    @Html.ValidationMessageFor(model => model.Biography)
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="@Resources.Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <script type="text/javascript">
+            (function ($) {
+                $("input[type = 'radio']").click(function () {
+                    $(this).parents("form").submit(); // post form
+                });
+
+            })(jQuery);
+        </script>
+    }*@
+
+@*@using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    @Html.ActionLink(User.Identity.GetUserName(), "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">@Resources.LogOff</a></li>
+            </ul>
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink(Resources.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink(Resources.LogOn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }*@
