@@ -11,11 +11,7 @@
 </script>
 <div class="translation-container">
     <div class="subtitle-info">
-        <h2>Breyttu og bættu</h2>
-
-        <h2>Lion King</h2>
-        <h3>Simbalover</h3>
-
+        <h2>@ViewBag.Name</h2>
         @using (Html.BeginForm("EditFile", "Translation", FormMethod.Post))
         {
             <table>
@@ -43,10 +39,10 @@
                 </tr>
             </table>
             <input type="hidden" name="linenum" value="@Request.Params["linenum"]" />
-            // TODO: endurrada med css
-            <input type="submit" name="direction" value=">>" />
-            <input type="submit" name="direction" value="<<" />
+            <input type="submit" class="btn btn-default" name="direction" value=">>" />
+            <input type="submit" class="btn btn-default" name="direction" value="<<" />
         }
+        <input type="button" class="btn btn-default" value="Til baka" onclick="location.href='@Url.Action("Index", "Translation", new { id = Model.SubtitleID })'" />
     </div>
     <div class="subtitle-pic">
 

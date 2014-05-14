@@ -141,6 +141,7 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
             TextLine model = TextLineRepository.Instance.GetTextLine(id, linenum);
             return View(model);
         }
@@ -152,7 +153,7 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
             TextLineRepository.Instance.ChangeTextLine(id, linenum, Line1, Line2);
             if (direction == "<<" && linenum > 1)
             {
