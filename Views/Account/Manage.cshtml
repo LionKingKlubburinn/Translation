@@ -6,15 +6,19 @@
 <h2>@ViewBag.Title.</h2>
 
 
-    <div> Notendanafn : @ViewBag.UserName</div>
-    <div> Tölvupóstur:  @ViewBag.Email</div>
+    <div> 
+        Notendanafn : @ViewBag.UserName
+    </div>
+    <div> 
+        Tölvupóstur: <input type="text" name="lastname" placeholder="@ViewBag.Email">
+    </div>
     <div> 
         Sýna öðrum tölvupóst:
         <form>
             <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
         </form> 
     </div>
-    <div> Land: @ViewBag.Nationality</div>
+    <div> Land: <input type="text" name="lastname" placeholder="@ViewBag.Nationality"></div>
 
 @*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {

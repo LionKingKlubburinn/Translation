@@ -132,6 +132,7 @@ namespace Translation.Controllers
             t.TranslationText2 = Line2;
             t.SubtitleID = id;
             TextLineRepository.Instance.AddTextLine(t);
+
             return View();
         }
 

@@ -1,4 +1,5 @@
 ﻿@Styles.Render("~/Content/Translation.css")
+@model Translation.Models.Subtitle
 @{
     ViewBag.Title = "Edit";
 }
@@ -7,11 +8,11 @@
     <div class="subtitle-info">
         <h2>Breyttu og bættu</h2>
 
-        <h2>Lion King</h2>
+
         <p>Timeformat should be on the form: 00:00:00,000</p>
 
         @using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
-        {
+        {      
             <table>
                 <tr>
                     <td>
