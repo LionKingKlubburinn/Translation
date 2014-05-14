@@ -97,6 +97,7 @@ namespace Translation.Controllers
             return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult New(String name, String language, String hear = "False")
         {
@@ -108,6 +109,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Edit(int id = 0)
         {
@@ -142,6 +144,7 @@ namespace Translation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult EditFile(int id = 0, int linenum = 0)
         {
@@ -208,17 +211,23 @@ namespace Translation.Controllers
                 }
 
             }
-            var path = HttpContext.Server.MapPath("~/Content/test.txt");
-            //StreamWriter file = new StreamWriter(path);
+            var subtitle = (from s in db.Subtitles
+                         where s.ID == ID
+                         select s).First();
+            string filename = subtitle.Name;
 
+            var path = HttpContext.Server.MapPath("~/Content/temp.txt");
             using (StreamWriter sw = new StreamWriter(path))
             {
                 sw.Write(SubtitleExport);
             }
-
             System.Diagnostics.Debug.WriteLine(SubtitleExport);
             System.Diagnostics.Debug.WriteLine(path);
-            return RedirectToAction("Index", "Home");
+            new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet);
+            return new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet)
+            {
+                FileDownloadName = filename + ".srt"
+            };
         }
     }
 }
