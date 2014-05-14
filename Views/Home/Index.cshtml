@@ -34,7 +34,7 @@
     @{Html.RenderPartial("~/Views/Shared/_Search.cshtml");}
 
 <div id="table">
-    <table>
+    <table class="request">
         <caption><b>Beiðnir</b></caption>
         <tbody>
             @foreach (var item in Model)
@@ -64,7 +64,6 @@
 </div>
 
 </body>
-
 
     <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
     <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
