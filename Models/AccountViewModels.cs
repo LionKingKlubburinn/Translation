@@ -62,7 +62,7 @@ namespace Translation.Models
         [Compare("Password", ErrorMessage = "PasswordCompare")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Þjóðerni")]
+        [Display(Name = "Land")]
         public string Nationality { get; set; }
 
         [Display(Name = "Netfang")]
