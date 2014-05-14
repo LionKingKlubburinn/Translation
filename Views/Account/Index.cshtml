@@ -8,6 +8,10 @@
 {
     <h2>@ViewBag.UserName</h2>
     
+    <div>
+        <img id="Person-Icon" src="@Url.Content("~/Content/Person.jpg")" alt="Engin mynd fannst" height="200" width="200" />
+    </div>
+    
     <table style="width:600px">
         <tr>
           <td>Notendanafn:</td>
@@ -27,7 +31,7 @@
         </tr>
     </table>
     
-    <img id="Person-Icon" src="@Url.Content("~/Content/Person.jpg")" /> 
+     
     
     @Html.ActionLink("Breyta Prófíl", "Manage");
     
