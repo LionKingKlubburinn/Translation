@@ -44,12 +44,12 @@ body {
 }
 
 #up:hover, #up:active, #up:focus {
-    background-color: #CBC7AE;
+    background-color: #339966;
 }
 
 .box {
 	/* basics */
-	background-color: white;
+	background-color: transparent;
 	color: #C4BE92;
     text-align: center;
 
@@ -74,4 +74,30 @@ body {
     border: 1px solid black;
     background-color: white;
     text-align: center;
+    height: 27.5em;
+    overflow: auto;
 }
+
+.request {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 440px;
+}
+
+.request td {
+    background: #e8edff;
+    border-top: 1px solid #fff;
+    color: #330099;
+    padding: 8px;
+}
+
+table.request tr:hover td {
+    background-color: #d0e3e5;
+}
+
+caption {
+    border-bottom: 1px solid black;
+    background-color: #bbcec6;
+}
+

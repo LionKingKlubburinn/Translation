@@ -11,4 +11,7 @@ namespace Translation.Models
         public Subtitle SubtitleItem { get; set; }
         public IEnumerable<Comment> CommentItems { get; set; }
     }
+
+
+
 }

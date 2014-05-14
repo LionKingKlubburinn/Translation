@@ -18,6 +18,7 @@ namespace Translation.DAL
         public DbSet<Subtitle> Subtitles { get; set; }
         public DbSet<TextLine> TextLines { get; set; }
         public DbSet<Request> Requests { get; set; }
+        public DbSet<Upvote> Upvotes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -31,21 +31,21 @@ namespace Translation.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Muna eftir mér")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
-        [Display(Name = "User name")]
+        [Display(Name = "Notendanafn")]
         [Required(ErrorMessage = "UserNameRequired")]
         [StringLength(30, ErrorMessage = "UserNameLong")]
         public string UserName { get; set; }
@@ -53,19 +53,19 @@ namespace Translation.Models
         [Required(ErrorMessage = "PasswordRequired")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Staðfesta lykilorð")]
         [Required(ErrorMessage = "ConfirmPasswordRequired")]
         [Compare("Password", ErrorMessage = "PasswordCompare")]
         public string ConfirmPassword { get; set; }
 
-        [Display(Name = "Nationality")]
+        [Display(Name = "Þjóðerni")]
         public string Nationality { get; set; }
 
-        [Display(Name = "Email")]
+        [Display(Name = "Netfang")]
         [Required(ErrorMessage = "EmailRequired" )]
         [RegularExpression(".+@.+\\..+")]
         public string Email { get; set; }

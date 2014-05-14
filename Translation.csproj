@@ -191,11 +191,16 @@
     <Compile Include="Models\TextLineRepository.cs" />
     <Compile Include="Models\Subtitle.cs" />
     <Compile Include="Models\SubtitleRepository.cs" />
+    <Compile Include="Models\Upvote.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Translation-20140505024303.mdf" />
+    <Content Include="App_Data\aspnet-Translation-20140505024303_log.ldf">
+      <DependentUpon>aspnet-Translation-20140505024303.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\logo.jpg" />
     <Content Include="App_Readme\Code52.i18n.MVC.readme.txt" />
     <Content Include="Content\bootstrap.css" />

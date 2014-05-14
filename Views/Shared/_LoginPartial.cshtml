@@ -7,17 +7,17 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "My Profile" })
+            @Html.ActionLink("Shii " + User.Identity.GetUserName() + " þú ert snillingur!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Mín síða" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Útskráning</a></li>
     </ul>
     }
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Nýskráning", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Innskráning", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         <li><a href="#" onclick="changeLang('en')"><img src="~/Content/code52.i18n/images/flags/gb.png" /></a></li>
     </ul>
 }

@@ -44,8 +44,38 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
+        public void AddUpvote(Upvote u)
+        {
+            if (HasUpvoted(u.UserName, u.RequestId) == 0)
+            {
+                return;
+            }
+            else
+            {
+                int newID = 1;
+                if (db.Requests.Count() > 0)
+                {
+                    newID = db.Requests.Max(x => x.ID) + 1;
+                }
+                var request = (from x in db.Requests
+                             where x.ID == u.RequestId
+                             select x).First();
+                request.Upvote = request.Upvote + 1;
+                db.Upvotes.Add(u);
+                db.SaveChanges();
+            }
+        }
 
-        
-        
+        public int HasUpvoted(String user, int ID)
+        {
+            var result = (from u in db.Upvotes
+                         where u.RequestId == ID && u.UserName == user
+                         select u).FirstOrDefault();
+            if(result == null)
+            {
+                return 1;
+            }
+            return 0;
+        }
     }
 }

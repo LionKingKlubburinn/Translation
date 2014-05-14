@@ -56,8 +56,41 @@
         @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
     </p>
 
+<div id="LionKing">
+    <h3>@Html.DisplayFor(x => x.SubtitleItem.Name)</h3>
+</div>
+<p>
+    @Html.DisplayFor(x => x.SubtitleItem.VideoDescription)
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>Tegund:</th>
+            <th>Þýðendur:</th>
+            <th>Lengd:</th>
+            <th>Skráarstærð:</th>
+            <th>Skráarsnið:</th>
+            <th>Mynd:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Html.DisplayFor(x => x.SubtitleItem.VideoType)@(",") @Html.DisplayFor(x => x.SubtitleItem.VideoGenre)</td>
+            <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
+            <td>mjög langt</td>
+            <td>3.2mb</td>
+            <td><select>
+                <option value="1">.srt</option>
+                <option value="2">pdf</option>
+                </select></td>
+            <td><img src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@Model.SubtitleItem.Picture))" alt="No image" /></td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
+</p>
     <input type="button" value="Sækja" />
-
     <h3>Athugasemdir</h3>
 
 
