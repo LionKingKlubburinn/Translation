@@ -28,8 +28,8 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        [Authorize]
         // POST /Translation/1
+        [Authorize]
         [HttpPost]
         public ActionResult Index(string Text, int id = 0)
         {
