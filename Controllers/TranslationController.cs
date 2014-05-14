@@ -97,6 +97,7 @@ namespace Translation.Controllers
             return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult New(String name, String language, String hear = "False")
         {
@@ -108,6 +109,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Edit(int id = 0)
         {
@@ -142,6 +144,7 @@ namespace Translation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult EditFile(int id = 0, int linenum = 0)
         {

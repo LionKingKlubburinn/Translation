@@ -9,6 +9,7 @@ namespace Translation.Controllers
 {
     public class RequestController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             return View();
