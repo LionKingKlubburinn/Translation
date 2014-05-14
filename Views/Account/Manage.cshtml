@@ -5,54 +5,58 @@
 
 <h2>@ViewBag.Title.</h2>
 
+<table style="width:600px">
+    <tr>
+        <td>Notendanafn:</td>
+        <td>@ViewBag.UserName</td>
+    </tr>
+    <tr>
+        <td>Tölvupóstur:</td>
+        <td><input type="text" name="lastname" placeholder="@ViewBag.Email"></td>
+    </tr>
+    <tr>
+        <td>Sýna öðrum tölvupóst:</td>
+        <td>
+            <form>
+                <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>Land:</td>
+        <td><input type="text" name="lastname" placeholder="@ViewBag.Nationality">
+    </tr></td>
+</table>
+    @*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="file" name="file" />
+            <input type="submit" value="OK" />
+        }*@
 
-    <div> 
-        Notendanafn : @ViewBag.UserName
-    </div>
-    <div> 
-        Tölvupóstur: <input type="text" name="lastname" placeholder="@ViewBag.Email">
+    @* <div>
+            <form method="POST" enctype="multipart/form-data" action="Upload.">
+                <label for="photo">Mynd:</label>
+                <input type=FILE name="FILE1">
+                <input type=SUBMIT value="Upload">
+            </form>
+        </div>*@
 
-        @Html.Partial("_ChangeEmailPartial")
+    @Html.ActionLink("Vista breytingar", "Index")
 
-    </div>
-    <div> 
-        Sýna öðrum tölvupóst:
-        <form>
-            <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
-        </form> 
-    </div>
-    <div> Land: <input type="text" name="lastname" placeholder="@ViewBag.Nationality"></div>
-
-@*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" name="file" />
-    <input type="submit" value="OK" />
-}*@
-
-  @* <div>     
-        <form method="POST" enctype="multipart/form-data" action="Upload.">
-            <label for="photo">Mynd:</label>
-            <input type=FILE name="FILE1">
-            <input type=SUBMIT value="Upload">
-        </form>
-    </div>*@
-
-@Html.ActionLink("Vista breytingar", "Index")
-
-            <p class="text-success">@ViewBag.StatusMessage</p>
-            <div class="row">
-                <div class="col-md-12">
-                    @if (ViewBag.HasLocalPassword)
-                    {
-                        @Html.Partial("_ChangePasswordPartial")
-                    }
-                    else
-                    {
-                        @Html.Partial("_SetPasswordPartial")
-                    }
-
-                </div>
-            </div>
-            @section Scripts {
-                @Scripts.Render("~/bundles/jqueryval")
+    <p class="text-success">@ViewBag.StatusMessage</p>
+    <div class="row">
+        <div class="col-md-12">
+            @if (ViewBag.HasLocalPassword)
+            {
+                @Html.Partial("_ChangePasswordPartial")
             }
+            else
+            {
+                @Html.Partial("_SetPasswordPartial")
+            }
+
+        </div>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
