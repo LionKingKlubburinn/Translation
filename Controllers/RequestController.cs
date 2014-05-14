@@ -15,7 +15,7 @@ namespace Translation.Controllers
             return View();
         }
 
-        [Authorize(Roles="Administrator")]
+        [Authorize]
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
