@@ -1,26 +1,27 @@
-﻿@{
+﻿@Styles.Render("~/Content/Request.css")
+@{
     ViewBag.Title = "Beiðnir";
 }
+<div class="request-container">
+    <div class="request-mid">
+        <h2>Ný beiðni</h2>
+        @using (Html.BeginForm("Index", "Request", FormMethod.Post))
+        {
+            @("Titill: ")
+            @Html.TextBox("Name")<br />
 
-<h2>Ný beiðni</h2>
+            @("Tungumál þýðingar: ")
+            <select name="Language">
+                <option selected="selected">Tungumál</option>
+                <option value="is">Íslenska</option>
+                <option value="en">Enska</option>
+            </select><br />
 
-@using (Html.BeginForm("Index", "Request", FormMethod.Post))
-{
-    @("Titill: ")
-    @Html.TextBox("Name")<br />
-            
-    @("Tungumál þýðingar: ")
-    <select name="Language">     
-        <option selected="selected">Tungumál</option>
-        <option value="is">Íslenska</option>
-        <option value="en">Enska</option>
-    </select><br />
-             
-    @("Fyrir heyrnarskerta:")
-    @Html.CheckBox("ForHardOfHearing", false)
-    <br />
+            @("Fyrir heyrnarskerta:")
+            @Html.CheckBox("ForHardOfHearing", false)
+            <br />
 
-    <input type="submit" value="Senda inn beiðni" />
-}
-
-
+            <input type="submit" value="Senda inn beiðni" />
+        }
+    </div>
+</div>
