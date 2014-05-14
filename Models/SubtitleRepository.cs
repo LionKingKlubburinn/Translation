@@ -78,7 +78,7 @@ namespace Translation.Models
 
         public void ParseText(String filename, int TranslateID, String User)
         {
-            StreamReader reader = File.OpenText(filename);//TEST TODO
+            StreamReader reader = File.OpenText(filename);
             int count = 1;
             bool TextLine2Used = false;
             string line, lineID = "0", TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
@@ -158,7 +158,7 @@ namespace Translation.Models
             String SubtitleExport = "";
             foreach(var item in result)
             {
-                if (item.TranslationText2 != null)
+                if (item.TranslationText2 != "")
                 {
                     SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
                         item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
@@ -170,10 +170,12 @@ namespace Translation.Models
                 }
                 
             }
-            System.IO.StreamWriter file = new System.IO.StreamWriter("~/Content/uploads/test.txt"); //TODO
+            /*StreamWriter file = new StreamWriter(Server.MapPath("~/Content/uploads"), file); //TODO
             file.WriteLine(SubtitleExport);
-
-            file.Close();
+            {
+                file.WriteLine(SubtitleExport);
+            }*/
+            System.Diagnostics.Debug.WriteLine(SubtitleExport);
         }
     }
 }

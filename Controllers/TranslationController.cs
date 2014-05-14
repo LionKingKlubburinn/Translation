@@ -182,7 +182,36 @@ namespace Translation.Controllers
         [HttpPost]
         public ActionResult GetSubtitle(int ID)
         {
-            SubtitleRepository.Instance.ExportSubtitle(ID);
+            var result = from t in db.TextLines
+                         where t.SubtitleID == ID
+                         orderby t.RowID ascending
+                         select t;
+
+            String SubtitleExport = "";
+            foreach (var item in result)
+            {
+                if (item.TranslationText2 != "")
+                {
+                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
+                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
+                }
+                else
+                {
+                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
+                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + Environment.NewLine;
+                }
+
+            }
+            var path = HttpContext.Server.MapPath("~/Content/test.txt");
+            //StreamWriter file = new StreamWriter(path);
+
+            using (StreamWriter sw = new StreamWriter(path))
+            {
+                sw.Write(SubtitleExport);
+            }
+
+            System.Diagnostics.Debug.WriteLine(SubtitleExport);
+            System.Diagnostics.Debug.WriteLine(path);
             return RedirectToAction("Index", "Home");
         }
     }
