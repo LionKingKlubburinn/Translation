@@ -7,8 +7,13 @@
     <table class="search">
         <tr>
             <td colspan="4">
-                @Html.TextBox("query", "", new { id = "searchbox" })
-                <input id="searchbutton" type="submit" value="Leita" />
+                <div class="input-group">
+                    @Html.TextBox("query", "", new { id = "searchbox", @class="form-control" })
+                    @*<input id="searchbutton" type="submit" value="Leita" />*@
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Leita</button>
+                    </span>
+                </div>
             </td>
         </tr>
         <tr>

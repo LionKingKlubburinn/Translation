@@ -54,9 +54,13 @@ footer {
     width: 350px;
 }
 
-.search #searchbutton {
+/*.search #searchbutton {
     width:70px;
     float: right;
+}*/
+
+.input-group {
+    width: 400px;
 }
 
 .search select {
