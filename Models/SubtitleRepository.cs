@@ -154,7 +154,7 @@ namespace Translation.Models
                 }
                 
             }
-            System.IO.StreamWriter file = new System.IO.StreamWriter("c:\\test.txt"); //TODO
+            System.IO.StreamWriter file = new System.IO.StreamWriter("~/Content/uploads/test.txt"); //TODO
             file.WriteLine(SubtitleExport);
 
             file.Close();

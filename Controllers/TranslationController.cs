@@ -178,7 +178,7 @@ namespace Translation.Controllers
         public ActionResult GetSubtitle(int ID)
         {
             SubtitleRepository.Instance.ExportSubtitle(ID);
-            return View("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
