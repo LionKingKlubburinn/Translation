@@ -83,7 +83,7 @@ namespace Translation.Controllers
             if (File != null && File.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(File.FileName);
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Content/uploads"), fileName);
                 File.SaveAs(path);
                 s.File = path;
             }
@@ -172,6 +172,13 @@ namespace Translation.Controllers
             bool forhardofhearing = !String.IsNullOrEmpty(hear);
             model.SubtitleItems = SubtitleRepository.Instance.GetSubtitles(query, forhardofhearing, language, type, genre);
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult GetSubtitle(int ID)
+        {
+            SubtitleRepository.Instance.ExportSubtitle(ID);
+            return View("Index");
         }
     }
 }

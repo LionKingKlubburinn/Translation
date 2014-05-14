@@ -39,7 +39,11 @@
         <p>
             @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
         </p>
-        <input type="button" value="Sækja" />
+        @using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
+        { 
+            <input type="hidden" name="RequestID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
+            <button name="Sækja" type="submit" id="download" ></button>
+        }
     </div>
     <div class="subtitle-pic">
         <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@Model.SubtitleItem.Picture))" alt="No image" />
