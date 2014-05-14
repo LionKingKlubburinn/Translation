@@ -28,6 +28,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        [Authorize]
         // POST /Translation/1
         [HttpPost]
         public ActionResult Index(string Text, int id = 0)
@@ -61,6 +62,7 @@ namespace Translation.Controllers
             return View(text);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult New(FormCollection form, HttpPostedFileBase File, HttpPostedFileBase Picture)
         {
@@ -123,6 +125,7 @@ namespace Translation.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Edit(String TimeStart, String TimeStop, String Line1, String Line2, int id = 0)
         {
@@ -158,6 +161,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult EditFile(String Line1, String Line2, String direction, int id = 0, int linenum = 0)
         {
@@ -179,6 +183,7 @@ namespace Translation.Controllers
             return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Search(String query, String hear, String language, String type, String genre)
         {
@@ -188,6 +193,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult GetSubtitle(int ID)
         {

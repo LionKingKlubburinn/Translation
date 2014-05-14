@@ -43,6 +43,7 @@ namespace Translation.Controllers
             return RedirectToAction("Index");
         }
         
+        [Authorize]
         [HttpPost]
         public ActionResult UpVote(int RequestID)
         {
