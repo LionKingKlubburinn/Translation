@@ -14,7 +14,9 @@ body {
     width: 460px;
     height: 200px;
     margin-bottom: 10px;
-    border: 1px solid black;
+    -webkit-box-shadow: 0 0 6px rgba(0,0,0, .75);
+    -moz-box-shadow: 0 0 6px rgba(0,0,0, .75);
+    box-shadow: 0 0 6px rgba(0,0,0, 0.75);
 }
 
 #qty {
@@ -76,6 +78,7 @@ body {
     text-align: center;
     height: 27.5em;
     overflow: auto;
+    margin-top: 30px;
 }
 
 .request {

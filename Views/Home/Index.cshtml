@@ -60,9 +60,11 @@
             </tbody>
         </table>
     </div>
-    <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
-    <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
-</div>
+    <div class="btn-group">
+        <input type="button" class="btn btn-default" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
+        <input type="button" class="btn btn-default" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
+    </div>
+    </div>
 @*@using (Html.BeginForm("SetCulture", "Home"))
     {
         <fieldset>
