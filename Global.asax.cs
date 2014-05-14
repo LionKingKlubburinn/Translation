@@ -16,6 +16,10 @@ namespace Translation
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Create the administrator role and user.
+            RoleActions roleActions = new RoleActions();
+            roleActions.createAdmin();
         }
     }
 }
