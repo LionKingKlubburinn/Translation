@@ -56,6 +56,7 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             var text = TextLineRepository.Instance.GetTextLines(id);
             return View(text);
         }
@@ -142,6 +143,7 @@ namespace Translation.Controllers
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+            ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             TextLine model = TextLineRepository.Instance.GetTextLine(id, linenum);
             return View(model);
         }
@@ -154,6 +156,7 @@ namespace Translation.Controllers
                 return RedirectToAction("Index", "Home");
             }
             ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+            ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             TextLineRepository.Instance.ChangeTextLine(id, linenum, Line1, Line2);
             if (direction == "<<" && linenum > 1)
             {

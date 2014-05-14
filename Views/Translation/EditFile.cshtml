@@ -42,10 +42,10 @@
             <input type="submit" class="btn btn-default" name="direction" value=">>" />
             <input type="submit" class="btn btn-default" name="direction" value="<<" />
         }
-        <input type="button" class="btn btn-default" value="Til baka" onclick="location.href='@Url.Action("Index", "Translation", new { id = Model.SubtitleID })'" />
+        @Html.ActionLink("Til baka", "Index", new { id = Model.SubtitleID })    
     </div>
     <div class="subtitle-pic">
-
+        <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@ViewBag.PicPath))" alt="No image" />
     </div>
     <br style="clear: left;" />
 </div>

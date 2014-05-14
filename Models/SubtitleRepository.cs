@@ -32,6 +32,14 @@ namespace Translation.Models
             return result;
         }
 
+        public String GetPicPath (int id)
+        {
+            var result = (from s in db.Subtitles
+                          where s.ID == id
+                          select s.Picture).FirstOrDefault();
+            return result;
+        }
+
         public IEnumerable<Subtitle> GetSubtitles(String Searchstring, bool forhardofhearing, String language, String type, String genre)
         {
             var result = from s in db.Subtitles
