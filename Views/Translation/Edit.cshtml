@@ -1,38 +1,44 @@
-﻿@{
+﻿@Styles.Render("~/Content/Translation.css")
+@{
     ViewBag.Title = "Edit";
 }
 
+<div class="translation-container">
+    <div class="subtitle-info">
+        <h2>Breyttu og bættu</h2>
 
-<h2>Breyttu og bættu</h2>
+        <h2>Lion King</h2>
+        <p>Timeformat should be on the form: 00:00:00,000</p>
 
-<h2>Lion King</h2>
-<p>Timeformat should be on the form: 00:00:00,000</p>
+        @using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>
+                        <span class="glyphicon glyphicon-time"></span>
+                        <input type="text" name="TimeStart"> @("-")
+                        <input type="text" name="TimeStop">
+                    </td>
+                    <td>
+                        <input type="text" name="Line1"><br>
+                        <input type="text" name="Line2">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-plus-sign"></span>
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-minus-sign"></span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Vista" />
+            <input type="submit" value="Birta texta" />
+        }
+    </div>
+    <div class="subtitle-pic">
 
-@using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
-{
-     <table>
-        <tr>
-            <td>
-                <span class="glyphicon glyphicon-time"></span>
-                <input type="text" name="TimeStart"> @("-")
-                <input type="text" name="TimeStop">
-            </td>
-            <td>
-                <input type="text" name="Line1"><br>
-                <input type="text" name="Line2">
-            </td>
-            <td>
-                <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-plus-sign"></span>
-                </button>
-                <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-minus-sign"></span>
-                </button>
-            </td>
-        </tr>
-    </table>
-    <input type="submit" value="Vista" />
-    <input type="submit" value="Birta texta" />
-}
-
-
+    </div>
+    <br style="clear: left;" />
+</div>

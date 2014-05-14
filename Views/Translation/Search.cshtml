@@ -4,15 +4,17 @@
     ViewBag.Title = "Search";
 }
 <div class="translation-container">
-    <p>Leitarniðurstöður fyrir "@Request.Params["query"]"</p>
-    <table>
-        @foreach (var item in Model.SubtitleItems)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(item.Name, "Index", new { id = item.ID })
-                </td>
-            </tr>
-        }
-    </table>
+    <div class="subtitle-full">
+        <p>Leitarniðurstöður fyrir "@Request.Params["query"]"</p>
+        <table>
+            @foreach (var item in Model.SubtitleItems)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.Name, "Index", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
 </div>

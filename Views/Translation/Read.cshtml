@@ -1,18 +1,25 @@
 ﻿@model IEnumerable<Translation.Models.TextLine>
-
+@Styles.Render("~/Content/Translation.css")
 @{
     ViewBag.Title = "Read";
 }
+<div class="translation-container">
+    <div class="subtitle-info">
+        <h2>Read text</h2>
 
-<h2>Read text</h2>
+        @foreach (var item in Model)
+        {
+            <p>
+                @Html.DisplayFor(model => item.TranslationText1)
+            </p>
+            <p>
+                @Html.DisplayFor(model => item.TranslationText2)
+            </p>
+        }
+        @Html.ActionLink("Til baka", "Index", new { id = Model.First().SubtitleID })
+    </div>
+    <div class="subtitle-pic">
 
-@foreach (var item in Model)
-{
-    <p>
-        @Html.DisplayFor(model => item.TranslationText1)
-    </p>
-    <p>
-        @Html.DisplayFor(model => item.TranslationText2)
-    </p>
-}
-@Html.ActionLink("Til baka", "Index", new { id = Model.First().SubtitleID })
+    </div>
+    <br style="clear: left;" />
+</div>

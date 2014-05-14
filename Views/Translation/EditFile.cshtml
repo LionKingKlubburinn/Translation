@@ -1,4 +1,5 @@
 ﻿@model Translation.Models.TextLine
+@Styles.Render("~/Content/Translation.css")
 @{
     ViewBag.Title = "EditFromFile";
 }
@@ -8,37 +9,47 @@
         document.getElementById('Line1').focus();
     }
 </script>
+<div class="translation-container">
+    <div class="subtitle-info">
+        <h2>Breyttu og bættu</h2>
 
-<h2>Breyttu og bættu</h2>
+        <h2>Lion King</h2>
+        <h3>Simbalover</h3>
 
-<h2>Lion King</h2>
-<h3>Simbalover</h3>
+        @using (Html.BeginForm("EditFile", "Translation", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => Model.OriginalText1)
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </td>
+                    <td>
+                        @Html.TextBox("Line1", Model.TranslationText1)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => Model.OriginalText2)
+                    </td>
+                    <td>
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                    </td>
+                    <td>
+                        @Html.TextBox("Line2", Model.TranslationText2)
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" name="linenum" value="@Request.Params["linenum"]" />
+            // TODO: endurrada med css
+            <input type="submit" name="direction" value=">>" />
+            <input type="submit" name="direction" value="<<" />
+        }
+    </div>
+    <div class="subtitle-pic">
 
-@using (Html.BeginForm("EditFile", "Translation", FormMethod.Post))
-{
-    <table>
-        <tr>
-            <td>
-                @Html.DisplayFor(model => Model.OriginalText1)
-            </td><td>
-                <span class="glyphicon glyphicon-arrow-right"></span>
-            </td><td>
-                @Html.TextBox("Line1", Model.TranslationText1)
-            </td>
-        </tr>
-        <tr>
-            <td>
-                @Html.DisplayFor(model => Model.OriginalText2)
-            </td><td>
-                <span class="glyphicon glyphicon-arrow-right"></span>
-            </td><td>
-                @Html.TextBox("Line2", Model.TranslationText2)
-            </td>
-        </tr>
-    </table>
-    <input type="hidden" name="linenum" value="@Request.Params["linenum"]" />
-    // TODO: endurrada med css
-    <input type="submit" name="direction" value=">>" /> 
-    <input type="submit" name="direction" value="<<" />
-}
-
+    </div>
+    <br style="clear: left;" />
+</div>

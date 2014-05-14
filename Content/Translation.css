@@ -1,20 +1,19 @@
 ﻿.translation-container {
     width: 940px;
-    background-color: coral;
+    background-color: aliceblue;
 }
 
 .subtitle-info {
     width: 700px;
-    height: 220px;
     float: left;
     margin-right: 20px;
-    background-color: blue;
+    background-color: lightgray;
 }
 
 .subtitle-pic {
     width: 220px;
     float: left;
-    background-color: chocolate;
+    background-color: lightgray;
 }
 
 #subtitle-img {
@@ -24,5 +23,16 @@
 
 .subtitle-comments {
     width: 700px;
-    background-color:aliceblue;
+    background-color:lightgray;
+}
+
+.subtitle-mid {
+    width: 460px;
+    margin-left: 240px;
+    background-color:lightgray;
+}
+
+.subtitle-full {
+    width: 940px;
+    background-color: lightgray;
 }

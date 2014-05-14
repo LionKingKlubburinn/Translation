@@ -1,34 +1,37 @@
 ﻿@model Translation.Models.Subtitle
+@Styles.Render("~/Content/Translation.css")
 @{
     ViewBag.Title = "New";
 }
 
-<h2>Ný Þýðing</h2>
+<div class="translation-container">
+    <div class="subtitle-mid">
+    <h2>Ný Þýðing</h2>
 
-@using (Html.BeginForm("New", "Translation", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    @("Titill: ")
-    @Html.TextBox("Name", Model.Name)<br />
-    @("Lýsing: ")
-    @Html.TextArea("VideoDescription", new { cols = 60, rows = 10 })<br />
-    @("Tungumál þýðingar: ")
-         <select id="tungumál" name="Language">     
-             <option selected="selected">Tungumál</option>
-             <option value="is">íslenska</option>
-             <option value="en">enska</option>
-         </select><br />
-    @("Lengd: ")
-    @Html.TextBox("Runtime")<br />
-    @("Fyrir heyrnarskerta:")
-    @Html.CheckBox("ForHardOfHearing", Model.ForHardOfHearing)<br />
-    @("Tegund:")
-        <select id="tegund" name="VideoType">     
+    @using (Html.BeginForm("New", "Translation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @("Titill: ")
+        @Html.TextBox("Name", Model.Name)<br />
+        @("Lýsing: ")
+        @Html.TextArea("VideoDescription", new { cols = 60, rows = 10 })<br />
+        @("Tungumál þýðingar: ")
+        <select id="tungumál" name="Language">
+            <option selected="selected">Tungumál</option>
+            <option value="is">íslenska</option>
+            <option value="en">enska</option>
+        </select><br />
+        @("Lengd: ")
+        @Html.TextBox("Runtime")<br />
+        @("Fyrir heyrnarskerta:")
+        @Html.CheckBox("ForHardOfHearing", Model.ForHardOfHearing)<br />
+        @("Tegund:")
+        <select id="tegund" name="VideoType">
             <option selected="selected">Tegund</option>
             <option value="Kvikmynd">Kvikmynd</option>
             <option value="Þáttur">Þáttur</option>
-        </select>   
-    @("Flokkur:")
-        <select id="flokkur" name="VideoGenre">     
+        </select>
+        @("Flokkur:")
+        <select id="flokkur" name="VideoGenre">
             <option selected="selected">Allir flokkar</option>
             <option value="Drama">Drama</option>
             <option value="Fantasía">Fantasía</option>
@@ -38,18 +41,19 @@
             <option value="Teiknimynd">Teiknimynd</option>
             <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
             <option value="Ævintýri">Ævintýri</option>
-        </select> 
-    <br />
-    @("Mynd:")
-    <input type="file" id="fileUpload" name="Picture"/><br />
-    @("Skrá til þýðingar:")
-    <input type="file" id="fileUpload2" name="File"/><br />
-    
-    @("Leyfa samstarf:")
-    @Html.CheckBox("CollaborationAllowed", false)<br />
-    
-    <input type="submit" value="Byrja þýðingu" />
-    //<input type="button" value="Byrja þýðingu" onclick="location.href='@Url.Action("Edit", "Translation")'" />
-    
-}
+        </select>
+        <br />
+        @("Mynd:")
+        <input type="file" id="fileUpload" name="Picture" /><br />
+        @("Skrá til þýðingar:")
+        <input type="file" id="fileUpload2" name="File" /><br />
 
+        @("Leyfa samstarf:")
+        @Html.CheckBox("CollaborationAllowed", false)<br />
+
+        <input type="submit" value="Byrja þýðingu" />
+        //<input type="button" value="Byrja þýðingu" onclick="location.href='@Url.Action("Edit", "Translation")'" />
+
+    }
+    </div>
+</div>
