@@ -216,6 +216,7 @@
     <Content Include="Content\Home.css" />
     <Content Include="Content\Request.css" />
     <Content Include="Content\Translation.css" />
+    <Content Include="Content\UserProfile.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
