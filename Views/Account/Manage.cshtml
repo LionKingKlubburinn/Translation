@@ -11,6 +11,9 @@
     </div>
     <div> 
         Tölvupóstur: <input type="text" name="lastname" placeholder="@ViewBag.Email">
+
+        @Html.Partial("_ChangeEmailPartial")
+
     </div>
     <div> 
         Sýna öðrum tölvupóst:
@@ -34,7 +37,7 @@
         </form>
     </div>*@
 
-<input type="submit" value="Breyta" />
+@Html.ActionLink("Vista breytingar", "Index")
 
             <p class="text-success">@ViewBag.StatusMessage</p>
             <div class="row">

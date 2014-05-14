@@ -115,6 +115,9 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+
             return View();
         }
 
@@ -125,6 +128,9 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+
             TextLine t = new TextLine();
             t.TimeStampBegin = TimeStart;
             t.TimeStampEnd = TimeStop;
