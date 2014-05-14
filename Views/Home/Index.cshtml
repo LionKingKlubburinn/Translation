@@ -13,7 +13,6 @@
     }
 }
 
-<body>
 <script type="text/javascript">
     function modify_qty(val) {
         var qty = document.getElementById('qty').value;
@@ -60,13 +59,10 @@
     </table>
 </div>
 
-</body>
-
-
     <input type="button" value="Ný beiðni" onclick="location.href='@Url.Action("Index", "Request")'" />
     <input type="button" value="Ný þýðing" onclick="location.href='@Url.Action("New", "Translation")'" />
 
-
+</div>
 @*@using (Html.BeginForm("SetCulture", "Home"))
 {
     <fieldset>
@@ -181,5 +177,3 @@ else
         <li>@Html.ActionLink(Resources.LogOn, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }*@
-
-</div>

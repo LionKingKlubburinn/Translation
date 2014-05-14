@@ -8,81 +8,88 @@
 @Html.ActionLink("EditFile", "Edit")
 @Html.ActionLink("New", "New")
 @Html.ActionLink("Read", "Read")
+<div class="translation-container">
+    <div class="subtitle-info">
+        <style>
+            th, td {
+                width: 150px;
+            }
+        </style>
 
-<style>
-    th, td{
-        width:150px;
-    }
-</style>
-
-<div id="LionKing">
-    <h3>@Html.DisplayFor(x => x.SubtitleItem.Name)</h3>
-</div>
-<p>
-    @Html.DisplayFor(x => x.SubtitleItem.VideoDescription)
-</p>
-<table>
-    <thead>
-        <tr>
-            <th>Tegund:</th>
-            <th>Þýðendur:</th>
-            <th>Lengd:</th>
-            <th>Skráarstærð:</th>
-            <th>Skráarsnið:</th>
-            <th>Mynd:</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Html.DisplayFor(x => x.SubtitleItem.VideoType) @(",") @Html.DisplayFor(x => x.SubtitleItem.VideoGenre)</td>
-            <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
-            <td>mjög langt</td>
-            <td>3.2mb</td>
-            <td><select>
-                <option value="1">.srt</option>
-                <option value="2">pdf</option>
-                </select></td>
-            <td><img src="string = @Model.SubtitleItem.Picture" alt="No image" /></td>
-        </tr>
-    </tbody>
-</table>
-<p>
-    @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
-</p>
-
-<input type="button" value="Sækja" />
-
-<h3>Athugasemdir</h3>
-
-
-
-<ul class="list-group" style="max-width: 560px;">
-@foreach (var item in Model.CommentItems)
-{
-
-    <li class="list-group-item">
+        <div id="LionKing">
+            <h3>@Html.DisplayFor(x => x.SubtitleItem.Name)</h3>
+        </div>
         <p>
-            <span class="glyphicon glyphicon-user"></span>
-            <span class="text-primary">@Html.DisplayFor(modelItem => item.AuthorID)</span>
-            <span>@Html.DisplayFor(modelItem => item.Text)</span>
-             
+            @Html.DisplayFor(x => x.SubtitleItem.VideoDescription)
         </p>
-        <p>
-            <span class="text-muted">@item.CommentDate.ToString("dd. MMM HH:mm") - </span>
-        </p>
-    </li>
-    
- }
+        <table>
+            <thead>
+                <tr>
+                    <th>Tegund:</th>
+                    <th>Þýðendur:</th>
+                    <th>Lengd:</th>
+                    <th>Skráarstærð:</th>
+                    <th>Skráarsnið:</th>
+                    <th>Mynd:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Html.DisplayFor(x => x.SubtitleItem.VideoType) @(",") @Html.DisplayFor(x => x.SubtitleItem.VideoGenre)</td>
+                    <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
+                    <td>mjög langt</td>
+                    <td>3.2mb</td>
+                    <td>
+                        <select>
+                            <option value="1">.srt</option>
+                            <option value="2">pdf</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="subtitle-pic">
+        <img src="string = @Model.SubtitleItem.Picture" alt="No image" />
+    </div>
+    <p>
+        @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
+    </p>
 
-    <li class="list-group-item">
-        @using (Html.BeginForm())
+    <input type="button" value="Sækja" />
+
+    <h3>Athugasemdir</h3>
+
+
+
+    <ul class="list-group" style="max-width: 560px;">
+        @foreach (var item in Model.CommentItems)
         {
-            <div class="form-horizontal">
-                <label class="sr-only" for="Text">Comment</label>
-                <textarea class="form-control"rows="3" id="Text" name="Text"></textarea>
-                <button type="submit" class="btn btn-primary">Senda</button> 
-            </div>
-            @Html.ValidationSummary(false)
+
+            <li class="list-group-item">
+                <p>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="text-primary">@Html.DisplayFor(modelItem => item.AuthorID)</span>
+                    <span>@Html.DisplayFor(modelItem => item.Text)</span>
+
+                </p>
+                <p>
+                    <span class="text-muted">@item.CommentDate.ToString("dd. MMM HH:mm") - </span>
+                </p>
+            </li>
+
         }
-    </li>
-</ul>
+
+        <li class="list-group-item">
+            @using (Html.BeginForm())
+            {
+                <div class="form-horizontal">
+                    <label class="sr-only" for="Text">Comment</label>
+                    <textarea class="form-control" rows="3" id="Text" name="Text"></textarea>
+                    <button type="submit" class="btn btn-primary">Senda</button>
+                </div>
+                @Html.ValidationSummary(false)
+            }
+        </li>
+    </ul>
+</div>
