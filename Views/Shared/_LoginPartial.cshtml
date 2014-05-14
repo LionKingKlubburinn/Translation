@@ -7,7 +7,7 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Velkomin/n" + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Mín síða" })
+            @Html.ActionLink("Velkomin/n " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Mín síða" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Útskráning</a></li>
     </ul>

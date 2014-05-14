@@ -1,35 +1,34 @@
 ﻿﻿@using Translation.Models;
 @{
-    ViewBag.Title = "Manage Account";
+    ViewBag.Title = "Breyta notendasíðu";
 }
 
 <h2>@ViewBag.Title.</h2>
 
-<h1>Stilla prófíl</h1>
 
     <div> Notendanafn : @ViewBag.UserName</div>
     <div> Tölvupóstur:  @ViewBag.Email</div>
     <div> 
-        <p>Sýna öðrum tölvupóst:</p>
+        Sýna öðrum tölvupóst:
         <form>
             <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
         </form> 
     </div>
-    <div> Land: </div>
+    <div> Land: @ViewBag.Nationality</div>
 
-@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <input type="file" name="file" />
     <input type="submit" value="OK" />
-}
+}*@
 
-    <div>     
+  @* <div>     
         <form method="POST" enctype="multipart/form-data" action="Upload.">
             <label for="photo">Mynd:</label>
             <input type=FILE name="FILE1">
             <input type=SUBMIT value="Upload">
         </form>
-    </div>
+    </div>*@
 
 <input type="submit" value="Breyta" />
 
