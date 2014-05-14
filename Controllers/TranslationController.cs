@@ -208,17 +208,23 @@ namespace Translation.Controllers
                 }
 
             }
-            var path = HttpContext.Server.MapPath("~/Content/test.txt");
-            //StreamWriter file = new StreamWriter(path);
+            var subtitle = (from s in db.Subtitles
+                         where s.ID == ID
+                         select s).First();
+            string filename = subtitle.Name;
 
+            var path = HttpContext.Server.MapPath("~/Content/temp.txt");
             using (StreamWriter sw = new StreamWriter(path))
             {
                 sw.Write(SubtitleExport);
             }
-
             System.Diagnostics.Debug.WriteLine(SubtitleExport);
             System.Diagnostics.Debug.WriteLine(path);
-            return RedirectToAction("Index", "Home");
+            new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet);
+            return new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet)
+            {
+                FileDownloadName = filename + ".srt"
+            };
         }
     }
 }

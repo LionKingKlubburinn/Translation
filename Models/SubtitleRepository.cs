@@ -147,35 +147,5 @@ namespace Translation.Models
                 TextLineRepository.Instance.AddTextLine(t);
             }
         }
-
-        public void ExportSubtitle(int TranslateID)
-        {
-            var result = from t in db.TextLines
-                         where t.SubtitleID == TranslateID
-                         orderby t.RowID ascending
-                         select t;
-
-            String SubtitleExport = "";
-            foreach(var item in result)
-            {
-                if (item.TranslationText2 != "")
-                {
-                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
-                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
-                }
-                else
-                {
-                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
-                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + Environment.NewLine;
-                }
-                
-            }
-            /*StreamWriter file = new StreamWriter(Server.MapPath("~/Content/uploads"), file); //TODO
-            file.WriteLine(SubtitleExport);
-            {
-                file.WriteLine(SubtitleExport);
-            }*/
-            System.Diagnostics.Debug.WriteLine(SubtitleExport);
-        }
     }
 }
