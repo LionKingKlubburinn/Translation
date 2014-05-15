@@ -24,7 +24,7 @@ namespace Translation.Models
             }
         }
 
-        public String GetSubtiteName (int id)
+        public String GetSubtitleName (int id)
         {
             var result = (from s in db.Subtitles
                          where s.ID == id
