@@ -76,6 +76,15 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
+        public void DeleteSubtitle(int id)
+        {
+            var result = (from s in db.Subtitles
+                          where s.ID == id
+                          select s).First();
+            db.Subtitles.Remove(result);
+            db.SaveChanges();
+        }
+
         public void ParseText(String filename, int TranslateID, String User)
         {
             StreamReader reader = File.OpenText(filename);

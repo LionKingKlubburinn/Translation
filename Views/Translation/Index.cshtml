@@ -7,7 +7,11 @@
     <div class="subtitle-info">
         @if (ViewContext.HttpContext.User.IsInRole("Administrator"))
         {
-            <h3>G'isli</h3>
+            using (Html.BeginForm("DeleteSubtitle", "Translation", FormMethod.Post))
+            {
+                <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
+                <button name="delete" value="Eyða" type="submit" id="delete" ></button>
+            }
         }
         <div id="LionKing">
             <h3>@Html.DisplayFor(x => x.SubtitleItem.Name)</h3>
@@ -46,7 +50,7 @@
         @using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
         { 
             <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
-            <button name="Sækja" type="submit" id="download" ></button>
+            <button name="download" value="Sækja" type="submit" id="download" ></button>
         }
     </div>
     <div class="subtitle-pic">
