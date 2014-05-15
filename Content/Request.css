@@ -8,3 +8,10 @@
     margin-left: 240px;
     background-color: lightgray;
 }
+
+.input-group {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

@@ -1,62 +1,71 @@
 ﻿﻿@using Translation.Models;
+@Styles.Render("~/Content/Account.css");
 @{
     ViewBag.Title = "Breyta notendasíðu";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="account-container">
+    <div class="account-info">
+        <h2>@ViewBag.Title.</h2>
 
-<table style="width:600px">
-    <tr>
-        <td>Notendanafn:</td>
-        <td>@ViewBag.UserName</td>
-    </tr>
-    <tr>
-        <td>Tölvupóstur:</td>
-        <td><input type="text" name="lastname" placeholder="@ViewBag.Email"></td>
-    </tr>
-    <tr>
-        <td>Sýna öðrum tölvupóst:</td>
-        <td>
-            <form>
-                <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
-            </form>
-        </td>
-    </tr>
-    <tr>
-        <td>Land:</td>
-        <td><input type="text" name="lastname" placeholder="@ViewBag.Nationality">
-    </tr>
-</table>
-    @*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <input type="file" name="file" />
-            <input type="submit" value="OK" />
-        }*@
-
-    @* <div>
-            <form method="POST" enctype="multipart/form-data" action="Upload.">
-                <label for="photo">Mynd:</label>
-                <input type=FILE name="FILE1">
-                <input type=SUBMIT value="Upload">
-            </form>
-        </div>*@
-
-    @Html.ActionLink("Vista breytingar", "Index")
-
-    <p class="text-success">@ViewBag.StatusMessage</p>
-    <div class="row">
-        <div class="col-md-12">
-            @if (ViewBag.HasLocalPassword)
+        <table style="width:600px">
+            <tr>
+                <td>Notendanafn:</td>
+                <td>@ViewBag.UserName</td>
+            </tr>
+            <tr>
+                <td>Tölvupóstur:</td>
+                <td><input type="text" name="lastname" placeholder="@ViewBag.Email"></td>
+            </tr>
+            <tr>
+                <td>Sýna öðrum tölvupóst:</td>
+                <td>
+                    <form>
+                        <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Land:</td>
+                <td><input type="text" name="lastname" placeholder="@ViewBag.Nationality">
+            </tr>
+        </table>
+        @*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-                @Html.Partial("_ChangePasswordPartial")
-            }
-            else
-            {
-                @Html.Partial("_SetPasswordPartial")
-            }
+                <input type="file" name="file" />
+                <input type="submit" value="OK" />
+            }*@
 
+        @* <div>
+                <form method="POST" enctype="multipart/form-data" action="Upload.">
+                    <label for="photo">Mynd:</label>
+                    <input type=FILE name="FILE1">
+                    <input type=SUBMIT value="Upload">
+                </form>
+            </div>*@
+
+        @Html.ActionLink("Vista breytingar", "Index")
+
+        <p class="text-success">@ViewBag.StatusMessage</p>
+        <div class="row">
+            <div class="col-md-12">
+                @if (ViewBag.HasLocalPassword)
+                {
+                    @Html.Partial("_ChangePasswordPartial")
+                }
+                else
+                {
+                    @Html.Partial("_SetPasswordPartial")
+                }
+
+            </div>
         </div>
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }
     </div>
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+    <div class="account-pic">
+        <img id="account-img" src="@Url.Content("~/Content/Person.jpg")" alt="Engin mynd fannst" />
+    </div>
+    <br style="clear: left;" />
+</div>

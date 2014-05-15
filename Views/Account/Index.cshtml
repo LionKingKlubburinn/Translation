@@ -1,40 +1,44 @@
 ﻿﻿@using Translation.Models;
-@Styles.Render("~/Content/UserProfile.css")
+@Styles.Render("~/Content/Account.css")
 @{
     ViewBag.Title = "User";
 }
 
-@using (Html.BeginForm("Index", "Account", FormMethod.Post))
-{
-    <h2>@ViewBag.UserName</h2>
-    
-    <div>
-        <img id="Person-Icon" src="@Url.Content("~/Content/Person.jpg")" alt="Engin mynd fannst" height="200" width="200" />
-    </div>
-    
-    <table style="width:600px">
-        <tr>
-          <td>Notendanafn:</td>
-          <td>@ViewBag.UserName</td>		
-        </tr>
-        <tr>
-          <td>Tölvupóstur:</td>
-          <td>@ViewBag.Email</td>		
-        </tr>
-        <tr>
-            <td>Land:</td>
-            <td>@ViewBag.Nationality</td>
-        </tr>
-        <tr>
-            <td>Meðlimur síðan:</td>
-            <td>@ViewBag.DateCreated</td>
-        </tr>
-    </table>
-    
-     
-    
-    @Html.ActionLink("Breyta Prófíl", "Manage");
-    
-    <h2>Mínar þýðingar</h2>
+<div class="account-container">
+    <div class="account-info">
+        @using (Html.BeginForm("Index", "Account", FormMethod.Post))
+        {
+            <h2>@ViewBag.UserName</h2>
 
-}
+            <table style="width:600px">
+                <tr>
+                    <td>Notendanafn:</td>
+                    <td>@ViewBag.UserName</td>
+                </tr>
+                <tr>
+                    <td>Tölvupóstur:</td>
+                    <td>@ViewBag.Email</td>
+                </tr>
+                <tr>
+                    <td>Land:</td>
+                    <td>@ViewBag.Nationality</td>
+                </tr>
+                <tr>
+                    <td>Meðlimur síðan:</td>
+                    <td>@ViewBag.DateCreated</td>
+                </tr>
+            </table>
+
+
+
+            @Html.ActionLink("Breyta Prófíl", "Manage");
+
+            <h2>Mínar þýðingar</h2>
+
+        }
+    </div>
+    <div class="account-pic">
+        <img id="account-img" src="@Url.Content("~/Content/Person.jpg")" alt="Engin mynd fannst" />
+    </div>
+    <br style="clear: left;" />
+</div>
