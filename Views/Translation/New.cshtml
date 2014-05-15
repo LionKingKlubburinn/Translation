@@ -22,15 +22,20 @@
         <div class="input-group">
                 <span class="input-group-addon">@("Tungumál þýðingar: ")</span>
                 <select id="tungumál" name="Language" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <option selected="selected">Tungumál</option>
-                    <option value="is">Íslenska</option>
-                    <option value="en">Enska</option>
+                    <option selected="selected" value="is">íslenska</option>
+                    <option value="gb">enska</option>
+                    <option value="pl">pólska</option>
+                    <option value="dk">danska</option>
+                    <option value="se">sænska</option>
+                    <option value="no">norska</option>
+                    <option value="fi">finnska</option>
+                    <option value="fo">færeyska</option>
+                    <option value="de">þýska</option>
+                    <option value="fr">franska</option>
+                    <option value="es">spænska</option>
+                    <option value="it">ítalska</option>
                 </select><br />
             </div>
-        </div>
-        <div class="input-group">
-            <span class="input-group-addon">@("Lengd: ")</span>
-        @Html.TextBox("Runtime", "", new { id = "lengd", @class = "form-control"})<br />
         </div>
         <div class="input-group">
             @("Fyrir heyrnaskerta: ")
@@ -40,8 +45,7 @@
         <div class="input-group">
                 <span class="input-group-addon">@("Tegund:")</span>
             <select id="tegund" name="VideoType" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <option selected="selected">Tegund</option>
-                <option value="Kvikmynd">Kvikmynd</option>
+                <option selected="selected" value="Kvikmynd">Kvikmynd</option>
                 <option value="Þáttur">Þáttur</option>
             </select>
         </div>
@@ -50,8 +54,7 @@
         <div class="input-group">
                 <span class="input-group-addon">@("Flokkur:")</span>
             <select id="flokkur" name="VideoGenre" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <option selected="selected">Allir flokkar</option>
-                <option value="Drama">Drama</option>
+                <option selected="selected" value="Drama">Drama</option>
                 <option value="Fantasía">Fantasía</option>
                 <option value="Gamanmynd">Gamanmynd</option>
                 <option value="Hasar">Hasar</option>
@@ -72,14 +75,9 @@
         @("Skrá til þýðingar:")
         <input type="file" id="fileUpload2" name="File" /><br />
         </div>
-        <div class="input-group">
-        @("Leyfa samstarf:")
-        @Html.CheckBox("CollaborationAllowed", false)<br />
-        </div>
 
     <div class="input-group">
     <input type="submit" value="Byrja þýðingu" class="btn btn-default" />
-    <!--<input type="button" value="Byrja þýðingu" onclick="location.href='@Url.Action("Edit", "Translation")'" />-->
     </div>
 
     }
