@@ -1,14 +1,16 @@
-﻿@Styles.Render("~/Content/Translation.css")
-@model Translation.Models.Subtitle
+﻿@model IEnumerable<Translation.Models.TextLine>
+@Styles.Render("~/Content/Translation.css")
 @{
     ViewBag.Title = "Edit";
 }
-
+<script type="text/javascript">
+    window.onload = function () {
+        document.getElementById('Line1').focus();
+    }
+</script>
 <div class="translation-container">
     <div class="subtitle-info">
-
-       <h2> @ViewBag.Name</h2>
-
+        <h2>@ViewBag.Name</h2>
         <p>Timeformat should be on the form: 00:00:00,000</p>
 
         @using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
@@ -17,33 +19,43 @@
                 <tr>
                     <td>
                         <span class="glyphicon glyphicon-time"></span>
-                        <input type="text" name="TimeStart"> @("-")
-                        <input type="text" name="TimeStop">
+                        <input type="text" name="TimeStart" value="00:00:00,000"> -
+                        <input type="text" name="TimeStop" value="00:00:00,000">
+                        <br />
                     </td>
                     <td>
-                        <input type="text" name="Line1"><br>
-                        <input type="text" name="Line2">
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-plus-sign"></span>
-                        </button>
-                        <button type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-minus-sign"></span>
-                        </button>
+                        <input type="text" id="Line1" name="Line1"><br>
+                        <input type="text" id="Line2" name="Line2">
                     </td>
                 </tr>
             </table>
             <div class="input-group">
             <div class="btn-group">
-            <input type="submit" value="Vista" class="btn btn-default" />
-            <input type="submit" value="Birta texta" class="btn btn-default" />
+            <input type="submit" value="Áfram" class="btn btn-default" />
+            <input type="submit" value="Vista og hætta" class="btn btn-default" />
             </div>
             </div>
+            <table>
+                @{ int i = 0; }
+                @foreach (var item in Model)
+                {
+                    <tr class="table-row@(i % 2)">
+                        <td>
+                            @Html.DisplayFor(model => item.TranslationText1)
+                        </td>
+                    </tr>
+                    <tr class="table-row@(i % 2)">
+                        <td>
+                            @Html.DisplayFor(model => item.TranslationText2)
+                        </td>
+                    </tr>
+                    i++;
+                }
+            </table>
         }
     </div>
     <div class="subtitle-pic">
-
+        <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@ViewBag.PicPath))" alt="No image" />
     </div>
     <br style="clear: left;" />
 </div>

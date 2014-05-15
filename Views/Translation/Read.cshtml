@@ -5,18 +5,25 @@
 }
 <div class="translation-container">
     <div class="subtitle-info">
-        <h2>Read text</h2>
-
-        @foreach (var item in Model)
-        {
-            <p>
-                @Html.DisplayFor(model => item.TranslationText1)
-            </p>
-            <p>
-                @Html.DisplayFor(model => item.TranslationText2)
-            </p>
-        }
-        @Html.ActionLink("Til baka", "Index", new { id = Model.First().SubtitleID })
+        <h2>@ViewBag.Name</h2>
+        <table>
+            @{ int i = 0; }
+            @foreach (var item in Model)
+            {
+                <tr class="table-row@(i % 2)">
+                    <td>
+                        @Html.DisplayFor(model => item.TranslationText1)
+                    </td>
+                </tr>
+                <tr class="table-row@(i % 2)">
+                    <td>
+                        @Html.DisplayFor(model => item.TranslationText2)
+                    </td>
+                </tr>
+                i++;
+            }
+        </table>
+        @Html.ActionLink("Til baka", "Index", new { id = Request.Params["id"] })
     </div>
     <div class="subtitle-pic">
         <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@ViewBag.PicPath))" alt="No image" />

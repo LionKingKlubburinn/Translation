@@ -132,8 +132,8 @@ namespace Translation.Controllers
                 db.Requests.Remove(item);
                 db.SaveChanges();
             }
-
-            return View();
+            var model = TextLineRepository.Instance.GetTextLines(id);
+            return View(model);
         }
 
         [Authorize]
@@ -154,8 +154,8 @@ namespace Translation.Controllers
             t.TranslationText2 = Line2;
             t.SubtitleID = id;
             TextLineRepository.Instance.AddTextLine(t);
-
-            return View();
+            var model = TextLineRepository.Instance.GetTextLines(id);
+            return View(model);
         }
 
         [Authorize]
