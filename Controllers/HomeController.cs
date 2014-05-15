@@ -53,5 +53,17 @@ namespace Translation.Controllers
             RequestRepository.Instance.AddUpvote(u);
             return RedirectToAction("Index");
         }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult DeleteRequest(int id = 0)
+        {
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            RequestRepository.Instance.DeleteRequest(id);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

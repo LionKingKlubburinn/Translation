@@ -120,7 +120,17 @@ namespace Translation.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
+            var name = SubtitleRepository.Instance.GetSubtitleName(id);
+
+            var result =  from r in db.Requests
+                          where r.Name == name
+                          select r;
+            foreach(var item in result)
+            {
+                db.Requests.Remove(item);
+                db.SaveChanges();
+            }
 
             return View();
         }
@@ -134,7 +144,7 @@ namespace Translation.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
 
             TextLine t = new TextLine();
             t.TimeStampBegin = TimeStart;
@@ -155,9 +165,20 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
             ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             TextLine model = TextLineRepository.Instance.GetTextLine(id, linenum);
+
+            var name = SubtitleRepository.Instance.GetSubtitleName(id);
+            var result = from r in db.Requests
+                         where r.Name == name
+                         select r;
+            foreach (var item in result)
+            {
+                db.Requests.Remove(item);
+                db.SaveChanges();
+            }
+
             return View(model);
         }
 
@@ -169,7 +190,7 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            ViewBag.Name = SubtitleRepository.Instance.GetSubtiteName(id);
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
             ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             TextLineRepository.Instance.ChangeTextLine(id, linenum, Line1, Line2);
             if (direction == "<<" && linenum > 1)

@@ -77,5 +77,14 @@ namespace Translation.Models
             }
             return 0;
         }
+
+        public void DeleteRequest(int id)
+        {
+            var result = (from r in db.Requests
+                          where r.ID == id
+                          select r).First();
+            db.Requests.Remove(result);
+            db.SaveChanges();
+        }
     }
 }
