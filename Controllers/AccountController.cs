@@ -366,10 +366,13 @@ namespace Translation.Controllers
             return View();
         }
 
-        public void ChangeInfo(string email, string nationality)
+        public ActionResult ChangeInfo(string email, string nationality)
         {
-            udb.Email = email;
-            udb.Nationality = nationality;
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            var user = UserManager.FindById(User.Identity.GetUserId());
+            user.Email.Replace(user.Email, email);
+            user.Nationality.Replace(user.Nationality, nationality);
+            return RedirectToAction("Index", "Home");
         }
 
         // This action renders the form
