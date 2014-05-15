@@ -25,7 +25,6 @@
                     <th>Tegund:</th>
                     <th>Þýðendur:</th>
                     <th>Lengd:</th>
-                    <th>Skráarstærð:</th>
                     <th>Skráarsnið:</th>
                 </tr>
             </thead>
@@ -34,12 +33,8 @@
                     <td>@Html.DisplayFor(x => x.SubtitleItem.VideoType)@(",") @Html.DisplayFor(x => x.SubtitleItem.VideoGenre)</td>
                     <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
                     <td>mjög langt</td>
-                    <td>3.2mb</td>
                     <td>
-                        <select>
-                            <option value="1">.srt</option>
-                            <option value="2">pdf</option>
-                        </select>
+                        
                     </td>
                 </tr>
             </tbody>
@@ -55,6 +50,10 @@
         }
         @using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
         { 
+            <select name="FileType">
+                <option value="srt">srt</option>
+                <option value="txt">txt</option>
+            </select>
             <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
             <button name="download" value="Sækja" type="submit" id="download" ></button>
         }

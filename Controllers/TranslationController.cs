@@ -218,7 +218,7 @@ namespace Translation.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetSubtitle(int ID)
+        public ActionResult GetSubtitle(int ID, String FileType)
         {
             var result = from t in db.TextLines
                          where t.SubtitleID == ID
@@ -250,14 +250,21 @@ namespace Translation.Controllers
             {
                 sw.Write(SubtitleExport);
             }
-            System.Diagnostics.Debug.WriteLine(SubtitleExport);
-            System.Diagnostics.Debug.WriteLine(path);
+            string FileEnd;
+            System.Diagnostics.Debug.WriteLine("fyletype = " + FileType);
+            if(FileType == "srt")
+                {
+                    FileEnd = ".srt";
+                }
+            else
+                {
+                    FileEnd = ".txt";
+                }
             new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet);
             return new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet)
             {
-                FileDownloadName = filename + ".srt"
-            };
-        }
+                    FileDownloadName = filename + FileEnd};
+            }
 
         [Authorize(Roles = "Administrator")]
         [HttpPost]
