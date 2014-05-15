@@ -30,11 +30,11 @@ namespace Translation.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Notendanafn er nauðsynlegt")]
         [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Lykilorð er nauðsynlegt")]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
@@ -46,19 +46,19 @@ namespace Translation.Models
     public class RegisterViewModel
     {
         [Display(Name = "Notendanafn")]
-        [Required(ErrorMessage = "Notendanafn er nauðsinlegt")]
+        [Required(ErrorMessage = "Notendanafn er nauðsynlegt")]
         [StringLength(30, ErrorMessage = "Notendanafn of langt")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Lykilorð er nauðsinlegt")]
-        [StringLength(100, ErrorMessage = "Lykilorð verður að vera að minnsta kosti 6 stafir.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Lykilorð er nauðsynlegt")]
+        [StringLength(100, ErrorMessage = "{0} verður að vera að minnsta kosti {2} stafir.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta lykilorð")]
-        [Required(ErrorMessage = "Staðfesta lykilorð er nauðsinlegt")]
+        [Required(ErrorMessage = "Staðfesta lykilorð er nauðsynlegt")]
         [Compare("Password", ErrorMessage = "Lykilorð stemma ekki")]
         public string ConfirmPassword { get; set; }
 
@@ -66,7 +66,7 @@ namespace Translation.Models
         public string Nationality { get; set; }
 
         [Display(Name = "Netfang")]
-        [Required(ErrorMessage = "Netfang er nauðsinlegt og þarf að vera á forminu user@site.is" )]
+        [Required(ErrorMessage = "Netfang er nauðsynlegt og þarf að vera á forminu user@site.is" )]
         [RegularExpression(".+@.+\\..+")]
         public string Email { get; set; }
 
