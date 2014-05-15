@@ -40,7 +40,7 @@ namespace Translation.DAL
                 new Request { ID=1, Name="InABundercup", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID="sgsf", Upvote=0},
                 new Request { ID=2, Name="SwingersClub 9", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID="sgsf", Upvote=0},
                 new Request { ID=3, Name="Palli gone wild 4", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID="sgsf", Upvote=0},
-                new Request { ID=4, Name="Hipp og kúl félagið 2", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID="sgsf", Upvote=0},
+                new Request { ID=4, Name="King Kong", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="íslenska", RequestByID="1", Upvote=0},
                 new Request { ID=5, Name="Toy Story 3", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="íslenska", RequestByID="sgsf", Upvote=0},
             };
             requests.ForEach(r => context.Requests.Add(r));
