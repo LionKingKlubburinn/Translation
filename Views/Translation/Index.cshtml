@@ -47,6 +47,12 @@
         <p>
             @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
         </p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <p>
+                @Html.ActionLink("Breyta þýðingu", "EditFile", new { id = Model.SubtitleItem.ID, linenum = 1 }) 
+            </p>
+        }
         @using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
         { 
             <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
