@@ -366,13 +366,9 @@ namespace Translation.Controllers
             return View();
         }
 
-        public void ChangeEmail(string email)
+        public void ChangeInfo(string email, string nationality)
         {
             udb.Email = email;
-        }
-
-        public void ChangeNationality(string nationality)
-        {
             udb.Nationality = nationality;
         }
 

@@ -6,6 +6,8 @@
 
 <div class="account-container">
     <div class="account-info">
+@using (Html.BeginForm("ChangeInfo", "Account", FormMethod.Post, new { email = @ViewBag.Email, nationality = @ViewBag.Nationality }))
+{
         <h2>@ViewBag.Title.</h2>
 
         <table style="width:600px">
@@ -30,22 +32,8 @@
                 <td><input type="text" name="nation" placeholder="@ViewBag.Nationality" class="btn btn-default" /></td>
             </tr>
         </table>
-        @*@using (Html.BeginForm("Manage", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <input type="file" name="file" />
-                <input type="submit" value="OK" />
-            }*@
-
-        @* <div>
-                <form method="POST" enctype="multipart/form-data" action="Upload.">
-                    <label for="photo">Mynd:</label>
-                    <input type=FILE name="FILE1">
-                    <input type=SUBMIT value="Upload">
-                </form>
-            </div>*@
-
-        @Html.ActionLink("Vista breytingar", "Index")
-
+        <input type="submit" value="Vista breytingar" class="btn btn-default" />
+}
         <p class="text-success">@ViewBag.StatusMessage</p>
         <div class="row">
             <div class="col-md-12">
