@@ -4,11 +4,6 @@
     margin-right: auto;
 }
 
-body {
-
-    background-color: #FFFFCC;
-
-}
 
 #logo-big {
     width: 620px;
@@ -91,6 +86,7 @@ body {
     padding: 8px;
 }
 
+
 table.request tr:hover td {
     background-color: #d0e3e5;
 }
@@ -102,4 +98,8 @@ caption {
 
 .btn-group {
     margin-top: 30px;
+}
+
+.eyra {
+    height: auto;
 }

@@ -203,6 +203,7 @@
       <DependentUpon>aspnet-Translation-20140505024303.mdf</DependentUpon>
     </Content>
     <Content Include="Content\Account.css" />
+    <Content Include="Content\Deaf-Icon.jpg" />
     <Content Include="Content\flags.css" />
     <Content Include="Content\flags.png" />
     <Content Include="Content\logo.jpg" />
@@ -216,6 +217,7 @@
     <Content Include="Content\code52.i18n\images\flags\gb.png" />
     <Content Include="Content\code52.i18n\images\flags\it.png" />
     <Content Include="Content\Home.css" />
+    <Content Include="Content\orange-burst.png" />
     <Content Include="Content\Request.css" />
     <Content Include="Content\Translation.css" />
     <Content Include="favicon.ico" />
