@@ -7,21 +7,28 @@
         <h2>Ný beiðni</h2>
         @using (Html.BeginForm("Index", "Request", FormMethod.Post))
         {
-            @("Titill: ")
-            @Html.TextBox("Name")<br />
-
-            @("Tungumál þýðingar: ")
-            <select name="Language">
-                <option selected="selected">Tungumál</option>
-                <option value="is">Íslenska</option>
-                <option value="en">Enska</option>
-            </select><br />
-
+            <div class="input-group">
+            <span class="input-group-addon">@("Titill: ")</span>
+            @Html.TextBox("Name", "", new { @class = "form-control" })<br />
+            </div>
+            <div class="btn-group">
+            <div class="input-group">
+                <span class="input-group-addon">@("Tungumál þýðingar: ")</span>
+                <select name="Language" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <option selected="selected">Tungumál</option>
+                    <option value="is">Íslenska</option>
+                    <option value="en">Enska</option>
+                </select><br />
+            </div>
+            </div>
+            <div class="input-group">
             @("Fyrir heyrnarskerta:")
             @Html.CheckBox("ForHardOfHearing", false)
             <br />
-
-            <input type="submit" value="Senda inn beiðni" />
+            </div>
+            <div class="input-group">
+            <input type="submit" value="Senda inn beiðni" class="btn btn-default" />
+            </div>
         }
     </div>
 </div>
