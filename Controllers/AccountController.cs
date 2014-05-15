@@ -371,6 +371,11 @@ namespace Translation.Controllers
             udb.Email = email;
         }
 
+        public void ChangeNationality(string nationality)
+        {
+            udb.Nationality = nationality;
+        }
+
         // This action renders the form
       /*  public ActionResult Index()
         {
