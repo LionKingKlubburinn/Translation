@@ -13,7 +13,7 @@ namespace Translation.DAL
         {
             var subtitles = new List<Subtitle>
             {
-                new Subtitle { ID = 1, Name = "kinglion1", CollaborationAllowed=false, Contributor="erge", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
+                new Subtitle { ID = 1, Name = "Lion King", CollaborationAllowed=false, Contributor="erge", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
                     Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar"},
                 new Subtitle { ID = 2, Name = "kinglion2", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
                     Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
