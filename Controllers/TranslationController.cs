@@ -183,7 +183,6 @@ namespace Translation.Controllers
             return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
 
-        [Authorize]
         [HttpGet]
         public ActionResult Search(String query, String hear, String language, String type, String genre)
         {
@@ -193,7 +192,6 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        [Authorize]
         [HttpPost]
         public ActionResult GetSubtitle(int ID)
         {
