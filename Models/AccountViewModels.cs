@@ -17,14 +17,14 @@ namespace Translation.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Lykilorð verður að vera að minnsta kosti 6 stafir.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nýtt lykilorð")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta nýtt lykilorð")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Compare("NewPassword", ErrorMessage = "Lykilorð og staðfesta lykilorð stemma ekki.")]
         public string ConfirmPassword { get; set; }
     }
 
