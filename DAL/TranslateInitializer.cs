@@ -14,13 +14,13 @@ namespace Translation.DAL
             var subtitles = new List<Subtitle>
             {
                 new Subtitle { ID = 1, Name = "Lion King", CollaborationAllowed=false, Contributor="Palli", DateCreated=DateTime.Now, DownloadCounter=3, File="neh", ForHardOfHearing=false, 
-                    Language="is", Picture="neh", Ready=false, VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
-                new Subtitle { ID = 2, Name = "Lion King 2", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
-                new Subtitle { ID = 3, Name = "Titanic", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
-                new Subtitle { ID = 4, Name = "E.T.", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
+                    Language="is", Picture="neh", Ready=true, VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
+                new Subtitle { ID = 2, Name = "Lion King 2", CollaborationAllowed=true, Contributor="Einar", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=true, 
+                    Language="is", Picture="neh", Ready=false, VideoDescription="Texti fyrir heyrnaskerta", VideoGenre="Teiknimynd", VideoType="Kvikmynd" },
+                new Subtitle { ID = 3, Name = "Titanic", CollaborationAllowed=false, Contributor="Edda", DateCreated=DateTime.Now, DownloadCounter=7, File="neh", ForHardOfHearing=false, 
+                    Language="en", Picture="neh", Ready=false, VideoDescription="Enskur texti fyrir Titanic", VideoGenre="Drama", VideoType="Kvikmynd" },
+                new Subtitle { ID = 4, Name = "E.T.", CollaborationAllowed=false, Contributor="Danni", DateCreated=DateTime.Now, DownloadCounter=2, File="neh", ForHardOfHearing=false, 
+                    Language="en", Picture="neh", Ready=false, VideoDescription="Enskur texti fyrir E.T.", VideoGenre="Ævintýri", VideoType="Kvikmynd" },
             };
             subtitles.ForEach(s => context.Subtitles.Add(s));
             context.SaveChanges();
@@ -28,9 +28,9 @@ namespace Translation.DAL
             var comments = new List<Comment>
             {
                 new Comment { ID=1, SubtitleID=1, Text="Frábær Þýðing hjá mér", AuthorID="Palli", CommentDate=DateTime.Now},
-                new Comment { ID=2, SubtitleID=2, Text="I love kinglion2", AuthorID="sgsf", CommentDate=DateTime.Now},
-                new Comment { ID=3, SubtitleID=3, Text="I love kinglion3", AuthorID="sgsf", CommentDate=DateTime.Now},
-                new Comment { ID=4, SubtitleID=4, Text="I love kinglion4", AuthorID="sgsf", CommentDate=DateTime.Now}
+                new Comment { ID=2, SubtitleID=2, Text="Æði", AuthorID="Palli", CommentDate=DateTime.Now},
+                new Comment { ID=3, SubtitleID=3, Text="Ég elska Titanic", AuthorID="Gísli", CommentDate=DateTime.Now},
+                new Comment { ID=4, SubtitleID=4, Text="Where is he from, Uranus? Get it? Your anus?", AuthorID="Einar", CommentDate=DateTime.Now}
             };
             comments.ForEach(c => context.Comments.Add(c));
             context.SaveChanges();
