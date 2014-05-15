@@ -37,11 +37,11 @@ namespace Translation.DAL
 
             var requests = new List<Request>
             {
-                new Request { ID=1, Name="Noah", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="Pólska", RequestByID="4", Upvote=0},
-                new Request { ID=2, Name="Spider Man 2", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="Íslenska", RequestByID="3", Upvote=0},
-                new Request { ID=3, Name="The Other Woman", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="Enska", RequestByID="2", Upvote=0},
-                new Request { ID=4, Name="King Kong", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="íslenska", RequestByID="1", Upvote=0},
-                new Request { ID=5, Name="Toy Story 3", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="íslenska", RequestByID="sgsf", Upvote=0},
+                new Request { ID=1, Name="Noah", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="Pólska", RequestByID="4", Upvote=1},
+                new Request { ID=2, Name="Spider Man 2", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="Íslenska", RequestByID="3", Upvote=2},
+                new Request { ID=3, Name="The Other Woman", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="Enska", RequestByID="2", Upvote=1},
+                new Request { ID=4, Name="King Kong", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="íslenska", RequestByID="1", Upvote=1},
+                new Request { ID=5, Name="Toy Story 3", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="íslenska", RequestByID="1", Upvote=5},
             };
             requests.ForEach(r => context.Requests.Add(r));
             context.SaveChanges();
