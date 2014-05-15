@@ -48,8 +48,8 @@ namespace Translation.DAL
 
             var textLines = new List<TextLine>
             {
-                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="3", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
-                    TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
+                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="3", OriginalText1="Hakuna Matata", OriginalText2="What a wonderful phrase", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                    TimeStampEnd="00:00:00,103", TranslationText1="Hakuna Matata", TranslationText2="Hversu dásamleg setning"},
                 new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID="1", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
                 new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID="4", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
