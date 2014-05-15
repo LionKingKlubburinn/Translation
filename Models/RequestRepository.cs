@@ -25,7 +25,7 @@ namespace Translation.Models
         public IEnumerable<Request> GetRequests()
         {
             var result = from r in db.Requests
-                         orderby r.DateCreated ascending
+                         orderby r.Upvote descending
                          select r;
             return result;
         }

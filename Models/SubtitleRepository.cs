@@ -43,7 +43,7 @@ namespace Translation.Models
         public IEnumerable<Subtitle> GetSubtitles(String Searchstring, bool forhardofhearing, String language, String type, String genre)
         {
             var result = from s in db.Subtitles
-                         where s.Name.Contains(Searchstring)
+                         where (Searchstring == null ||  s.Name.Contains(Searchstring))
                          && s.ForHardOfHearing == forhardofhearing
                          && (language == "any" || s.Language == language)
                          && (type == "any" || s.VideoType == type)

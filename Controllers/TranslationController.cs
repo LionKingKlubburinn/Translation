@@ -57,6 +57,7 @@ namespace Translation.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
             ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             var text = TextLineRepository.Instance.GetTextLines(id);
             return View(text);

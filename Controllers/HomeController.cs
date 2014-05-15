@@ -15,7 +15,8 @@ namespace Translation.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Requests.ToList());
+            var model = RequestRepository.Instance.GetRequests();
+            return View(model);
         }
 
         [HttpPost]
