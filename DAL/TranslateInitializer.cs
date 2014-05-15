@@ -14,7 +14,7 @@ namespace Translation.DAL
             var subtitles = new List<Subtitle>
             {
                 new Subtitle { ID = 1, Name = "Lion King", CollaborationAllowed=false, Contributor="Palli", DateCreated=DateTime.Now, DownloadCounter=3, File="neh", ForHardOfHearing=false, 
-                    Language="is", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="Teiknimynd", VideoType="allskonar"},
+                    Language="is", Picture="neh", Ready=false, VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
                 new Subtitle { ID = 2, Name = "Lion King 2", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
                     Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
                 new Subtitle { ID = 3, Name = "Titanic", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
@@ -27,7 +27,7 @@ namespace Translation.DAL
 
             var comments = new List<Comment>
             {
-                new Comment { ID=1, SubtitleID=1, Text="I love kinglion1", AuthorID="sgsf", CommentDate=DateTime.Now},
+                new Comment { ID=1, SubtitleID=1, Text="Frábær Þýðing hjá mér", AuthorID="Palli", CommentDate=DateTime.Now},
                 new Comment { ID=2, SubtitleID=2, Text="I love kinglion2", AuthorID="sgsf", CommentDate=DateTime.Now},
                 new Comment { ID=3, SubtitleID=3, Text="I love kinglion3", AuthorID="sgsf", CommentDate=DateTime.Now},
                 new Comment { ID=4, SubtitleID=4, Text="I love kinglion4", AuthorID="sgsf", CommentDate=DateTime.Now}
