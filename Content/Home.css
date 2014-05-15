@@ -37,7 +37,6 @@ body {
 #up {
     /* basics */
 	color: #444;
-	background-color: #33CC66;
 	/* rounded corners */
     -webkit-border-radius: 6px;
           border-radius: 6px; 
@@ -45,9 +44,9 @@ body {
 	font-weight: bold;
 }
 
-#up:hover, #up:active, #up:focus {
+/*#up:hover, #up:active, #up:focus {
     background-color: #339966;
-}
+}*/
 
 .box {
 	/* basics */
@@ -76,7 +75,6 @@ body {
     border: 1px solid black;
     background-color: white;
     text-align: center;
-    margin-top: 30px;
 }
 
 .request {
@@ -100,4 +98,8 @@ table.request tr:hover td {
 caption {
     border-bottom: 1px solid black;
     background-color: #bbcec6;
+}
+
+.btn-group {
+    margin-top: 30px;
 }
