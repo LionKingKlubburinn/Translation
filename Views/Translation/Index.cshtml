@@ -44,9 +44,18 @@
         </p>
         @if (User.Identity.IsAuthenticated)
         {
-            <p>
-                @Html.ActionLink("Breyta þýðingu", "EditFile", new { id = Model.SubtitleItem.ID, linenum = 1 }) 
-            </p>
+            if (@Model.SubtitleItem.File == "")
+            {
+                <p>
+                    @Html.ActionLink("Breyta þýðingu", "Edit", new { id = Model.SubtitleItem.ID }) 
+                </p>
+            }
+            else
+            {
+                <p>
+                    @Html.ActionLink("Breyta þýðingu", "EditFile", new { id = Model.SubtitleItem.ID, linenum = 1 }) 
+                </p>
+            }
         }
         @using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
         { 
