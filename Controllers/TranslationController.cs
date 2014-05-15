@@ -227,19 +227,41 @@ namespace Translation.Controllers
                          select t;
 
             String SubtitleExport = "";
-            foreach (var item in result)
-            {
-                if (item.TranslationText2 != "")
-                {
-                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
-                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
-                }
-                else
-                {
-                    SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
-                        item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + Environment.NewLine;
-                }
 
+            string FileEnd;
+            if (FileType == "srt")
+            {
+                foreach (var item in result)
+                {
+                    if (item.TranslationText2 != "")
+                    {
+                        SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
+                            item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
+                    }
+                    else
+                    {
+                        SubtitleExport = SubtitleExport + item.RowID + Environment.NewLine + item.TimeStampBegin + " --> " +
+                            item.TimeStampEnd + Environment.NewLine + item.TranslationText1 + Environment.NewLine + Environment.NewLine;
+                    }
+
+                }
+                FileEnd = ".srt";
+            }
+            else
+            {
+                foreach (var item in result)
+                {
+                    if (item.TranslationText2 != "")
+                    {
+                        SubtitleExport = SubtitleExport + item.TranslationText1 + Environment.NewLine + item.TranslationText2 + Environment.NewLine + Environment.NewLine;
+                    }
+                    else
+                    {
+                        SubtitleExport = SubtitleExport + item.TranslationText1 + Environment.NewLine + Environment.NewLine;
+                    }
+
+                }
+                FileEnd = ".txt";
             }
             var subtitle = (from s in db.Subtitles
                          where s.ID == ID
@@ -251,16 +273,7 @@ namespace Translation.Controllers
             {
                 sw.Write(SubtitleExport);
             }
-            string FileEnd;
-            System.Diagnostics.Debug.WriteLine("fyletype = " + FileType);
-            if(FileType == "srt")
-                {
-                    FileEnd = ".srt";
-                }
-            else
-                {
-                    FileEnd = ".txt";
-                }
+
             new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet);
             return new FilePathResult(path, System.Net.Mime.MediaTypeNames.Application.Octet)
             {
