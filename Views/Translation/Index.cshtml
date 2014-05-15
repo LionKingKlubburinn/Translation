@@ -10,7 +10,7 @@
             using (Html.BeginForm("DeleteSubtitle", "Translation", FormMethod.Post))
             {
                 <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
-                <button name="delete" value="Eyða" type="submit" id="delete" ></button>
+                <button name="delete" value="Eyða" type="submit" id="delete" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
             }
         }
         <div id="LionKing">
@@ -55,7 +55,7 @@
                 <option value="txt">txt</option>
             </select>
             <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
-            <button name="download" value="Sækja" type="submit" id="download" ></button>
+    <button name="download" value="Sækja" type="submit" id="download" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-download-alt" title="Sækja skrá"></span></button>
         }
     </div>
     <div class="subtitle-pic">

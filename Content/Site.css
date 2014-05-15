@@ -75,14 +75,12 @@ footer {
 .topbar#topbar-left {
     width: 220px;
     height: 70px;
-    background-color: #eeeeee;
     float: left;
 }
 
 .topbar#topbar-center {
     width: 460px;
     height: 70px;
-    background-color: #eeeeee;
     float: left;
     margin-right: 20px;
     margin-left: 20px;
@@ -91,7 +89,6 @@ footer {
 .topbar#topbar-right {
     width: 220px;
     height: 70px;
-    background-color: #eeeeee;
     float: left;
 }
 
