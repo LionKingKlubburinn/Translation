@@ -46,27 +46,27 @@ namespace Translation.Models
     public class RegisterViewModel
     {
         [Display(Name = "Notendanafn")]
-        [Required(ErrorMessage = "UserNameRequired")]
-        [StringLength(30, ErrorMessage = "UserNameLong")]
+        [Required(ErrorMessage = "Notendanafn er nauðsinlegt")]
+        [StringLength(30, ErrorMessage = "Notendanafn of langt")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "PasswordRequired")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Lykilorð er nauðsinlegt")]
+        [StringLength(100, ErrorMessage = "Lykilorð verður að vera að minnsta kosti 6 stafir.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta lykilorð")]
-        [Required(ErrorMessage = "ConfirmPasswordRequired")]
-        [Compare("Password", ErrorMessage = "PasswordCompare")]
+        [Required(ErrorMessage = "Staðfesta lykilorð er nauðsinlegt")]
+        [Compare("Password", ErrorMessage = "Lykilorð stemma ekki")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "Land")]
         public string Nationality { get; set; }
 
         [Display(Name = "Netfang")]
-        [Required(ErrorMessage = "EmailRequired" )]
+        [Required(ErrorMessage = "Netfang er nauðsinlegt og þarf að vera á forminu user@site.is" )]
         [RegularExpression(".+@.+\\..+")]
         public string Email { get; set; }
 

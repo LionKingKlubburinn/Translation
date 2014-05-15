@@ -59,7 +59,7 @@ namespace Translation.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid username or password.");
+                    ModelState.AddModelError("", "Ekki rétt notendanafn eða lykilorð.");
                 }
             }
 

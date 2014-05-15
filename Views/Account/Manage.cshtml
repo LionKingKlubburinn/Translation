@@ -6,7 +6,7 @@
 
 <div class="account-container">
     <div class="account-info">
-@using (Html.BeginForm("ChangeInfo", "Account", FormMethod.Post, new { email = @ViewBag.Email, nationality = @ViewBag.Nationality }))
+@using (Html.BeginForm("ChangeInfo", "Account", new { email = @ViewBag.Email, nationality = @ViewBag.Nationality }, FormMethod.Post))
 {
         <h2>@ViewBag.Title.</h2>
 
