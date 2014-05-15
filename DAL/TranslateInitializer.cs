@@ -13,13 +13,13 @@ namespace Translation.DAL
         {
             var subtitles = new List<Subtitle>
             {
-                new Subtitle { ID = 1, Name = "Lion King", CollaborationAllowed=false, Contributor="erge", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
-                    Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar"},
-                new Subtitle { ID = 2, Name = "kinglion2", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
+                new Subtitle { ID = 1, Name = "Lion King", CollaborationAllowed=false, Contributor="Palli", DateCreated=DateTime.Now, DownloadCounter=3, File="neh", ForHardOfHearing=false, 
+                    Language="is", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="Teiknimynd", VideoType="allskonar"},
+                new Subtitle { ID = 2, Name = "Lion King 2", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
                     Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
-                new Subtitle { ID = 3, Name = "kinglion3", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
+                new Subtitle { ID = 3, Name = "Titanic", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
                     Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
-                new Subtitle { ID = 4, Name = "kinglion4", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
+                new Subtitle { ID = 4, Name = "E.T.", CollaborationAllowed=false, Contributor="1", DateCreated=DateTime.Now, DownloadCounter=0, File="neh", ForHardOfHearing=false, 
                     Language="en", Picture="neh", Ready=false, VideoDescription="desc", VideoGenre="flott", VideoType="allskonar" },
             };
             subtitles.ForEach(s => context.Subtitles.Add(s));
