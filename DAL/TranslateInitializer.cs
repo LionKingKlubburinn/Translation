@@ -39,7 +39,7 @@ namespace Translation.DAL
             {
                 new Request { ID=1, Name="Noah", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="Pólska", RequestByID="4", Upvote=0},
                 new Request { ID=2, Name="Spider Man 2", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="Íslenska", RequestByID="3", Upvote=0},
-                new Request { ID=3, Name="The Other Woman", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="utlansk", RequestByID="2", Upvote=0},
+                new Request { ID=3, Name="The Other Woman", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="Enska", RequestByID="2", Upvote=0},
                 new Request { ID=4, Name="King Kong", DateCreated=DateTime.Now, ForHardOfHearing=true, Language="íslenska", RequestByID="1", Upvote=0},
                 new Request { ID=5, Name="Toy Story 3", DateCreated=DateTime.Now, ForHardOfHearing=false, Language="íslenska", RequestByID="sgsf", Upvote=0},
             };
@@ -48,13 +48,13 @@ namespace Translation.DAL
 
             var textLines = new List<TextLine>
             {
-                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="3", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID="1", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID="4", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=4, LastModDate=DateTime.Now, LastModUserID="sgsf", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=4, LastModDate=DateTime.Now, LastModUserID="2", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=1, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"}
             };
             textLines.ForEach(t => context.TextLines.Add(t));
