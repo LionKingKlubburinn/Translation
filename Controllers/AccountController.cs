@@ -10,12 +10,17 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using Translation.Models;
 using System.IO;
+using Translation.DAL;
+using System.Web.Security;
 
 namespace Translation.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private TranslateContext db = new TranslateContext();
+        private ApplicationUser udb = new ApplicationUser();
+
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -359,6 +364,11 @@ namespace Translation.Controllers
                 ViewBag.DateCreated = "Not found.";
             }
             return View();
+        }
+
+        public void ChangeEmail(string email)
+        {
+            udb.Email = email;
         }
 
         // This action renders the form
