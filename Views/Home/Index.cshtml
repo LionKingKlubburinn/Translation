@@ -42,7 +42,7 @@
                         <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
                         <td>@Html.DisplayFor(model => item.Language)</td>
                         <td>
-                            <input type="button" value="Þýða" onclick="location.href='@Url.Action("New", "Translation", new {
+                            <input type="button" value="Þýða" class="btn btn-default" onclick="location.href='@Url.Action("New", "Translation", new {
                            name = item.Name, hear = item.ForHardOfHearing, langage = item.Language
                        })'" />
                         </td>
@@ -61,8 +61,10 @@
                             {
                                 using (Html.BeginForm("DeleteRequest", "Home", FormMethod.Post))
                                 {
+                                    <div>
                                     <input type="hidden" name="ID" value="@Html.DisplayFor(model => item.ID )" />
-                                    <button name="delete" value="Eyða" type="submit" id="delete"></button>
+                                    <button name="delete" value="Eyða" type="submit" id="delete" class="glyphicon-minus-sign"></button>
+                                    </div>
                                 }
                             }
                         </td>
