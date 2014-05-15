@@ -54,6 +54,16 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
+        public void DeleteTextLines(int subid)
+        {
+            var toDelete = db.TextLines.Where(t => t.SubtitleID == subid).ToList();
+            foreach (var t in toDelete)
+            {
+                db.TextLines.Remove(t);
+            }
+            db.SaveChanges();
+        }
+
         public void ChangeTextLine(int id, int line, String newline1, String newline2)
         {
             var textline = (from t in db.TextLines

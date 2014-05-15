@@ -233,5 +233,18 @@ namespace Translation.Controllers
                 FileDownloadName = filename + ".srt"
             };
         }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public ActionResult DeleteSubtitle(int id = 0)
+        {
+            if (id < 1)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            SubtitleRepository.Instance.DeleteSubtitle(id);
+            TextLineRepository.Instance.DeleteTextLines(id);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
