@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Translation.Models.Request>
 @Styles.Render("~/Content/Home.css")
+@Styles.Render("~/Content/flags.css")
 @{
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
     var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
@@ -43,8 +44,19 @@
                 {
                     <tr>
                         <td>@Html.DisplayFor(model => item.Name)</td>
-                        <td>@Html.DisplayFor(model => item.ForHardOfHearing)</td>
-                        <td>@Html.DisplayFor(model => item.Language)</td>
+                        <td>
+                            @if (item.ForHardOfHearing)
+                            {
+                                <span class="glyphicon glyphicon-volume-off"></span>
+                            }
+                            else
+                            {
+                                <span>&nbsp;</span>
+                            }
+                        </td>
+                        <td>
+                            <img src="blank.gif" class="flag flag-@(item.Language)" />
+                        </td>
                         <td>
                             <input type="button" value="Þýða" class="btn btn-default" onclick="location.href='@Url.Action("New", "Translation", new {
                            name = item.Name, hear = item.ForHardOfHearing, langage = item.Language
