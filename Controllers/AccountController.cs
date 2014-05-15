@@ -404,6 +404,15 @@ namespace Translation.Controllers
             }
         }
 
+        public ActionResult DeleteUser()
+        {
+            AuthenticationManager.SignOut();
+            String name = System.Web.HttpContext.Current.User.Identity.Name;
+            //Membership.DeleteUser("Admin", true);
+            System.Web.Security.Membership.DeleteUser(name);
+            return RedirectToAction("Index", "Home");
+        }
+
         #region Helpers
         // Used for XSRF protection when adding external logins
         private const string XsrfKey = "XsrfId";

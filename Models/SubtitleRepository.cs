@@ -70,8 +70,6 @@ namespace Translation.Models
             }
             s.DateCreated = DateTime.Now;
             s.ID = newID;
-            s.DownloadCounter = 0;
-            s.Ready = false;
             db.Subtitles.Add(s);
             db.SaveChanges();
         }
