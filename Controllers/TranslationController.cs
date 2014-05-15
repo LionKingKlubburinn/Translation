@@ -193,7 +193,11 @@ namespace Translation.Controllers
             ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
             ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             TextLineRepository.Instance.ChangeTextLine(id, linenum, Line1, Line2);
-            if (direction == "<<" && linenum > 1)
+            if (direction == "Vista og hætta")
+            {
+                return RedirectToAction("Index", "Translation", new { id = id });
+            }
+            else if (direction == "<<" && linenum > 1)
             {
                 linenum--;
             }
