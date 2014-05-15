@@ -18,7 +18,7 @@
                 {
                     @Html.AntiForgeryToken()
                     <td>
-                        @Html.ActionLink("Velkomin/n " + User.Identity.GetUserName() + "!", "Index", "Account", routeValues: null, htmlAttributes: new { title = "Mín síða" })
+                        @Html.ActionLink(User.Identity.GetUserName(), "Index", "Account", routeValues: null, htmlAttributes: new { title = "Mín síða" })
                     </td>
                     <td>
                         <a href="javascript:document.getElementById('logoutForm').submit()">Útskráning</a>
