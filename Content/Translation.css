@@ -45,6 +45,7 @@ tr.table-row1 td {
 #newtrans {
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15px;
     float: left;
     text-align: left;
     width: 618px;
@@ -66,4 +67,8 @@ tr.table-row1 td {
 
 #Line2 {
     width: 200px;
+}
+
+#delete {
+    margin-top: 15px;
 }
