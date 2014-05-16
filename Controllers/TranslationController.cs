@@ -85,7 +85,6 @@ namespace Translation.Controllers
                     Picture.SaveAs(path);
                     s.Picture = Picture.FileName;
                 }
-                //s.File = form["File"];
                 if (File != null && File.ContentLength > 0)
                 {
                     var fileName = Path.GetFileName(File.FileName);
@@ -94,12 +93,12 @@ namespace Translation.Controllers
                     s.File = path;
                 }
                 SubtitleRepository.Instance.AddSubtitle(s);
-                if (!(String.Compare(s.File, (s.File.Length - 3), "srt", 0, 2, true) == 0))
-                {
-                    s.File = null;
-                }
                 if (s.File != null)
                 {
+                    if (!(String.Compare(s.File, (s.File.Length - 3), "srt", 0, 2, true) == 0))
+                    {
+                        return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
+                    }
                     SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
                     return RedirectToAction("EditFile", "Translation", new { id = db.Subtitles.Max(x => x.ID), linenum = 1 });
                 }
