@@ -72,3 +72,8 @@ tr.table-row1 td {
 #delete {
     margin-top: 15px;
 }
+
+#movietitle {
+    border-bottom: 1px solid black;
+    margin-bottom: 15px;
+}
