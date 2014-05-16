@@ -9,7 +9,9 @@
         <li>
             @Html.ActionLink(User.Identity.GetUserName(), "Index", "Account", routeValues: null, htmlAttributes: new { title = "Mín síða" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Útskráning</a></li>
+        <li>
+            <a href="javascript:document.getElementById('logoutForm').submit()">Útskráning</a>
+        </li>
     </ul>
     }
 }
