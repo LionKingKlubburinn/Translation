@@ -283,7 +283,7 @@ namespace Translation.Controllers
                          select s).First();
             string filename = subtitle.Name;
 
-            var path = HttpContext.Server.MapPath("~/Content/temp.txt");
+            var path = HttpContext.Server.MapPath("~/Content/uploads" + filename + ".txt");
             using (StreamWriter sw = new StreamWriter(path))
             {
                 sw.Write(SubtitleExport);
