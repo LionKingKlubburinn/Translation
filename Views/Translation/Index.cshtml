@@ -69,7 +69,10 @@
         }
     </div>
     <div class="subtitle-pic">
-        <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@Model.SubtitleItem.Picture))" alt="No image" />
+        @if (Model.SubtitleItem.Picture != "")
+        {
+            <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@Model.SubtitleItem.Picture))" alt="No image" />
+        }
     </div>
     <br style="clear: left;" />
     <div class="subtitle-comments">

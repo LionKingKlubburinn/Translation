@@ -13,14 +13,14 @@ namespace Translation.DAL
         {
             var subtitles = new List<Subtitle>
             {
-                new Subtitle { ID = 1, Name = "Lion King", Contributor="Palli", DateCreated=DateTime.Now, File="neh", ForHardOfHearing=false, 
-                    Language="is", Picture="neh", VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
-                new Subtitle { ID = 2, Name = "Lion King 2", Contributor="Einar", DateCreated=DateTime.Now, File="neh", ForHardOfHearing=true, 
-                    Language="is", Picture="neh", VideoDescription="Texti fyrir heyrnaskerta", VideoGenre="Teiknimynd", VideoType="Kvikmynd" },
-                new Subtitle { ID = 3, Name = "Titanic", Contributor="Edda", DateCreated=DateTime.Now, File="neh", ForHardOfHearing=false, 
-                    Language="en", Picture="neh", VideoDescription="Enskur texti fyrir Titanic", VideoGenre="Drama", VideoType="Kvikmynd" },
-                new Subtitle { ID = 4, Name = "E.T.", Contributor="Danni", DateCreated=DateTime.Now, File="neh", ForHardOfHearing=false, 
-                    Language="en", Picture="neh", VideoDescription="Enskur texti fyrir E.T.", VideoGenre="Ævintýri", VideoType="Kvikmynd" },
+                new Subtitle { ID = 1, Name = "Lion King", Contributor="Palli", DateCreated=DateTime.Now, File="", ForHardOfHearing=false, 
+                    Language="is", Picture="", VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
+                new Subtitle { ID = 2, Name = "Lion King 2", Contributor="Einar", DateCreated=DateTime.Now, File="", ForHardOfHearing=true, 
+                    Language="is", Picture="", VideoDescription="Texti fyrir heyrnaskerta", VideoGenre="Teiknimynd", VideoType="Kvikmynd" },
+                new Subtitle { ID = 3, Name = "Titanic", Contributor="Edda", DateCreated=DateTime.Now, File="", ForHardOfHearing=false, 
+                    Language="gb", Picture="", VideoDescription="Enskur texti fyrir Titanic", VideoGenre="Drama", VideoType="Kvikmynd" },
+                new Subtitle { ID = 4, Name = "E.T.", Contributor="Danni", DateCreated=DateTime.Now, File="", ForHardOfHearing=false, 
+                    Language="gb", Picture="", VideoDescription="Enskur texti fyrir E.T.", VideoGenre="Ævintýri", VideoType="Kvikmynd" },
             };
             subtitles.ForEach(s => context.Subtitles.Add(s));
             context.SaveChanges();
@@ -48,13 +48,13 @@ namespace Translation.DAL
 
             var textLines = new List<TextLine>
             {
-                new TextLine { ID=1, LastModDate=DateTime.Now, LastModUserID="3", OriginalText1="Hakuna Matata", OriginalText2="What a wonderful phrase", SubtitleID=1, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=1, RowID=1, LastModDate=DateTime.Now, LastModUserID="3", OriginalText1="Hakuna Matata", OriginalText2="What a wonderful phrase", SubtitleID=1, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="Hakuna Matata", TranslationText2="Hversu dásamleg setning"},
-                new TextLine { ID=2, LastModDate=DateTime.Now, LastModUserID="1", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=2, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=2, RowID=1, LastModDate=DateTime.Now, LastModUserID="1", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=2, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=3, LastModDate=DateTime.Now, LastModUserID="4", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=3, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=3, RowID=1, LastModDate=DateTime.Now, LastModUserID="4", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=3, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"},
-                new TextLine { ID=4, LastModDate=DateTime.Now, LastModUserID="2", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=4, TimeStampBegin="00:00:00,103", 
+                new TextLine { ID=4, RowID=1, LastModDate=DateTime.Now, LastModUserID="2", OriginalText1="blabla", OriginalText2="bloblo", SubtitleID=4, TimeStampBegin="00:00:00,103", 
                     TimeStampEnd="00:00:00,103", TranslationText1="juttebro", TranslationText2="kikke po teve"}
             };
             textLines.ForEach(t => context.TextLines.Add(t));

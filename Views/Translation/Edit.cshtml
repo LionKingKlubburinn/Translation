@@ -33,8 +33,8 @@
             </table>
             <div class="input-group">
             <div class="btn-group">
-            <input type="submit" value="Áfram" class="btn btn-default" />
-            <input type="submit" value="Vista og hætta" class="btn btn-default" />
+            <input type="submit" name="submitter" value="Áfram" class="btn btn-default" />
+            <input type="submit" name="submitter" value="Vista og hætta" class="btn btn-default" />
             </div>
             </div>
             <table>
@@ -64,7 +64,10 @@
         }
     </div>
     <div class="subtitle-pic">
-        <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@ViewBag.PicPath))" alt="No image" />
+        @if (ViewBag.PicPath != "")
+        {
+            <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@ViewBag.PicPath))" alt="No image" />
+        }
     </div>
     <br style="clear: left;" />
 </div>

@@ -121,6 +121,7 @@ namespace Translation.Controllers
             }
 
             ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
+            ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             var name = SubtitleRepository.Instance.GetSubtitleName(id);
 
             var result =  from r in db.Requests
@@ -137,15 +138,18 @@ namespace Translation.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult Edit(String TimeStart, String TimeStop, String Line1, String Line2, int id = 0)
+        public ActionResult Edit(String TimeStart, String TimeStop, String Line1, String Line2, String submitter, int id = 0)
         {
             if (id < 1)
             {
                 return RedirectToAction("Index", "Home");
             }
-
+            if (submitter == "Vista og hætta")
+            {
+                return RedirectToAction("Index", "Translation", new { id = id });
+            }
             ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
-
+            ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
             TextLine t = new TextLine();
             t.TimeStampBegin = TimeStart;
             t.TimeStampEnd = TimeStop;
