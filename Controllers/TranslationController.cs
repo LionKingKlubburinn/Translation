@@ -14,7 +14,7 @@ namespace Translation.Controllers
     {
         private TranslateContext db = new TranslateContext();
 
-        // GET /Translation/1
+        // GET /Translation/id
         public ActionResult Index(int id = 0)
         {
             if (id < 1)
@@ -28,7 +28,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        // POST /Translation/1
+        // POST /Translation/id
         [Authorize]
         [HttpPost]
         public ActionResult Index(string Text, int id = 0)
@@ -49,7 +49,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        // GET /Translation/Read/1
+        // GET /Translation/Read/id
         [HttpGet]
         public ActionResult Read(int id = 0)
         {
@@ -64,6 +64,7 @@ namespace Translation.Controllers
             return View(text);
         }
 
+        // POST /Translation/New/
         [Authorize]
         [HttpPost]
         public ActionResult New(FormCollection form, HttpPostedFileBase File, HttpPostedFileBase Picture)
@@ -111,6 +112,7 @@ namespace Translation.Controllers
             }
         }
 
+        // GET /Translation/New/
         [Authorize]
         [HttpGet]
         public ActionResult New(String name, String language, String hear = "False")
@@ -122,6 +124,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        // GET /Translation/Edit/id
         [Authorize]
         [HttpGet]
         public ActionResult Edit(int id = 0)
@@ -147,6 +150,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        // POST /Translation/Edit/id
         [Authorize]
         [HttpPost]
         public ActionResult Edit(String TimeStart, String TimeStop, String Line1, String Line2, String submitter, int id = 0)
@@ -172,6 +176,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        // GET /Translation/EditFile/id
         [Authorize]
         [HttpGet]
         public ActionResult EditFile(int id = 0, int linenum = 0)
@@ -197,6 +202,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
+        // POST /Translation/EditFile/id
         [Authorize]
         [HttpPost]
         public ActionResult EditFile(String Line1, String Line2, String direction, int id = 0, int linenum = 0)
@@ -223,6 +229,7 @@ namespace Translation.Controllers
             return RedirectToAction("EditFile", "Translation", new { id = id, linenum = linenum });
         }
 
+        // GET /Translation/Search/?query&hear&language&type&genre
         [HttpGet]
         public ActionResult Search(String query, String hear, String language, String type, String genre)
         {

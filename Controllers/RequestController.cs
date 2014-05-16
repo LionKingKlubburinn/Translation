@@ -9,12 +9,14 @@ namespace Translation.Controllers
 {
     public class RequestController : Controller
     {
+        // GET /Request/
         [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
+        // POST /Request/
         [Authorize]
         [HttpPost]
         public ActionResult Index(FormCollection form)

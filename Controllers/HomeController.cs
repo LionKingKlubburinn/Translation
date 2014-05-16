@@ -12,12 +12,14 @@ namespace Translation.Controllers
     {
         private TranslateContext db = new TranslateContext();
 
+        // GET /
         public ActionResult Index()
         {
             var model = RequestRepository.Instance.GetRequests();
             return View(model);
         }
 
+        // POST / (redirect á Translation/Search)
         [HttpPost]
         public ActionResult Index(String query, String hear, String language, String type, String genre)
         {
