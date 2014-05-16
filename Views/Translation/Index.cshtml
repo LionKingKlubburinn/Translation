@@ -82,13 +82,11 @@
             {
                 <li class="list-group-item">
                     <p>
+                        <span class="text-muted">@item.CommentDate.ToString("dd. MMM HH:mm") &nbsp;</span>
                         <span class="glyphicon glyphicon-user"></span>
                         <span class="text-primary">@Html.DisplayFor(modelItem => item.AuthorID)</span>
                         <span>@Html.DisplayFor(modelItem => item.Text)</span>
 
-                    </p>
-                    <p>
-                        <span class="text-muted">@item.CommentDate.ToString("dd. MMM HH:mm") - </span>
                     </p>
                 </li>
 
