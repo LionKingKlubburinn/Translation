@@ -4,7 +4,7 @@ namespace Translation.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Notendanafn er nauðsynlegt")]
         [Display(Name = "Notendanafn")]
         public string UserName { get; set; }
     }
