@@ -3,15 +3,8 @@
 @Styles.Render("~/Content/flags.css")
 @{
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
-    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
 }
-@helper selected(string c, string culture)
-{
-    if (c == culture)
-    {
-        @:checked="checked"
-    }
-} 
+
 
 <script type="text/javascript">
     function modify_qty(val) {
