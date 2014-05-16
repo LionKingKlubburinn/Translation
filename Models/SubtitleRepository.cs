@@ -32,6 +32,7 @@ namespace Translation.Models
             return result;
         }
 
+        //Finds the path to a picture associated with a subtitle
         public String GetPicPath (int id)
         {
             var result = (from s in db.Subtitles
@@ -83,6 +84,7 @@ namespace Translation.Models
             db.SaveChanges();
         }
 
+        //Takes in a path to a rts file, reads the file, splits it and creates a new TextLine object
         public void ParseText(String filename, int TranslateID, String User)
         {
             StreamReader reader = File.OpenText(filename);

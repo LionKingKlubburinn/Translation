@@ -1,0 +1,11 @@
+# To flush data
+
+1. Delete mdf under app_data
+2. Delete migration folder
+3. add dbcontexts,
+	Enable-Migrations -TranslationDBContext
+4. Add init migration
+        Add-migration init
+
+5. Create the database
+	Update-database

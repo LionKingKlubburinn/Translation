@@ -9,6 +9,7 @@ namespace Translation.DAL
 {
     public class TranslateInitializer : System.Data.Entity. DropCreateDatabaseIfModelChanges<TranslateContext>
     {
+        //Initializes the database with the following objects
         protected override void Seed(TranslateContext context)
         {
             var subtitles = new List<Subtitle>

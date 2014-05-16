@@ -66,6 +66,7 @@ namespace Translation.Models
             }
         }
 
+        //Returns 0 if the user has already upvoted
         public int HasUpvoted(String user, int ID)
         {
             var result = (from u in db.Upvotes
