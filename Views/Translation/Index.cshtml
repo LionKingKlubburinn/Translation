@@ -19,6 +19,8 @@
         <p>
             @Html.DisplayFor(x => x.SubtitleItem.VideoDescription)
         </p>
+@using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
+{
         <table id="newtrans">
             <thead>
                 <tr>
@@ -34,24 +36,21 @@
                     <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
                     <td>mjög langt</td>
                     <td>
-@using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
-        {
-    <select name="FileType">
-        <option value="srt">srt</option>
-        <option value="txt">txt</option>
-    </select>
-        }
 
+            <select name="FileType">
+                <option value="srt">srt</option>
+                <option value="txt">txt</option>
+            </select>
                     </td>
                 </tr>
             </tbody>
-        </table><br />
+        </table><br style="clear: left;"/>
         <p>
             @Html.ActionLink("Skoða texta", "Read", new { id = Model.SubtitleItem.ID })
         </p>
-        @if (User.Identity.IsAuthenticated)
+        if (User.Identity.IsAuthenticated)
         {
-            if (@Model.SubtitleItem.File == "")
+            if (Model.SubtitleItem.File == "")
             {
                 <p>
                     @Html.ActionLink("Breyta þýðingu", "Edit", new { id = Model.SubtitleItem.ID }) 
@@ -64,8 +63,7 @@
                 </p>
             }
         }
-        @using (Html.BeginForm("GetSubtitle", "Translation", FormMethod.Post))
-        { 
+
             <input type="hidden" name="ID" value="@Html.DisplayFor(model => Model.SubtitleItem.ID )" />
     <button name="download" value="Sækja" type="submit" id="download" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-download-alt" title="Sækja skrá"></span></button>
         }
@@ -76,7 +74,7 @@
     <br style="clear: left;" />
     <div class="subtitle-comments">
         <h3>Athugasemdir</h3>
-        <ul class="list-group" style="max-width: 560px;">
+        <ul class="list-group" style="max-width: 100%;">
             @foreach (var item in Model.CommentItems)
             {
 
