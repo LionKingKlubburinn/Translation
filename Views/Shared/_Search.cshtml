@@ -9,7 +9,6 @@
             <td colspan="4">
                 <div class="input-group">
                     @Html.TextBox("query", "", new { id = "searchbox", @class="form-control" })
-                    @*<input id="searchbutton" type="submit" value="Leita" />*@
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">Leita</button>
                     </span>
@@ -21,7 +20,17 @@
                     <select id="language" name="language">
                         <option value="any" selected="selected">Tungumál</option>
                         <option value="is">íslenska</option>
-                        <option value="en">enska</option>
+                        <option value="gb">enska</option>
+                        <option value="pl">pólska</option>
+                        <option value="dk">danska</option>
+                        <option value="se">sænska</option>
+                        <option value="no">norska</option>
+                        <option value="fi">finnska</option>
+                        <option value="fo">færeyska</option>
+                        <option value="de">þýska</option>
+                        <option value="fr">franska</option>
+                        <option value="es">spænska</option>
+                        <option value="it">ítalska</option>
                     </select>
                 </td>
                     <td>
@@ -33,7 +42,7 @@
                     </td>
                     <td>
                         <select id="flokkur" name="genre">
-                            <option value="any" selected="selected">Allir flokkar</option>
+                            <option value="any" selected="selected">Flokkur</option>
                             <option value="Drama">Drama</option>
                             <option value="Fantasía">Fantasía</option>
                             <option value="Gamanmynd">Gamanmynd</option>
