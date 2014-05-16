@@ -67,7 +67,7 @@ namespace Translation.Models
 
         [Display(Name = "Netfang")]
         [Required(ErrorMessage = "Netfang er nauðsynlegt og þarf að vera á forminu user@site.is" )]
-        [RegularExpression(".+@.+\\..+")]
+        [RegularExpression(".+@.+\\..+", ErrorMessage = "Netfang verður að vera á forminu user@site.is")]
         public string Email { get; set; }
 
     }
