@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     background-image: url('orange-burst.png');
     background-repeat: no-repeat;
+    background-position:center; 
 }
 
 /* Set padding to keep content from hitting the edges */
