@@ -1,14 +1,12 @@
 ﻿﻿@using Translation.Models;
 @Styles.Render("~/Content/Account.css")
 @{
-    ViewBag.Title = "Breyta notendasíðu";
+    ViewBag.Title = ViewBag.UserName;
 }
 
 <div class="account-container">
     <div class="account-info">
-@using (Html.BeginForm("ChangeInfo", "Account", new { email = @ViewBag.Email, nationality = @ViewBag.Nationality }, FormMethod.Post))
-{
-        <h2>@ViewBag.Title.</h2>
+        <h2>@ViewBag.UserName</h2>
 
         <table style="width:600px">
             <tr>
@@ -17,24 +15,21 @@
             </tr>
             <tr>
                 <td>Tölvupóstur:</td>
-                <td><input type="text" name="email" placeholder="@ViewBag.Email" class="btn btn-default" /></td>
+                <td>@ViewBag.Email</td>
             </tr>
-            <tr>
+            <!--<tr>
                 <td>Sýna öðrum tölvupóst:</td>
                 <td>
                     <form>
                         <input type="checkbox" name="ShowEmail" value="Yes">Já<br>
                     </form>
                 </td>
-            </tr>
+            </tr>-->
             <tr>
                 <td>Land:</td>
-                <td><input type="text" name="nation" placeholder="@ViewBag.Nationality" class="btn btn-default" /></td>
+                <td>@ViewBag.Nationality</td>
             </tr>
         </table>
-        @Html.ActionLink("Eyða notanda", "DeleteUser")
-        <input type="submit" value="Vista breytingar" class="btn btn-default" />
-}
         <p class="text-success">@ViewBag.StatusMessage</p>
         <div class="row">
             <div class="col-md-12">
