@@ -115,7 +115,6 @@ namespace Translation.Controllers
         [HttpGet]
         public ActionResult New(String name, String language, String hear = "False")
         {
-            // TODO: make language work
             Subtitle model = new Subtitle();
             model.Name = name;
             model.ForHardOfHearing = hear.Contains("True");
