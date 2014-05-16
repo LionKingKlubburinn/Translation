@@ -11,7 +11,7 @@ namespace Translation.Models
     {
         public int ID { get; set; }
         public int RowID { get; set; }
-        public String TimeStampBegin { get; set; } // Todo: annad?
+        public String TimeStampBegin { get; set; }
         public String TimeStampEnd { get; set; }
         public String OriginalText1 { get; set; }
         public String OriginalText2 { get; set; }

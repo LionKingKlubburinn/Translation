@@ -17,7 +17,7 @@
 input,
 select,
 textarea {
-    max-width: 620px;
+    max-width: 940px;
 }
 
 /* styles for validation helpers */
@@ -54,7 +54,7 @@ footer {
 }
 
 .search #searchbox {
-    width: 350px;
+    width: 100%;
 }
 
 /*.search #searchbutton {
@@ -113,4 +113,8 @@ footer {
 
 #flokkur {
     width: 98px;
+}
+
+table .search {
+    width: 100%;
 }
