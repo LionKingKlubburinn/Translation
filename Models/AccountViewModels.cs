@@ -11,12 +11,12 @@ namespace Translation.Models
 
     public class ManageUserViewModel
     {
-        [Required(ErrorMessage = "Nauðsynlegt að slá inn lykilorð")]
+        [Required(ErrorMessage = "Það er nauðsynlegt að slá inn lykilorð")]
         [DataType(DataType.Password)]
         [Display(Name = "Lykilorð")]
         public string OldPassword { get; set; }
 
-        [Required(ErrorMessage = "Nauðsynlegt að slá inn nýtt lykilorð")]
+        [Required(ErrorMessage = "Það er nauðsynlegt að slá inn nýtt lykilorð")]
         [StringLength(100, ErrorMessage = "Lykilorð verður að vera að minnsta kosti 6 stafir.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nýtt lykilorð")]
@@ -24,8 +24,8 @@ namespace Translation.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "Staðfesta nýtt lykilorð")]
+        [Required(ErrorMessage = "Það er nauðsynlegt að staðfesta lykilorð")]
         [Compare("NewPassword", ErrorMessage = "Lykilorð og staðfesta lykilorð stemma ekki.")]
-        [Required(ErrorMessage = "Lykilorð stemma ekki")]
         public string ConfirmPassword { get; set; }
     }
 
