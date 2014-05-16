@@ -97,29 +97,29 @@ namespace Translation.Models
             string line, lineID = "0", TimeStamp1 = "", TimeStamp2 = "", TextLine1 = "", TextLine2 = "";
             while ((line = reader.ReadLine()) != null)
             {
-                if(line == "")
+                if (line == "")
                 {
                     if (!TextLine2Used)
                     {
                         TextLine2 = "";
                     }
-                        TextLine t = new TextLine
-                    {
-                        LastModUserID = User,
-                        OriginalText1 = TextLine1,
-                        OriginalText2 = TextLine2,
-                        SubtitleID = TranslateID,
-                        TimeStampBegin = TimeStamp1,
-                        TimeStampEnd = TimeStamp2,
-                        TranslationText1 = "",
-                        TranslationText2 = "",
-                        RowID = Convert.ToInt32(lineID)
-                    };
+                    TextLine t = new TextLine
+                {
+                    LastModUserID = User,
+                    OriginalText1 = TextLine1,
+                    OriginalText2 = TextLine2,
+                    SubtitleID = TranslateID,
+                    TimeStampBegin = TimeStamp1,
+                    TimeStampEnd = TimeStamp2,
+                    TranslationText1 = "",
+                    TranslationText2 = "",
+                    RowID = Convert.ToInt32(lineID)
+                };
                     TextLineRepository.Instance.AddTextLine(t);
                     count = 1;
                     TextLine2Used = false;
                 }
-                else if(count == 1)
+                else if (count == 1)
                 {
                     lineID = line;
                     count++;
@@ -143,7 +143,7 @@ namespace Translation.Models
                     count++;
                 }
             }
-            if(count != 1)
+            if (count != 1)
             {
                 TextLine t = new TextLine
                 {

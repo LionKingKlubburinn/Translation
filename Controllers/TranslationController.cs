@@ -94,6 +94,10 @@ namespace Translation.Controllers
                     s.File = path;
                 }
                 SubtitleRepository.Instance.AddSubtitle(s);
+                if (!(String.Compare(s.File, (s.File.Length - 3), "srt", 0, 2, true) == 0))
+                {
+                    s.File = null;
+                }
                 if (s.File != null)
                 {
                     SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
