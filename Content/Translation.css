@@ -49,3 +49,8 @@ tr.table-row1 td {
     text-align: left;
     width: 618px;
 }
+
+#LionKing {
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
