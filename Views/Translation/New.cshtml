@@ -6,80 +6,80 @@
 
 <div class="translation-container">
     <div class="subtitle-mid">
-    <h2>Ný Þýðing</h2>
+        <h2>Ný Þýðing</h2>
 
-    @using (Html.BeginForm("New", "Translation", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div class="input-group">
-            <span class="input-group-addon">@("Titill: ")</span>
-        @Html.TextBox("Name", Model.Name, new { id = "titill", @class = "form-control" }) <br />
-        </div>
-         <div class="input-group">
-            <span class="input-group-addon">@("Lýsing: ")</span>
-        @Html.TextArea("VideoDescription", new { cols = 51, rows = 10, @class = "form-control" })<br />
-        </div>
-        <div class="btn-group">
-        <div class="input-group">
-                <span class="input-group-addon">@("Tungumál þýðingar: ")</span>
-                <select id="tungumál" name="Language" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <option selected="selected" value="is">íslenska</option>
-                    <option value="gb">enska</option>
-                    <option value="pl">pólska</option>
-                    <option value="dk">danska</option>
-                    <option value="se">sænska</option>
-                    <option value="no">norska</option>
-                    <option value="fi">finnska</option>
-                    <option value="fo">færeyska</option>
-                    <option value="de">þýska</option>
-                    <option value="fr">franska</option>
-                    <option value="es">spænska</option>
-                    <option value="it">ítalska</option>
-                </select><br />
+        @using (Html.BeginForm("New", "Translation", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="input-group">
+                <span class="input-group-addon">@("Titill: ")</span>
+            @Html.TextBox("Name", Model.Name, new { id = "titill", @class = "form-control" }) <br />
             </div>
-        </div>
-        <div class="input-group">
-            @("Fyrir heyrnaskerta: ")
-            @Html.CheckBox("ForHardOfHearing", Model.ForHardOfHearing)<br />
-        </div>
-        <div class="btn-group">
-        <div class="input-group">
-                <span class="input-group-addon">@("Tegund:")</span>
-            <select id="tegund" name="VideoType" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <option selected="selected" value="Kvikmynd">Kvikmynd</option>
-                <option value="Þáttur">Þáttur</option>
-            </select>
-        </div>
-        </div>
-        <div class="btn-group">
-        <div class="input-group">
-                <span class="input-group-addon">@("Flokkur:")</span>
-            <select id="flokkur" name="VideoGenre" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                <option selected="selected" value="Drama">Drama</option>
-                <option value="Fantasía">Fantasía</option>
-                <option value="Gamanmynd">Gamanmynd</option>
-                <option value="Hasar">Hasar</option>
-                <option value="Heimildarmynd">Heimildarmynd</option>
-                <option value="Rómantík">Rómantík</option>
-                <option value="Teiknimynd">Teiknimynd</option>
-                <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
-                <option value="Ævintýri">Ævintýri</option>
-            </select>
-            <br />
-         </div>
-         </div>
-        <div class="input-group">
-        @("Mynd:")
-        <input type="file" id="fileUpload" name="Picture" /><br />
-        </div>
-        <div class="input-group">
-        @("Skrá til þýðingar:")
-        <input type="file" id="fileUpload2" name="File" /><br />
-        </div>
+            <div class="input-group">
+                <span class="input-group-addon">@("Lýsing: ")</span>
+            @Html.TextArea("VideoDescription", new { cols = 51, rows = 10, @class = "form-control" })<br />
+            </div>
+            <div class="btn-group">
+                <div class="input-group">
+                    <span class="input-group-addon">@("Tungumál þýðingar: ")</span>
+                    <select id="tungumál" name="Language" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <option selected="selected" value="is">íslenska</option>
+                        <option value="gb">enska</option>
+                        <option value="pl">pólska</option>
+                        <option value="dk">danska</option>
+                        <option value="se">sænska</option>
+                        <option value="no">norska</option>
+                        <option value="fi">finnska</option>
+                        <option value="fo">færeyska</option>
+                        <option value="de">þýska</option>
+                        <option value="fr">franska</option>
+                        <option value="es">spænska</option>
+                        <option value="it">ítalska</option>
+                    </select><br />
+                </div>
+            </div>
+            <div class="input-group">
+                @("Fyrir heyrnaskerta: ")
+                @Html.CheckBox("ForHardOfHearing", Model.ForHardOfHearing)<br />
+            </div>
+            <div class="btn-group">
+                <div class="input-group">
+                        <span class="input-group-addon">@("Tegund:")</span>
+                    <select id="tegund" name="VideoType" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <option selected="selected" value="Kvikmynd">Kvikmynd</option>
+                        <option value="Þáttur">Þáttur</option>
+                    </select>
+                </div>
+            </div>
+            <div class="btn-group">
+                <div class="input-group">
+                        <span class="input-group-addon">@("Flokkur:")</span>
+                    <select id="flokkur" name="VideoGenre" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <option selected="selected" value="Drama">Drama</option>
+                        <option value="Fantasía">Fantasía</option>
+                        <option value="Gamanmynd">Gamanmynd</option>
+                        <option value="Hasar">Hasar</option>
+                        <option value="Heimildarmynd">Heimildarmynd</option>
+                        <option value="Rómantík">Rómantík</option>
+                        <option value="Teiknimynd">Teiknimynd</option>
+                        <option value="Vísindaskáldskapur">Vísindaskáldskapur</option>
+                        <option value="Ævintýri">Ævintýri</option>
+                    </select>
+                    <br />
+                 </div>
+             </div>
+            <div class="input-group">
+                @("Mynd:")
+                <input type="file" id="fileUpload" name="Picture" /><br />
+            </div>
+            <div class="input-group">
+                @("Skrá til þýðingar:")
+                <input type="file" id="fileUpload2" name="File" /><br />
+            </div>
 
-    <div class="input-group">
-    <input type="submit" value="Byrja þýðingu" class="btn btn-default" />
-    </div>
+            <div class="input-group">
+                <input type="submit" value="Byrja þýðingu" class="btn btn-default" />
+            </div>
 
-    }
+        }
     </div>
 </div>
