@@ -33,7 +33,7 @@ namespace Translation.Controllers
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
-        //
+        
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -67,7 +67,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        //
+        
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
@@ -102,7 +102,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/Disassociate
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -121,15 +121,15 @@ namespace Translation.Controllers
             return RedirectToAction("Manage", new { Message = message });
         }
 
-        //
+        
         // GET: /Account/Manage
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Lykilorði hefur verið breytt."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
+                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set." // Doesn't come up
+                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed." // Doesn't come up
+                : message == ManageMessageId.Error ? "Villa hefur komið upp."
                 : "";
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var user = UserManager.FindById(User.Identity.GetUserId());
@@ -142,17 +142,17 @@ namespace Translation.Controllers
             }
             else
             {
-                ViewBag.UserName = "Not found.";
-                ViewBag.Email = "Not found.";
-                ViewBag.Nationality = "Not found.";
-                ViewBag.DateCreated = "Not found.";
+                ViewBag.UserName = "Finnst ekki.";
+                ViewBag.Email = "Finnst ekki.";
+                ViewBag.Nationality = "Finnst ekki.";
+                ViewBag.DateCreated = "Finnst ekki.";
             }
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
             return View();
         }
 
-        //
+        
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -203,7 +203,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/ExternalLogin
         [HttpPost]
         [AllowAnonymous]
@@ -214,7 +214,7 @@ namespace Translation.Controllers
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
 
-        //
+        
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -241,7 +241,7 @@ namespace Translation.Controllers
             }
         }
 
-        //
+        
         // POST: /Account/LinkLogin
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -251,7 +251,7 @@ namespace Translation.Controllers
             return new ChallengeResult(provider, Url.Action("LinkLoginCallback", "Account"), User.Identity.GetUserId());
         }
 
-        //
+        
         // GET: /Account/LinkLoginCallback
         public async Task<ActionResult> LinkLoginCallback()
         {
@@ -268,7 +268,7 @@ namespace Translation.Controllers
             return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
         }
 
-        //
+        
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -306,7 +306,7 @@ namespace Translation.Controllers
             return View(model);
         }
 
-        //
+        
         // POST: /Account/LogOff
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -316,7 +316,7 @@ namespace Translation.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
+        
         // GET: /Account/ExternalLoginFailure
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
@@ -381,11 +381,7 @@ namespace Translation.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // This action renders the form
-      /*  public ActionResult Index()
-        {
-            return View();
-        }*/
+    
         public class Document
         {
             public int? DocumentID { get; set; }
