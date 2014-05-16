@@ -69,6 +69,10 @@ namespace Translation.Models
             {
                 newID = db.Subtitles.Max(x => x.ID) + 1;
             }
+            if(s.Name == "")
+            {
+                s.Name = "<No name>";
+            }
             s.DateCreated = DateTime.Now;
             s.ID = newID;
             db.Subtitles.Add(s);

@@ -19,13 +19,20 @@ namespace Translation.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
-            Request r = new Request();
-            r.Name = form["Name"];
-            r.Language = form["Language"];
-            r.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
-            r.RequestByID = System.Web.HttpContext.Current.User.Identity.Name;
-            RequestRepository.Instance.AddRequest(r);
-            return RedirectToAction("Index", "Home");
+            if (!String.IsNullOrEmpty(form["Name"]))
+            {
+                Request r = new Request();
+                r.Name = form["Name"];
+                r.Language = form["Language"];
+                r.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
+                r.RequestByID = System.Web.HttpContext.Current.User.Identity.Name;
+                RequestRepository.Instance.AddRequest(r);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
         }
     }
 }
