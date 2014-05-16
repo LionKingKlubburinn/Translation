@@ -49,7 +49,6 @@ namespace Translation.Models
             }
             t.ID = newID;
             t.LastModDate = DateTime.Now;
-            t.LastModUserID = "Einar"; // TODO
             db.TextLines.Add(t);
             db.SaveChanges();
         }

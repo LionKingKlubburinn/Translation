@@ -408,7 +408,6 @@ namespace Translation.Controllers
         {
             AuthenticationManager.SignOut();
             String name = System.Web.HttpContext.Current.User.Identity.Name;
-            //Membership.DeleteUser("Admin", true);
             System.Web.Security.Membership.DeleteUser(name);
             return RedirectToAction("Index", "Home");
         }
