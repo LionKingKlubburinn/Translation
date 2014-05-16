@@ -23,7 +23,7 @@
                 i++;
             }
         </table>
-        @Html.ActionLink("Til baka", "Index", new { id = Model.FirstOrDefault().SubtitleID })
+        @Html.ActionLink("Til baka", "Index", new { id = ViewBag.Id })
     </div>
     <div class="subtitle-pic">
         @if (ViewBag.PicPath != null)

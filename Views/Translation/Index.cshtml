@@ -1,5 +1,6 @@
 ﻿@model Translation.Models.ViewModel
 @Styles.Render("~/Content/Translation.css")
+@Styles.Render("~/Content/flags.css")
 @{
     ViewBag.Title = Model.SubtitleItem.Name;
 }
@@ -26,7 +27,7 @@
                 <tr>
                     <th>Tegund:</th>
                     <th>Þýðendur:</th>
-                    <th>Lengd:</th>
+                    <th>Tungumál:</th>
                     <th>Skráarsnið:</th>
                 </tr>
             </thead>
@@ -34,7 +35,7 @@
                 <tr>
                     <td>@Html.DisplayFor(x => x.SubtitleItem.VideoType)@(",") @Html.DisplayFor(x => x.SubtitleItem.VideoGenre)</td>
                     <td>@Html.DisplayFor(x => x.SubtitleItem.Contributor)</td>
-                    <td>mjög langt</td>
+                    <td><img src="blank.gif" class="flag flag-@(Model.SubtitleItem.Language)" /></td>
                     <td>
                         <select name="FileType">
                             <option value="srt">srt</option>

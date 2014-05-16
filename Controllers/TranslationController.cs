@@ -59,6 +59,7 @@ namespace Translation.Controllers
             }
             ViewBag.Name = SubtitleRepository.Instance.GetSubtitleName(id);
             ViewBag.PicPath = SubtitleRepository.Instance.GetPicPath(id);
+            ViewBag.Id = id;
             var text = TextLineRepository.Instance.GetTextLines(id);
             return View(text);
         }
