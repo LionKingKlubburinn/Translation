@@ -634,7 +634,6 @@
     <Content Include="Views\Shared\_Topbar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\uploads\" />
     <Folder Include="Content\uploads\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
