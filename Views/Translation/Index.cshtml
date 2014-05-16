@@ -49,7 +49,7 @@
         </p>
         if (User.Identity.IsAuthenticated)
         {
-            if (Model.SubtitleItem.File == "")
+            if (Model.SubtitleItem.File == null)
             {
                 <p>
                     @Html.ActionLink("Breyta þýðingu", "Edit", new { id = Model.SubtitleItem.ID }) 
@@ -68,7 +68,7 @@
         }
     </div>
     <div class="subtitle-pic">
-        @if (Model.SubtitleItem.Picture != "")
+        @if (Model.SubtitleItem.Picture != null)
         {
             <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@Model.SubtitleItem.Picture))" alt="No image" />
         }

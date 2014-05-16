@@ -45,7 +45,7 @@
         }
     </div>
     <div class="subtitle-pic">
-        @if (ViewBag.PicPath != "")
+        @if (ViewBag.PicPath != null)
         {
             <img id="subtitle-img" src="@Url.Content("~/Content/uploads/" + Path.GetFileName(@ViewBag.PicPath))" alt="No image" />
         }

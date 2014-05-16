@@ -14,14 +14,14 @@ namespace Translation.DAL
         {
             var subtitles = new List<Subtitle>
             {
-                new Subtitle { ID = 1, Name = "Lion King", Contributor="Palli", DateCreated=DateTime.Now, File="", ForHardOfHearing=false, 
-                    Language="is", Picture="", VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
-                new Subtitle { ID = 2, Name = "Lion King 2", Contributor="Einar", DateCreated=DateTime.Now, File="", ForHardOfHearing=true, 
-                    Language="is", Picture="", VideoDescription="Texti fyrir heyrnaskerta", VideoGenre="Teiknimynd", VideoType="Kvikmynd" },
-                new Subtitle { ID = 3, Name = "Titanic", Contributor="Edda", DateCreated=DateTime.Now, File="", ForHardOfHearing=false, 
-                    Language="gb", Picture="", VideoDescription="Enskur texti fyrir Titanic", VideoGenre="Drama", VideoType="Kvikmynd" },
-                new Subtitle { ID = 4, Name = "E.T.", Contributor="Danni", DateCreated=DateTime.Now, File="", ForHardOfHearing=false, 
-                    Language="gb", Picture="", VideoDescription="Enskur texti fyrir E.T.", VideoGenre="Ævintýri", VideoType="Kvikmynd" },
+                new Subtitle { ID = 1, Name = "Lion King", Contributor="Palli", DateCreated=DateTime.Now, File=null, ForHardOfHearing=false, 
+                    Language="is", Picture=null, VideoDescription="Íslenskur texti fyrir Lion King", VideoGenre="Teiknimynd", VideoType="Kvikmynd"},
+                new Subtitle { ID = 2, Name = "Lion King 2", Contributor="Einar", DateCreated=DateTime.Now, File=null, ForHardOfHearing=true, 
+                    Language="is", Picture=null, VideoDescription="Texti fyrir heyrnaskerta", VideoGenre="Teiknimynd", VideoType="Kvikmynd" },
+                new Subtitle { ID = 3, Name = "Titanic", Contributor="Edda", DateCreated=DateTime.Now, File=null, ForHardOfHearing=false, 
+                    Language="gb", Picture=null, VideoDescription="Enskur texti fyrir Titanic", VideoGenre="Drama", VideoType="Kvikmynd" },
+                new Subtitle { ID = 4, Name = "E.T.", Contributor="Danni", DateCreated=DateTime.Now, File=null, ForHardOfHearing=false, 
+                    Language="gb", Picture=null, VideoDescription="Enskur texti fyrir E.T.", VideoGenre="Ævintýri", VideoType="Kvikmynd" },
             };
             subtitles.ForEach(s => context.Subtitles.Add(s));
             context.SaveChanges();
