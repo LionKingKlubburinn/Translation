@@ -68,36 +68,47 @@ namespace Translation.Controllers
         [HttpPost]
         public ActionResult New(FormCollection form, HttpPostedFileBase File, HttpPostedFileBase Picture)
         {
-            Subtitle s = new Subtitle();
-            s.Name = form["Name"];
-            s.VideoDescription = form["VideoDescription"];
-            s.Language = form["Language"];
-            s.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
-            s.Contributor = System.Web.HttpContext.Current.User.Identity.Name;
-            s.VideoType = form["VideoType"];
-            s.VideoGenre = form["VideoGenre"];
-            if (Picture != null && Picture.ContentLength > 0)
+            if (!String.IsNullOrEmpty(form["Name"]))
             {
-                var fileName = Path.GetFileName(Picture.FileName);
-                var path = Path.Combine(Server.MapPath("~/Content/uploads"), fileName);
-                Picture.SaveAs(path);
-                s.Picture = Picture.FileName;
+                Subtitle s = new Subtitle();
+                s.Name = form["Name"];
+                s.VideoDescription = form["VideoDescription"];
+                s.Language = form["Language"];
+                s.ForHardOfHearing = form["ForHardOfHearing"].Contains("true");
+                s.Contributor = System.Web.HttpContext.Current.User.Identity.Name;
+                s.VideoType = form["VideoType"];
+                s.VideoGenre = form["VideoGenre"];
+                if (Picture != null && Picture.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(Picture.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/uploads"), fileName);
+                    Picture.SaveAs(path);
+                    s.Picture = Picture.FileName;
+                }
+                if (File != null && File.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(File.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Content/uploads"), fileName);
+                    File.SaveAs(path);
+                    s.File = path;
+                }
+                SubtitleRepository.Instance.AddSubtitle(s);
+                if (s.File != null)
+                {
+                    if (!(String.Compare(s.File, (s.File.Length - 3), "srt", 0, 2, true) == 0))
+                    {
+                        return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
+                    }
+                    SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
+                    return RedirectToAction("EditFile", "Translation", new { id = db.Subtitles.Max(x => x.ID), linenum = 1 });
+                }
+                return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
             }
-            //s.File = form["File"];
-            if (File != null && File.ContentLength > 0)
+            else
             {
-                var fileName = Path.GetFileName(File.FileName);
-                var path = Path.Combine(Server.MapPath("~/Content/uploads"), fileName);
-                File.SaveAs(path);
-                s.File = path;
+
+                return RedirectToAction("Index", "Home");
             }
-            SubtitleRepository.Instance.AddSubtitle(s);
-            if (s.File != null)
-            {
-                SubtitleRepository.Instance.ParseText(s.File, db.Subtitles.Max(x => x.ID), s.Contributor);
-                return RedirectToAction("EditFile", "Translation", new { id = db.Subtitles.Max(x => x.ID), linenum = 1 });
-            }
-            return RedirectToAction("Edit", "Translation", new { id = db.Subtitles.Max(x => x.ID) });
         }
 
         [Authorize]

@@ -358,15 +358,15 @@ namespace Translation.Controllers
             }
             else
             {
-                ViewBag.UserName = "Not found.";
-                ViewBag.Email = "Not found.";
-                ViewBag.Nationality = "Not found.";
-                ViewBag.DateCreated = "Not found.";
+                ViewBag.UserName = "Finnst ekki.";
+                ViewBag.Email = "Finnst ekki.";
+                ViewBag.Nationality = "Finnst ekki.";
+                ViewBag.DateCreated = "Finnst ekki.";
             }
             return View();
         }
 
-        public ActionResult ChangeInfo(string email, string nationality)
+        /*public ActionResult ChangeInfo(string email, string nationality)
         {
              UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
             var user = UserManager.FindById(User.Identity.GetUserId());
@@ -379,34 +379,15 @@ namespace Translation.Controllers
             //udb.Email.Replace(user.Email, email);
             //udb.Nationality.Replace(user.Nationality, nationality);
             return RedirectToAction("Index", "Home");
-        }
+        }*/
 
-    
-        public class Document
-        {
-            public int? DocumentID { get; set; }
-            public string FileName { get; set; }
-            public byte[] Data { get; set; }
-            public string ContentType { get; set; }
-            public int? ContentLength { get; set; }
-
-            public Document()
-            {
-                DocumentID = 0;
-                FileName = "New File";
-                Data = new byte[] { };
-                ContentType = "";
-                ContentLength = 0;
-            }
-        }
-
-        public ActionResult DeleteUser()
+        /*public ActionResult DeleteUser()
         {
             AuthenticationManager.SignOut();
             String name = System.Web.HttpContext.Current.User.Identity.Name;
             System.Web.Security.Membership.DeleteUser(name);
             return RedirectToAction("Index", "Home");
-        }
+        }*/
 
         #region Helpers
         // Used for XSRF protection when adding external logins
