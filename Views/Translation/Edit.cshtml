@@ -12,6 +12,13 @@
     <div class="subtitle-info">
         <h2>@ViewBag.Name</h2>
 
+        <p>
+            Þetta er þýðing fyrir kvikmyndina @ViewBag.Name. Hér er ný textaskrá búin til frá grunni. 
+            Til þess að þýðingin sé rétt gerð þarf að skrifa allar setningar í réttri röð og passa að
+            tímastimpill sé réttur og á forminu kk:mm:ss, sbr þ.e. klukkutími, mínútur, sekúndur og að
+            lokum, sekúndubrot.
+         </p>
+
         @using (Html.BeginForm("Edit", "Translation", FormMethod.Post))
         {      
             <table>
